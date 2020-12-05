@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数值初始化需要放在循环外面
+        var inputNumber = null;
+        var flag = 0;
+        var randomNumber = parseInt(Math.random() * 101);
+        do{
+            inputNumber = parseInt(prompt("请输入一个数字"));
+            console.log(randomNumber);
+            if(isNaN(inputNumber)){
+                alert("输入有误，请重新输入");
+                continue;
+            }
+            if(inputNumber == randomNumber){
+                alert("Boom!!!");
+                alert("您一共尝试了" + flag + "次！")
+                break;
+            }else if(inputNumber > randomNumber){
+                alert("您输入的数字太大了");
+            }else{
+                alert("您输入的数字太小了");
+            }
+            flag++;
+        }while(inputNumber != randomNumber)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

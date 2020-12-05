@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 选择排序 正序
+        function xzpxz(){
+            for(var i = 0; i < arguments.length - 1; i++){
+                minIndex = i;
+                for(var j = i+1; j<arguments.length; j++){
+                    if(arguments[j] < arguments[minIndex]){
+                        minIndex = j;
+                    }
+                }
+                var tmp = arguments[i];
+                arguments[i] = arguments[minIndex];
+                arguments[minIndex] = tmp;
+            }
+            return arguments;
+        }
+        // 选择排序 倒叙
+        function xzpxd(){
+            for(var i = 0; i < arguments.length - 1; i++){
+                maxIndex = i;
+                for(var j = i+1; j<arguments.length; j++){
+                    if(arguments[j] > arguments[maxIndex]){
+                        maxIndex = j;
+                    }
+                }
+                var tmp = arguments[i];
+                arguments[i] = arguments[maxIndex];
+                arguments[maxIndex] = tmp;
+            }
+            return arguments;
+        }
+        var a = xzpxz(10,23,11,24,23);
+        console.log(a);
+        var b = xzpxd(10,23,11,24,23);
+        console.log(b);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.处理字符串
+        var str1 = 'no,zuo,no,die,why,you,try'; //请将字符串处理成 'No Zuo No Die'
+        var arr = str1.split(",");
+        var arrNew = [];
+        for(var i = 0; i<arr.length; i++){
+            var tmp1 = arr[i][0].toUpperCase();
+            var tmp2 = arr[i].slice(1);
+            var newStr = tmp1 + tmp2;
+            arrNew.push(newStr);
+        }
+        var res = arrNew.join(" ");
+        console.log(res);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
