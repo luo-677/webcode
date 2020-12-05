@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn(m, n) {
+            var r = m % n;
+            m = n;
+            n = r;
+            if (r == 0) {
+                return m;
+            } else {
+                return fn(m, n);
+            }
+        }
+
+        console.log(fn(9, 27));
+        console.log(fn(10, 45));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

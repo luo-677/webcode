@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数 可以被事件触发所执行(事件可以调用函数)
+
+        // 事件都是一些的动作 比如 鼠标点击 鼠标移动 键盘按下 键盘弹起
+
+        // 事件必须有一个触发的目标
+
+        // onload 事件
+        // window.onload 
+        // 当页面资源加载完毕后 触发onload事件
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            // class 在JS中是关键字
+            // 如果需要访问标签的class属性 可以使用 className
+            // console.log(btn.className);
+
+            // console.log(btn);
+            // alert会将所有输出的内容都 toString()
+            // alert(btn); // '[object HTMLInputElement]'
+
+            // console.dir();  在控制台以目录的形式进行输出
+            // console.dir(btn);
+
+
+
+            // ------------------------------------
+            // 鼠标左键点击事件 
+            // click
+            // btn.onclick = function() {
+            //     alert('按钮被点击了');
+            // };
+
+            function fn() {
+                alert('被点击了');
+            }
+
+            btn.onclick = fn;
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn" class="btn1">
+
+
+    <script>
+        // document.getElementById()
+        // document文档   get获取 Element元素 By通过  Id
+        // Element 元素 (Tag)  每一个HTML的标签 都被看做是一个元素
+        // JavaScript 所有的HTML是被对象化的(每一个标签都是一个对象)
+
+        // var btn = document.getElementById('btn');
+        // console.log(btn);
+    </script>
+</body>
+
+</html>

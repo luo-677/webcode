@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JavaScript是一个解释型语言
+        // 1. 预编译阶段
+        //    词法分析
+        //    语法分析
+        // -----------------------------------------
+        //    预编译(预解析)
+        //      js引擎在执行代码之前 会进行预解析 来提高代码的执行效率
+        //      部分执行代码
+        //      找到所有的 函数声明和变量声明
+        //      将所有的声明函数 提前执行(看一下 这里有个函数)
+        //      找到所有的变量声明 在作用域顶部创建变量  并赋值为undefined
+        // 预编译结束 开始从上至下 按序执行代码
+
+        // -----------------------------------------
+
+        // var 关键字用于变量的声明 在预编译阶段会将变量的声明提前至作用域顶部
+        // function 关键字 在声明函数时 会整体提前
+
+        // function是JavaScript的一等公民
+        // 优先级最高
+
+        // funciton的优先级 高于 var
+
+        // -----------------------------
+
+        // console.log(num);
+        // var num = 3;
+        // console.log(num);
+
+        // ------------------------------
+        // 声明式函数 可以在顶部调用
+        // fn();
+
+        // function fn() {
+        //     console.log('abc');
+        // }
+
+        // fn();
+
+        // ------------------------------
+
+        // 赋值式的函数 需要先声明 后使用
+
+        // fn();  // 报错
+        // console.log(fn);
+        // fn变量声明提前，但是赋值没有提前
+        // fn是 undefined
+        // 赋值是在执行阶段完成的
+
+        // var fn = function() {
+        //     console.log('ok');
+        // };
+
+        // fn();
+
+        // ------------------------------
+        fn();
+        console.log(fn);
+        function fn() {
+            console.log(123);
+        }
+
+        var fn = 1;
+
+        console.log(fn);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

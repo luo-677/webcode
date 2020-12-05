@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn() {
+            switch (arguments.length) {
+                case 1:
+                    // 如果只有一个参数 那么就输出这个参数
+                    console.log(arguments[0]);
+                    break;
+                case 2:
+                    // 如果有两个参数 让参数相加
+                    console.log(arguments[0] + arguments[1]);
+                    break;
+                case 3:
+                    // 三个参数
+                    console.log(arguments[0] - arguments[1] - arguments[2]);
+                    break;
+            }
+        }
+
+        fn(1);
+        fn(55, 66);
+        fn(100, 25, 7);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

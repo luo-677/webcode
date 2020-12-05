@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 一次性计时器
+        // setTimeout();
+        // 语法: setTimeout(callback,delay);
+        // 参数: callback 需要执行的函数
+        //      delay   执行的延迟时间 以毫秒为单位
+        // 返回值: id 计时器编号
+
+        // clearTimeout(id)
+        // 关闭一次性计时器
+
+        // JavaScript的运行环境是浏览器内核的JS引擎
+        // JS引擎是一个单线程环境 所以JS可以被看做是单线程执行的
+        // 线程 指的是可以同时执行任务的数量
+        // 计时器是一个需要等待的操作 需要等待的操作叫做(Input/Output)阻塞操作
+        // 当JS遇到阻塞操作 会将这个阻塞操作从主线程踢出
+        // 踢到一个叫 事件队列 的地方
+        // 当主线程内的任务执行完毕后 开始执行事件队列
+        // 将阻塞操作作为 异步操作
+        // 同步操作
+
+        // console.log(1);
+        // setTimeout(function() {
+        //     console.log(123);
+        // }, 2000);
+        // console.log(2);
+
+        // console.log(1);
+        // setTimeout(function() {
+        //     // 在计时器的时间中写0  也不会提前执行
+        //     console.log(2);
+        // }, 0);
+        // console.log(3);
+
+        // --------------------------------------
+
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout(function() {
+        //         console.log(i);
+        //     }, 0);
+        // }
+
+
+        // ---------------------------------------
+        // for (var i = 0; i < 5; i++) {
+        //     (function(i) { // 建立一个函数，将i以参数的方式传入函数中，形成一个局部变量
+        //         setTimeout(function() {
+        //             // 此时计时器中的i 是自执行函数作用域的 局部变量
+        //             console.log(i);
+        //         }, 0);
+        //     })(i);
+        // }
+
+        // for (let i = 0; i < 5; i++) { // let 申明的是块级作用域
+        //     setTimeout(function() {
+        //         console.log(i);
+        //     }, 0);
+        // }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

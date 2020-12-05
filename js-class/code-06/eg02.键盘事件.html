@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var inp = document.getElementById('inp');
+            var result = document.getElementById('result');
+
+            // 键盘按下  keydown
+            // inp.onkeydown = function() {
+            //     // this
+            //     // this是一个关键字 
+            //     // 它是一个动态的指针 它会指向某一个对象
+            //     // this 在事件处理函数中会指向事件触发的对象
+            //     console.log(this.value);
+            // }
+
+            // 持续按下 keypress
+            // inp.onkeypress = function() {value
+            //     console.log(2);
+            // }
+
+            // 键盘弹起  keyup
+            inp.onkeyup = function() {
+                // console.log(this.value);
+                result.innerHTML = this.value;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="inp" value="你好世界">
+    <h1 id="result"></h1>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.slice();
+        // 语法: arr.slice(start[,end]);
+        // 参数: start(number) 开始索引值   
+        //      end(number) 结束索引值
+        // 描述: 方法slice()用于在数组arr中截取一个片段 
+        //       返回包含从 start开始 到end结尾 所有元素 组成的新数组
+        //       如果没有传end参数 则从start开始到数组的结尾处
+        //       截取到的数组片段 包含了start索引 不包含end索引
+        // 返回值: array 包含了从start开始 到end结束区域内的所有元素
+        // 注意: 不改变原有数组 而是返回新数组
+        //       参数可以允许是负数 负数表示从后往前计算 -1表示最后一个元素 -2表示倒数第二个元素
+        // var arr = [1, 2, 3, [4, 5, 6]];
+        // var arr2 = arr.slice(1, 3);
+        // console.log(arr2);
+        // console.log(arr);
+
+        // var arr3 = arr.slice(3);
+        // console.log(arr3);
+
+        // var arr4 = arr.slice(2, -3);
+        // console.log(arr4);
+
+        // 可以使用slice来复制一个数组 (浅拷贝)
+        // var arr5 = arr.slice();
+
+        // console.log(arr === arr5);
+        // arr[3][0] = 0;
+        // console.log(arr);
+        // console.log(arr5);
+
+        // ----------------------------------------------------------
+        // Array.prototype.toString()
+        // 语法: arr.toString();
+        // 描述: 将数组中所有的元素都进行 toString()操作 然后使用, 进行拼接
+        // 返回值: string 拼接后的新字符串
+        // 推荐使用join()
+
+        // var arr = [1, 2, 3, 4, 5, true, {},
+        //     [1, 2, 3]
+        // ];
+
+        // var str = arr.toString('=');
+        // var str2 = arr.join('=');
+        // console.log(str);
+        // console.log(str2);
+
+        // -----------------------------------------------------------
+        // Array.prototype.unshift();
+        // 语法: arr.unshift(value[,value2,...valueN]);
+        // 参数: value(any) 需要添加到数组头部的值
+        // 描述: 方法unshift()会将一个或多个值依次添加到数组的头部 将数组内原有的元素向后移动
+        // 返回值: length 添加完元素后的数组新长度
+        // 注意点: 直接修改原有数组
+        // var arr = [1, 2, 3];
+        // var len = arr.unshift('ok', 'yes');
+        // console.log(arr);
+        // console.log(len);
+
+        // ------------------------------------------------------------
+
+        // Array.prototype.splice();
+        // 语法: arr.splice(start[,deleteCount[,value1,...valueN]]);
+        // 参数: start(number) 开始索引
+        //      deleteCount(number) 删除的数量
+        //       value(any)  需要添加的元素
+        // 描述: 1. 可以从指定的索引处删除元素
+        //       2. 可以在指定的索引位置插入元素
+        //       3. 可以替换数组中的元素
+        // 返回值: array 被删除的元素组成的新数组 如果删除的数量为0 则返回空数组
+
+        // var arr = [1, 2, 3, 4, 5, 6];
+        // var arr2 = arr.splice(3, 0);
+        // console.log(arr);
+        // console.log(arr2);
+
+        var arr3 = [1, 2, 3, 4, 5];
+        // arr3.splice(2, 0, 'ok', 'yes');
+        // console.log(arr3);
+        arr3.splice(3, 1, 'ok');
+        console.log(arr3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

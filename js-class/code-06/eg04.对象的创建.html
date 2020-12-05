@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 对象本质上是一组数据和功能集合
+        // 在JS中 对象是一种数据类型
+
+        // 对象有两种创建方式
+
+        // 1. 使用构造函数创建对象
+        // 对象是一组无序的数据和功能的集合
+        // var o = new Object();
+        // // 数据就是属性
+        // // 功能就是函数
+
+        // o.name = 'zhangsan'; // 为对象不存在的属性进行赋值 就是 添加属性
+        // console.log(o);
+        // o.name = 'lisi'; // 为对象以在的属性进行赋值 是 修改属性
+        // console.log(o);
+
+        // console.log(o.age); // 访问对象种不存在的属性 返回 undefined
+
+        // // 如果没有age属性 就赋值成18 否则不变
+        // if (typeof o.age === 'undefined') {
+        //     o.age = 18;
+        // } else {
+        //     o.age = o.age;
+        // }
+        // console.log(o.age);
+
+        // ---------------------------------------------------------------
+
+        // 创建方式2 直接量
+        // {} 表示对象
+        // 使用{}创建对象  是一种语法糖  
+        // {}的全称是 new Object();
+        var obj = {
+            // 大括号内的属性 都是无序的键值对(名值对)
+            // 每对属性名和值之间使用英文的冒号隔开, 每一个属性之间使用逗号隔开
+            name: 'zhangsan',
+            age: 20,
+            sex: '男'
+        };
+
+        obj.phoneNumber = 13888888888;
+        console.log(obj);
+
+        // 使用大括号语法创建对象时 将这个格式叫做 JSON
+        // 是一种轻量的数据交换格式 
+        // 符合 JavaScript对象表示法
+
+        // 以下是JSON字符串
+        var str = '{name: "zhangsan", age: 20, sex: "男", phoneNumber: 13888888888}';
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 递归
+        // 函数在执行过程中 的自调用
+        // 递归一般执行的是相同或相似的功能，且功能可以还原出原始问题
+        // 递归其实是一种特殊的循环结构
+        // 需要为递归设置出口(递归出口)
+
+        function fn(n) {
+            console.log(n);
+
+            if (n == 0) { // 递归出口
+                return 0;
+            } else {
+                fn(n - 1); // 参数递减
+            }
+        }
+
+        fn(5);
+
+        // function fn() {
+        //     fn(); // Maximum call stack size exceeded  栈(内存)溢出
+        // }
+        // fn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        
+        .green {
+            background-color: green;
+        }
+        
+        .orange {
+            background-color: orange;
+        }
+        
+        .hide {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+
+            // 给元素添加事件
+            // 1. 事件源 按钮
+            // 2. 事件类型 点击事件
+            // 3. 事件处理函数 执行函数
+
+            var count = 1; // 记录点击次数
+            btn.onclick = function() {
+
+                // if (count % 2) {
+                //     box.className = 'green';
+                // } else {
+                //     box.className = 'orange';
+                // }
+
+                box.className = count % 2 ? 'hide' : '';
+                count++;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+</body>
+
+</html>

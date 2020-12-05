@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // BOM没有相关标准 但被广泛支持(部分功能相同)
+        // 浏览器厂商自己定义的BOM对象
+
+        // window 是一个对象 它是BOM的根(root)对象
+        // window 也是浏览器环境下 JS的全局对象
+        // window 表示的是一个浏览器窗口 每次新建一个标签页 就会创建一个window对象
+        // 它是浏览器环境中 级别最高的对象
+        // console.log(this); // this在全局环境下 指向window
+
+        // window有非常多的子属性 这些属性也有可能是对象或函数
+        // 访问window的成员 可以省略 window.
+        // window的所有成员 都是全局对象
+
+        // window.alert('123');
+
+        // -------------------------------------------
+        // function fn() {
+        //     // window.b
+        //     var a = b = 5;
+        //     console.log(a);
+        //     console.log(b);
+        // }
+        // fn();
+
+        // console.log(b);
+        // console.log(window.b);
+
+        // 所有的没有声明的变量直接赋值 都会成为window的子属性 从而变成全局变量
+        // 先声明后使用
+
+        // ---------------------------------------------
+        // function fn2() {
+        //     alert('ok');
+        // }
+
+        // var num = 10;
+        // window.fn2();
+        // console.log(window.num);
+        // 所有的全局函数和全局变量都会成为window的子属性
+
+        // ----------------------------------------------
+        // function fn3() {
+        //     var msg = '你好世界';
+
+        //     window.msg = msg; // 将一个函数作用域下的变量改成全局变量
+        // }
+
+        // fn3();
+        // console.log(msg);
+        // ------------------------------------------------
+
+        // this 在全局环境指向window
+
+        // this 在函数中 指向调用它的对象
+        function fn4() {
+            console.log(this);
+        }
+
+        var obj = {
+            x: 1,
+            fn: fn4
+        };
+
+        // console.log(obj.fn === fn4);
+        fn4();
+        obj.fn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

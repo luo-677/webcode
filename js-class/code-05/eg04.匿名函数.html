@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 匿名函数 没有名字的函数
+
+        // 为什么要使用匿名函数
+        // 匿名函数在创建时 不会被写入作用域链对象
+        // 仅在调用时 临时创建 作用域链的活动对象
+        // 在函数执行结束后 自动销毁活动对象
+
+        // 使用匿名函数的好处
+        // 1. 隔离作用域 避免作用域污染
+        // 2. 由于活动对象 在函数调用后被销毁 匿名函数更节约内存空间
+
+
+        // 1. 自执行函数(自调用函数,一次性函数)
+        // (function() {
+        //     console.log(1);
+        // })();
+
+        // ! function() {
+        //     console.log(2);
+        // }();
+
+        // ~ function() {
+        //     console.log(3);
+        // }();
+
+        // 2. 回调函数
+        // 将一个函数作用参数 传入到另外一个函数中使用
+        // fn(function() {
+        //     console.log('ok');
+        // });
+        // 传入实参时传递的是一个匿名函数
+        // 这个匿名函数 会赋值给callback
+
+        // function fn(callback) { 
+        //     // callback 可以看做是一个变量 
+        //     // callback 被赋值后是一个函数
+        //     callback();  // 调用函数
+        // }
+
+        function isOdd(num, callback) {
+            if (isNaN(num)) {
+                callback(new Error('传入的不是数字'));
+            } else if (parseInt(num) != num) {
+                callback(new Error('传入的不是整数'));
+            }
+
+            if (num % 2) {
+                callback(null, '奇数');
+            } else {
+                callback(null, '偶数');
+            }
+        }
+
+        isOdd(3, function(err, msg) { // 第一个参数是错误参数  第二个是结果
+            if (err) throw err;
+            console.log(msg);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

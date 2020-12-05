@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // location 全局对象 用于保存URL(统一资源定位器)相关信息
+
+        // console.log(location);
+
+        // console.log(location.href); //获取或设置url地址
+        // console.log(location.hash); // 获得或设置URL中的锚点部分(#)开始的部分
+        // console.log(location.host); // 获得或设置主机名和当前URL的端口号
+        // console.log(location.pathname); // 设置或返回路径 从第一个斜杠开始直到文件名结束
+        // console.log(location.hostname);// 主机名
+        // console.log(location.port); // 端口号
+        // console.log(location.protocol); 协议
+
+        window.onload = function() {
+            var box = document.getElementById('box');
+            box.onclick = function() {
+                // 修改URL地址 模拟类似于超链接的效果
+                // location.href = 'https://www.baidu.com';
+                // location = 'https://www.sina.com.cn';   // 简写
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <a href="#tv">tv</a>
+    <div id="box">这里是一个div元素</div>
+
+    <div id="tv"></div>
+</body>
+
+</html>

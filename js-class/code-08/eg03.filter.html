@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.filter()
+        // 语法: arr.filter(callback);
+        // 参数: callback 回调函数
+        // 回调参数: 
+        //       currentValue 当前操作的值
+        //       index        当前值的索引
+        //       array        当前数组
+        // 描述: filter方法用于检测数组中的每一给元素 是否符合给定的 逻辑表达式
+        //       将所有逻辑表达式为true的结果 添加到一个新数组并返回
+        // 返回值: array 新数组
+
+        var arr = [534, 5, 43, 1, 543, 1, 54, 76, 87, 123, 87, 44, 23];
+        // 选出所有的偶数
+        // --------------------------
+        // var result = [];
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (arr[i] % 2 == 0) result.push(arr[i]);
+        // }
+        // console.log(result);
+        // arr.forEach(function(val) {
+        //     if (val % 2 == 0) result.push(val);
+        // });
+        // console.log(result);
+        // -------------------------------------------------------------
+        // var result = arr.filter(function(val) {
+        //     // return 语句后 需要跟一个布尔表达式
+        //     // 所有布尔表达式结果为true元素 会组成一个新的数组
+        //     return val % 2;
+        // });
+
+        // console.log(result);
+        // --------------------------------------------------------------
+        // var arr = [{
+        //     name: 'zhangsan',
+        //     age: 20
+        // }, {
+        //     name: 'lisi',
+        //     age: 15
+        // }, {
+        //     name: 'wangwu',
+        //     age: 17
+        // }, {
+        //     name: 'zhaoliu',
+        //     age: 23
+        // }, {
+        //     name: 'fengqi',
+        //     age: 31
+        // }, {
+        //     name: 'xiaoming',
+        //     age: 11
+        // }];
+
+        // var result = arr.filter(function(val) {
+        //     // console.log(val);
+        //     return val.age >= 18;
+        // });
+        // console.log(result);
+
+        // ---------------------------------------------------
+        // 原理
+
+        Array.prototype.filtera = function(callback) {
+            var result = []; // 需要返回的数组
+            for (var i = 0; i < this.length; i++) {
+                // 调用回调函数 将结果为真的 值放入result
+                // callback(this[i], i, this) && result.push(this[i]);
+                if (callback(this[i], i, this)) {
+                    result.push(this[i]);
+                }
+            }
+            return result; // 返回数组
+        }
+
+        var arr = [654, 12, 3, 654, 43, 2, 5432];
+        var res = arr.filtera(function(val) {
+            return val % 2 == 0;
+        });
+        console.log(res);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

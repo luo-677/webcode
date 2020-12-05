@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var arr = [54, 231, 123, 54, 123, 11, 4, 54];
+        // 去除数组中重复的项
+
+        // 思路 比较重复项
+        // 先排序 后比较
+        // arr.sort(function(a, b) {
+        //     return a - b;
+        // });
+        // // console.log(arr);
+
+        // var result = [];
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (arr[i] != arr[i + 1]) { // 相邻数如果不相等
+        //         // 将前面这个数放入到结果数组
+        //         result.push(arr[i]);
+        //     }
+        // }
+        // console.log(result);
+
+        // --------------------------------------------------------
+        // var arr = [54, 231, 123, 54, 123, 11, 4, 54];
+        // // 定义一个新的数组 用于保存去重的结果
+        // var result = [];
+        // // 在新数组中查找arr中的每一个值 
+        // // 如果这个值在新数组中不存在 就将这个值存入新数组
+
+        // // arr 需要查找的数组
+        // // value 需要查找的内容
+        // function findItem(arr, value) {
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] === value) { // 在数组中如果找到了这个值则返回这个值所在的索引位置
+        //             return i;
+        //         }
+        //     }
+        //     return -1; // 如果遍历完整个数组都没有找到 则返回-1
+        // }
+
+        // // console.log(findItem(arr, 456));
+
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (findItem(result, arr[i]) === -1) { // 判断如果在result中没有找值
+        //         result.push(arr[i]); // 将这个值存入result
+        //     }
+        // }
+        // console.log(result);
+
+        // ------------------------------------------------------
+        var arr = [54, 231, 123, 54, 123, 11, 4, 54];
+        // ...  展开运算符(扩展运算符) 来自 ES6
+        var result = [...new Set(arr)];
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

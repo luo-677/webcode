@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.join();
+        // 描述: join() 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个项目，那么将返回该项目而不使用分隔符。
+        // 语法: arr.join([separator])
+        // 参数: separator 可选 指定一个字符串来分隔数组的每个元素。如果需要，将分隔符转换为字符串。如果缺省该值，数组元素用逗号（,）分隔。如果separator是空字符串("")，则所有元素之间都没有任何字符。
+        // 返回值: string 连接后的新字符串
+        // 注意点: 方法join会调用每一个元素的toString()方法将其转成字符串 然后使用指定的字符进行连接
+        // var arr = [1, 2, 3, 'ok', true, '4', {}, null, undefined];
+        // var str = arr.join();
+        // console.log(str);
+
+        // var str2 = arr.join('');
+        // console.log(str2);
+
+        // ----------------------------------------------------------------------
+        // Array.prototype.reverse();
+        // 描述: reverse()方法将颠倒数组中所有元素的顺序
+        // 语法: arr.reverse();
+        // 返回值: array 原数组
+        // 注意点: 该方法直接修改原数组
+
+        // var arr = [1, 2, 3, 4];
+        // arr.reverse();
+        // console.log(arr);
+
+        // ----------------------------------------------------------------------
+        // Array.prototype.shift();
+        // 描述: shift() 方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。
+        // 语法: arr.shift();
+        // 返回值: 被删除的元素
+        // 注意点: 该方法修改原数组的长度将长度-1 将后续所有元素向前移动一位
+
+        var arr = [1, 2, 3, 4];
+        var res = arr.shift();
+        console.log(res);
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

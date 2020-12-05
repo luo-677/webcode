@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        #addDiv {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .box {
+            overflow: hidden;
+        }
+        
+        .box>div {
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            box-shadow: 3px 3px 3px #ccc;
+            border-radius: 8px;
+            float: left;
+            margin: 5px 10px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var addDiv = document.getElementById('addDiv');
+            var box = document.getElementById('box');
+
+            // 在JS中所有个随机有关的操作 都是随机数 Math.random()
+            function getRandomColor() {
+                // #000000 
+                var color = "#";
+                var randomNumber;
+                for (var i = 0; i < 6; i++) {
+                    randomNumber = parseInt(Math.random() * 16);
+                    color += randomNumber.toString(16); // 字符串拼接
+                }
+                return color;
+            }
+
+            // function getColor() {
+            //     var color = 'rgb(';
+            //     var red = parseInt(Math.random() * 256);
+            //     var green = parseInt(Math.random() * 256);
+            //     var blue = parseInt(Math.random() * 256);
+            //     return color + red + ',' + green + ',' + blue + ')';
+            // }
+
+            // var color = getRandomColor();
+            // console.log(color);
+
+            // console.log(getColor());
+
+
+            addDiv.onclick = function() {
+                // innerHTML  属性
+                // 属于element
+                // innerHTML可以获得元素的HTML内容也可以修改元素的HTML内容
+                // 获得的内容是字符串类型
+                // console.log(box.innerHTML);
+                // box.innerHTML = '<span style="color:red">hello world</span>';
+
+                box.innerHTML += '<div style="background:' + getRandomColor() + '"></div>';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" id="addDiv" value="添加一个DIV元素">
+    <div id="box" class="box">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数在JS中是以对象的形式存在的
+        // 每一个函数都拥有一个 arguments 属性
+        // arguments 仅在函数内有效
+        // 这个 arguments 用于存储 实际参数 
+        // arguments本身也是一个对象  里面拥有所有传入函数内的实参
+        // 并且给这些实参进行了编号
+        // 编号(索引/下标)的顺序 从0开始  最大编号是长度-1
+
+        // arguments 拥有一个属性 length 表示长度
+
+        // 从arguments中获得某一个实参 使用 [ ]  进行访问
+        // arguments[index]
+
+        // function fn() {
+        //     console.log(arguments[2]);
+        // }
+
+        // fn(1, 2, 3, 4, 5);
+
+        // --------------------------------------------
+        // arguments 在JS中是一个  ArrayLike(类数组)
+        // 可以通过索引对它进行 遍历(访问每一个)操作
+
+        function fn2() {
+            // length是长度  
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+
+        fn2('1', 'ok', '3', 'true');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var arr = ['a', , , 'b', 'c', , '123', , '456'];
+
+        // for (var i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // }
+
+        // for-in
+        // for-in 用于遍历对象 数组也是对象 顾for-in也可以遍历数组
+
+        // for-in 只能遍历可枚举属性
+        // for (var i in arr) { // index
+        //     console.log(arr[i]);
+        // }
+
+        // ----------------------------------------------------------
+        // 对象是无序的名值对
+        var o = {
+            name: 'zhangsan',
+            age: 20,
+            sex: 'nan'
+        };
+
+        // Object.defineProperty(o, 'phone', {
+        //     value: 13888888888
+        // });
+
+        // console.log(o);
+
+        // 可以使用for-in进行遍历
+        for (var key in o) { // item 项
+            console.log(key, o[key]);
+        }
+
+        // for-in 只能遍历可枚举属性
+        // length     不可枚举属性
+        // __proto__  不可枚举属性
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

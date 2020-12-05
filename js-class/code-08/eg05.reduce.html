@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.reduce()
+        // 语法: arr.reduce(callback[,object]);
+        // 参数: callback 回调函数
+        //      object 传入到回调中的对象
+        // 回调参数: 
+        //      prev 上一个
+        //      next 下一个
+        // 描述: 归并
+        // 返回值: 归并结果
+
+        // var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        // // 应用场景  求和
+        // var result = arr.reduce(function(prev, next) {
+        //     // console.log('prev:' + prev);
+        //     // console.log('next:' + next);
+        //     return prev + next;
+        // });
+        // console.log(result);
+
+        // -------------------------------------------------------
+        // 场景2  统计
+        // var arr = [564, 12, 432, 1, 432, 43, 265, 76512, 3, 5423, 76, 60];
+        // // 统计有多少个奇数 多少个偶数
+
+        // var result = arr.reduce(function(obj, current) {
+        //     obj.sum += current;
+        //     current % 2 ? obj.odd++ : obj.even++;
+        //     return obj;
+        // }, {
+        //     odd: 0,
+        //     even: 0,
+        //     sum: 0
+        // });
+        // console.log(result);
+
+        // --------------------------------------------------------
+        // 原理
+        Array.prototype.reduce1 = function(callback, obj) {
+            var result; // 存放临时对象
+            if (typeof obj === 'object' && obj != null) {
+                for (var i = 0; i < this.length; i++) {
+                    result = callback(obj, this[i]);
+                }
+                return result;
+            }
+        }
+
+        var arr = [1, 2, 3, 4, 5, 6, 7];
+
+        var result = arr.reduce1(function(obj, current) {
+            current % 2 ? obj.odd++ : obj.even++;
+            return obj;
+        }, {
+            even: 0,
+            odd: 0
+        });
+
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 关于匿名函数的返回值
+        // var result = (function(a, b) {
+        //     return a + b;
+        // })(3, 5);
+        // console.log(result);
+
+        var fn = function() {
+            console.log(123);
+        };
+
+        (function() {
+            console.log(123);
+        })();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

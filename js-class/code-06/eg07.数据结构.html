@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数据结构
+        // 将数据以特定的关系或结构进行保存
+        // 树结构 队列 栈 堆 字典 散列表 哈希 链表 二叉树 .....
+
+        // 数组也是一种数据结构 用于有序排列数据
+        // 在一个变量名中 保存多个值
+        // ECMAScript的数组中的值 可以是相同数据类型 也可以是不同数据类型
+        // 数组中可以保存任意数据类型的值
+        // 数组是有序排列
+        // 数组中的元素 都有对应的编号(索引)
+        // 最小索引是0 最大索引是长度-1
+
+        // 数据类型
+        // 基本类型
+        // Undefined Null Number String Boolean
+        // 引用类型(引用类型的数据 都是对象)
+        // Object Function Array
+
+        // -------------------------------------------
+
+        // 创建数组
+        // var arr = new Array(); // 使用数组的构造函数创建数组
+        // delete arr.length;  // length 是不可枚举数据 顾无法删除
+        // console.log(arr);
+
+        // var arr2 = new Array('apple', 'banana', 'orange'); // 创建数组并添加内容
+        // console.log(arr2);
+
+        // var arr3 = new Array(11, 22, 33);
+        // console.log(arr3);
+
+        // 当使用构造函数创建数组 只传有一个参数且这个参数是正整数时 表示声明数组的长度
+        // var arr4 = new Array(50);
+        // console.log(arr4);
+
+        // -------------------------------------------------------------
+        // 直接量创建 []
+
+        // var arr5 = []; // [] 也是语法糖 new Array()
+        // console.log(arr5);
+
+        // var arr6 = ['苹果', '香蕉', '西瓜'];
+        // console.log(arr6);
+
+        // var arr7 = [50]; //  内容50 不是长度
+        // console.log(arr7);
+
+        var arr8 = ['你', '好'];
+        // 访问数组元素使用 [index]
+        // console.log(arr8[0]); // 通过索引访问数组的元素
+        // 向数组内添加元素
+        // 需要指定添加的索引值 然后进行赋值
+        // arr8[2] = '世';
+        // arr8[2] = '!';  // 向已有内容的索引进行赋值则是修改
+
+        arr8[arr8.length] = '世';
+        arr8[arr8.length] = '界';
+        arr8[arr8.length] = '!';
+
+        console.log(arr8);
+
+        console.log(arr8[10]); // 访问数组中不存在的索引值 返回 undefined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

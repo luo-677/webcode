@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 周期性计时器  (BOM) 来自浏览器对象模型
+        // 语法: setInterval(callback,delay);
+        // 参数: callback(function) 需要重复执行的函数
+        //      delay(number) 执行函数的间隔时间 单位为毫秒
+        // 描述: 方法setInterval会自动调用callback函数 每间隔一定的时间调用一次
+        // 返回值: id(number) 返回计时器的编号
+
+        // 关闭周期性计时器
+        // 语法: clearInterval(id);
+        // 参数: id(number) 开启计时器时返回的编号
+        // 描述: 用于关闭计时器
+
+        // var count = 0;
+        // var timer = setInterval(function() {
+        //     count++;
+        //     console.log('ok');
+        //     if (count == 10) {
+        //         clearInterval(timer);
+        //     }
+        // }, 2000);
+
+
+        window.onload = function() {
+            var time = document.getElementById('time');
+
+            var timer = setInterval(function() {
+                var d = new Date();
+                var yy = d.getFullYear();
+                var mm = d.getMonth();
+                var dd = d.getDate();
+                var h = d.getHours() > 12 ? d.getHours() - 12 : d.getHours();
+                var m = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+                var s = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+                var dataString = '';
+                time.innerHTML = dataString.concat(yy, '-', mm, '-', dd, ' ', h, ':', m, ':', s);
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="time"></h1>
+</body>
+
+</html>

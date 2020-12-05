@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 作用 域(范围/区域)
+        // 传统的JavaScript作用域分为两种
+        // 1. 全局作用域  
+        // 2. 函数作用域 
+
+        // 作用域指的是 变量和函数的作用范围
+
+        // 全局作用域 指的是 一旦定义好 在任何位置都可以访问
+        // alert() parseInt() isNaN() console.log() ...
+
+        // 函数作用域 指的是 在函数内定义的 仅在函数内可以访问
+
+        // 作用域的访问原则 就近原则
+        // var num = 5; // 全局变量
+
+        // function fn() {
+        //     var num = 3; // 在fn中定义的变量 
+        //     console.log(num);
+
+        //     function f() {
+        //         console.log(num);
+        //     }
+
+        //     f();
+        // }
+
+        // fn();
+
+        // f();
+
+        // ------------------------------------------------
+
+
+
+        // 函数被调用时 函数也会进行预解析
+        // 将函数内的var 和 function 提前
+        // var 声明提前  
+        // function 整体提前
+        // 都提前到 当前作用域的顶部
+        // var a = 10;
+
+        // function fn() {
+        //     console.log(a); // undefined
+        //     var a = 5;
+        //     console.log(a); // 5
+        // }
+
+        // fn();
+
+        // ---------------------------------------------
+
+        // if (false) {
+        //     var a = 3;
+        // }
+        // console.log(a);  // undefined
+        // 虽然赋值没有执行 但是声明依旧提前
+        // 没有函数  所有a是全局变量
+
+        // i是全局变量
+        // for (var i = 0; i < 5; i++) {}
+        // console.log(i);
+
+        // ---------------------------------------------
+        // 变量要先声明 后使用
+        // function fn() {
+        //     // 给没有声明过的变量进行赋值 
+        //     // 这个变量默认为全局变量
+        //     // 只声明了a
+
+        //     // b成为了全局变量
+        //     var a = b = 5;
+        //     console.log(a);
+        //     console.log(b);
+        // }
+        // fn();
+
+        // console.log(a); // 报错
+        // console.log(b);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

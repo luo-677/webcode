@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Date 是ECMAScript的内置对象
+        // Date 对象拥有构造函数 可以使用new关键字创建新对象
+
+        // var d = new Date();
+        // console.log(d); // 标准时间对象
+
+        // 默认没有传参数时 获得的是当前的系统时间
+
+        // var d1 = new Date(2008, 4, 12, 13, 20, 50); // 参数 年 月 日 时 分 秒
+        // console.log(d1);
+
+        // var d2 = new Date('2008,3,2 14:35:10');
+        // console.log(d2);
+
+        // ---------------------------------------------------------
+        var d = new Date();
+        // console.log(d);
+        // console.log(d.getFullYear()); // 获得年份
+        // console.log(d.getMonth() + 1); // 获得月份  取值范围0-11
+        // console.log(d.getDate()); // 获得日期 取值范围 1-31
+        // console.log(d.getHours()); // 获得小时 取值范围0-23
+        // console.log(d.getMinutes()); // 获得分钟 取值范围 0-59
+        // console.log(d.getSeconds()); // 获得秒  取值范围 0-59
+        // console.log(d.getDay()); // 获得星期  取值范围0-6  0是星期天
+        // console.log(d.getMilliseconds()); // 获得毫秒  取值范围0-999
+
+        // 时间戳 
+        // 这个值是计算机世界中 永远不会重复的值
+        // 存储时间时 会优先考虑存储时间戳
+        // console.log(d.getTime()); // 获得当前时间距离1970年1月1日0点0分0秒的毫秒差
+
+        // 可以将时间戳放入Date的构造函数 创建时间对象
+        // var getDate = new Date(1606977440460);
+        // console.log(getDate);
+
+        // 时间戳的快捷方式
+        // console.log(Date.now());
+
+        // console.log(d.getTimezoneOffset() / 60); // 当前时间与格林威治时间的分钟差
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

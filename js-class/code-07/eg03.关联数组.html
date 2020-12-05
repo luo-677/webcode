@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 在ECMAScript 数组有两种使用方式
+        // 1. 索引数组 通过索引值访问数组中的成员   有序
+        // 2. 关联数组 通过key访问数组中的成员      无序
+
+        // 关联数组保存数据使用的是键值对的形式
+        var arr = [1, 2, 3];
+        arr['name'] = 'zhangsan';
+        arr['age'] = 20;
+        arr['sex'] = 'nan';
+        // console.log(arr);
+
+        // 关联数组可以使用 for-in 进行遍历
+        for (var key in arr) {
+            console.log(key, arr[key]);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

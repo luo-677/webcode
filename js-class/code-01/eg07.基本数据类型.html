@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ECMAScript 有五种传统的基本数据类型
+        // 1. Undefined
+        // 2. Null
+        // 3. Boolean
+        // 4. Number
+        // 5. String
+
+        // --------------------------------
+        // Undefined 类型  只有一个值  
+        // 这个值 就是  undefined 
+        // 表示一个变量声明后没有进行赋值
+        // var car;
+        // console.log(car);
+
+        // --------------------------------
+        // Null 类型  只有一个值
+        // 这个值是  null   空
+        // 它表示一个变量将来有可能指向某一个对象 但是目前什么都没有指向
+        // 作用：释放应用
+        // var msg = null;
+        // console.log(msg);
+
+        // ---------------------------------
+        // Number 类型 数字
+        // JS中 不管是整数 还是小数 都是Number类型  
+        // 比如c语言中存整数 int  
+        //            存小数 float
+        //                   double
+        // 数字在JS中默认可以运算
+        // var num1 = 25;
+        // var num2 = 17;
+        // console.log(num1 + num2);
+
+        // 特别的值
+        // NaN (数据类型是Number)  Not a Number
+        // 表示一个要返回数值的操作 没有返回数值的情况
+        // console.log(5 * 'a'); // NaN
+
+        // Infinity   无限
+        // console.log(3 * 2);
+        // console.log(5 * 0);
+        // console.log(5 / 0); // 0 作为除数运算时 返回的结果就是 Infinity
+
+        // 全局函数 
+        // isNaN();   是不是NaN   是不是非数字
+        // 这个函数就返回一个布尔类型的值
+        // console.log(isNaN(35 * 'a'));
+
+        // ------------------------------------
+        // Boolean  布尔类型
+        // 有两个值  true(真)   false(假)
+        // 布尔类型 也可以使用数字来代替
+        // true  使用数字  1  来代替
+        // false 使用数字  0  来代替
+
+        // var bool = true;
+        // console.log(bool);
+
+        // -------------------------------------
+        // String  字符串类型
+        // 除了关键字保留字操作符和其他数据类型外 剩下的所有包含在引号内的内容都是字符串
+        // 引号 可以是 单引号  也可以是  双引号
+        // 在Java中 单引号表示char       'a'
+        //          双引号表示string     "abc"
+        // 在JavaScript中 不管是单引号 还是双引号  都是字符串  
+        // 推荐使用 单引号
+
+        // 引号的含义是 字符串
+
+        // 字符转义符  \
+        // var msg = '\'你好世界\'';
+        // var msg2 = "\"你好世界\"";
+        // console.log(msg);
+        // console.log(msg2);
+
+        // 转义换行  \n
+        console.log('你好\\世界');
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>
+            内容
+
+        </h1>
+    </div>
+</body>
+
+</html>

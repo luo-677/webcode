@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 强制数据类型转换 (手动转换类型)
+        // 使用一些数据类型转换的函数
+
+        // Number()
+        // 可以使用一元+ 替代Number函数
+        // 将一个字符串解析成number类型 如果有不可解析的部分则返回 NaN
+        // console.log(Number('35.1')); // 35.1
+        // console.log(Number(null)); // 0
+        // console.log(Number('31.5a')); // NaN
+        // console.log(Number(undefined)); // NaN
+
+        // parseFloat()
+        // 将一个字符串解析成number类型的浮点数(小数) 如果没有可解析的部分则返回 NaN
+        // console.log(parseFloat('3.14')); // 3.14
+        // console.log(parseFloat('3.1415abc')); // 3.1415
+        // console.log(parseFloat('3.0a1')); // 3
+        // console.log(parseFloat('3a14.123')); // 3
+        // console.log(parseFloat('a3123')); // NaN
+        // console.log(parseFloat(3.14)); // 3.14
+
+        // parseInt()
+        // 将一个字符串解析成number类型的整数  如果没有可解析的部分则返回 NaN
+        // console.log(parseInt('3.14')); // 3
+        // console.log(parseInt('3.14abc')); // 3
+        // console.log(parseInt('12a34')); // 12
+        // console.log(parseInt('a1234')); // NaN
+        // console.log(parseInt(51.35)); //51
+
+        // Boolean();
+        // 将一个值转换成布尔值
+        // console.log(Boolean('abc'));
+        // console.log(!!'abc');
+
+        // ----------------------------------------------------------
+
+        // toString()
+        // 将一个值转成 字符串
+
+        // 除了 null 和 undefined 都可以toString()
+        // null 和 undefined 不能toString() 不代表不能转字符串
+        // null 和 undefined 可以通过将值传递给String()函数的方式进行重新生成字符串，不影响原有类型
+        // 使用空引号进行字符连接转换
+        // console.log(null.toString());
+        // console.log(undefined.toString());
+
+        // console.log(true.toString());
+
+        // number类型的toString()
+        // 可以进行进制转换的
+        // 计算机常见进制数  2 8 16
+
+        // var num = 17;
+        // console.log(num.toString(2)); // 转成二进制
+        // console.log(num.toString(8)); // 转成八进制
+        // console.log(num.toString(16)); // 转十六进制
+
+        // console.log(0100); // 0开头表示8进制
+        // console.log(0x12); // 0x开头表示16进制
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

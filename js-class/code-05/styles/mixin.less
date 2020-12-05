@@ -1,0 +1,57 @@
+@charset 'utf-8';
+
+// 混合(mixin) 使用 类名 定义类似于JS中的函数
+
+// .text-center{
+//     text-align: center;
+// }
+
+// .center-block{
+//     margin:0 auto;
+//     display: block;
+// }
+
+
+// .box{
+//     .text-center;
+//     .center-block;
+
+//     width: 1200px;
+//     height: 500px;
+// }
+
+// -------------------------------------
+// 混合 可以带有参数
+// .yuan(@radius){
+//     border-radius:@radius;
+//     -webkit-border-radius:@radius;
+//     -o-border-radius:@radius;
+//     -moz-border-radius:@radius;
+//     -ms-border-radius:@radius;
+// }
+
+// .border(@borderwidth,@borderstyle,@bordercolor){
+//     border: @borderwidth @borderstyle @bordercolor;
+// }
+
+// .box{
+//     .yuan(30%);
+
+//     .border(1px,solid,black);
+
+
+// }
+
+
+.foo(@bg:#f5f5f5,@color:#900){
+    background:@bg;
+    color:@color;
+}
+
+.unimportant{
+    .foo();
+}
+
+.important{
+    .foo()!important;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+            overflow: hidden;
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        li {
+            float: left;
+            margin: 10px 20px;
+        }
+        
+        #main {
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid black;
+            height: 500px;
+            line-height: 500px;
+            text-align: center;
+            font-size: 4em;
+        }
+    </style>
+    <script>
+        // SPA  单页面应用
+        // VUE.js 路由原理  onhashchange  
+        window.onhashchange = function() {
+            var main = document.getElementById('main');
+
+            switch (location.hash) {
+                case '#/index':
+                    main.innerHTML = '首页';
+                    break;
+                case '#/news':
+                    main.innerHTML = '新闻';
+                    break;
+                case '#/users':
+                    main.innerHTML = '用户';
+                    break;
+                case '#/music':
+                    main.innerHTML = '音乐';
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#/index">首页</a></li>
+        <li><a href="#/news">新闻</a></li>
+        <li><a href="#/users">用户</a></li>
+        <li><a href="#/music">音乐</a></li>
+    </ul>
+
+    <div id="main">111</div>
+</body>
+
+</html>

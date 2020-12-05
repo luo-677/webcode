@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // String.prototype.replace();
+        // 语法: str.replace(regexp,string);
+        // 参数: regexp 正则表达式 用于匹配文本的正则
+        //       string 需要替换的文本内容
+        // 描述: 方法replace用于在字符串中匹配一段文本内容 将其进行替换
+        // 返回值: 替换后的新字符串
+
+        // 正则表达式 本质上一种描述规则的 字符串
+        // var str = 'abcdeCfgc';
+        // var str2 = str.replace(/c/ig, '123');
+
+        // 正则表达式的结尾 有属性描述特别的规则 属性g 表示全局匹配
+        //                                    属性i 表示忽略大小写
+        // console.log(str2);
+    </script>
+</head>
+
+<body>
+    <textarea id="text" cols="30" rows="10"></textarea>
+    <button id="btn">提交</button>
+
+    <script>
+        window.onload = function() {
+            var text = document.getElementById('text');
+            var btn = document.getElementById('btn');
+
+            // 屏蔽敏感词汇
+            var arr = ['cnm', 'qnlmgb', 'mmp', '习大大', '中国共产党'];
+            var str = arr.join('|');
+            // 使用正则表达式的构造函数 创建正则表达式
+            var reg = new RegExp(str, 'ig');
+            console.log(reg);
+
+            btn.onclick = function() {
+                text.value = text.value.replace(reg, '****');
+            }
+        }
+    </script>
+</body>
+
+</html>

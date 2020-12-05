@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var age = parseInt(prompt('请输入年龄')); // 接收用户输入的年龄
+
+        // if (isNaN(age)) { // 判断是不是NaN
+        //     alert('输入的年龄错误');
+        // } else {
+        //     if (age >= 18) {
+        //         console.log('成年人');
+        //     } else {
+        //         console.log('未成年人');
+        //     }
+        // }
+
+
+        // if-else 可以嵌套使用
+        // ECMAScript提供了另外一条方案 用于解决嵌套的逻辑问题
+        // else if
+        // else if 是按序从上至下依次进行条件判断
+        // 第一个条件为true时则执行对应的代码块 结束if-else结构
+        // 所有条件都为false则执行 else
+        // if (布尔表达式) {
+        // } else if (布尔表达式) {
+        // } else if (布尔表达式) {
+        // } [else {
+        // }]
+
+        if (isNaN(age)) {
+            alert('输入的年龄错误');
+        } else if (age >= 18) {
+            console.log('成年人');
+        } else {
+            console.log('未成年');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

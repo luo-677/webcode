@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 关键字 new
+        // 在内存中开辟一块存储空间 返回这个空间的地址 并创建一个新的对象
+
+        // 引用类型 进行赋值操作时 赋值的是地址
+
+        // var arr = [1, 2, 3, 4];
+        // var arr2 = arr; // 将arr的地址复制了一份 赋值给arr2
+        // // arr 和 arr2 是同一条数据
+        // arr[0] = 0;
+        // console.log(arr2);
+
+        // -----------------------------------------------
+        // 引用类型 做相等比较时 比较的是地址 如果地址不相同结果就是false
+        // var arr = [1, 2, 3];
+        // // var arr2 = [1, 2, 3];
+        // var arr2 = arr;
+        // console.log(arr == arr2);
+
+        // -----------------------------------------------
+
+        // var o = new Object();
+        // o.x = 1;
+        // var o2 = o; // 对象是引用类型  赋值的是地址
+        // o.x = 0;
+        // console.log(o2.x);
+
+        // -----------------------------------------------
+
+        var arr = [1, 2, 3, 4, 5];
+        // 如何清空数组
+        arr.length = 0;
+        // arr = []; // 使用一个新数组覆盖了原数组
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

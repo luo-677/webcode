@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // console.log(navigator);
+        // // ie11   
+        // var str1 = "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko"
+        //     // chrome
+        // var str2 = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+        //     // firefox
+        // var str3 = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0";
+
+        // 用于判断用户使用的是什么浏览器
+
+        // var str = navigator.userAgent;
+
+        // var bower;
+
+        // if (str.indexOf('Trident') != -1) {
+        //     bower = 'ie';
+        // } else if (str.indexOf('Chrome') != -1) {
+        //     bower = 'Chrome';
+        // } else if (str.indexOf('Firefox') != -1) {
+        //     bower = 'Firefox';
+        // }
+
+        // console.log('浏览器是' + bower);
+
+
+
+        var browser = {
+            userAgent: function() {
+                var ua = navigator.userAgent;
+                var ualower = navigator.userAgent.toLocaleLowerCase();
+                return {
+                    trident: ua.indexOf('Trident') > -1, // IE内核
+                    presto: ua.indexOf('Presto') > -1, // opera内核
+                    webKit: ua.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: ua.indexOf('Gecko') > -1 && ua.indexOf('KHTML') == -1, // 火狐内核
+                    mobile: !!ua.match(/AppleWebKit.*Mobile.*/) || !!ua.match(/AppleWebKit/), // 是否为移动终端
+                    ios: !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), // IOS终端
+                    android: ua.indexOf('Android') > -1 || ua.indexOf('Mac') > -1, // 安卓终端
+                    iPhone: ua.indexOf('iPhone') > -1 || ua.indexOf('Mac') > -1, // 是否为iphone或QQHD浏览器
+                    iPad: ua.indexOf('iPad') > -1, // 是否为iPad
+                    webApp: ua.indexOf('Safari') == -1, // 是否web应用程序，没有头部与底部
+                    QQbrw: ua.indexOf('MQQBrowser') > -1, // QQ浏览器(手机上的)
+                    weiXin: ua.indexOf('MicroMessenger') > -1, // 微信
+                    QQ: ualower.match(/\sQQ/i) == " qq", // QQ App内置浏览器（需要配合使用）
+                    weiBo: ualower.match(/WeiBo/i) == "weibo", // 微博
+                    ucLowEnd: ua.indexOf('UCWEB7.') > -1, //
+                    ucSpecial: ua.indexOf('rv:1.2.3.4') > -1,
+                    webview: !(ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/)) && ua.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
+                    ucweb: function() {
+                        try {
+                            return parseFloat(ua.match(/ucweb\d+\.\d+/gi).toString().match(/\d+\.\d+/).toString()) >= 8.2
+                        } catch (e) {
+                            if (ua.indexOf('UC') > -1) {
+                                return true;
+                            }
+                            return false;
+                        }
+                    }(),
+                    Symbian: ua.indexOf('Symbian') > -1,
+                    ucSB: ua.indexOf('Firofox/1.') > -1
+                };
+            }()
+        };
+        console.log(browser.userAgent);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

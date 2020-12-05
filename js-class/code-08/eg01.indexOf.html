@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ES5 ECMAScript5 
+        // ES 指的是 ECMA-262 标准
+        // 版本命名是按照发布大版本的顺序进行命名
+        // ES5 ES6 ES7 ES8... ES11
+        // ECMA宣布从2015年开始不在使用大版本号对ES进行命名
+        // 改用年份进行命名
+        // ES6(ES2015)    ES2020(ES11)
+
+
+        // Array.prototype.indexOf()
+        // 语法: arr.indexOf(searchElement[,fromIndex=0]);
+        // 参数: searchElement 需要在数组中查找的元素
+        //       fromIndex  需要开始查找的索引
+        // 描述: indexOf()方法用于在数组中查找指定的值(匹配元素)
+        //       如果成功匹配到元素 则返回 该元素所在的索引值 
+        //       如果没有成功匹配到元素 则返回 -1
+        // 返回值: 索引值或-1
+
+        // var arr = [54, 53, 14, 123, 14, 41, 33, 11, 53];
+        // console.log(arr.indexOf(14, 3));
+
+        // Array.prototype.indexof = function(searchElement, fromIndex = 0) {
+        //     // this在原型函数中指向的是调用该函数的对象
+        //     // console.log(this);
+        //     for (var i = fromIndex; i < this.length; i++) {
+        //         if (this[i] === searchElement) return i;
+        //     }
+        //     return -1;
+        // }
+
+        // console.log(arr.indexof(222));
+
+        // ------------------------------------------------
+        var arr = [54, 53, 14, 123, 14, 41, 33, 11, 53];
+        //数组去重
+        var result = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (result.indexOf(arr[i]) === -1) result.push(arr[i]);
+        }
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

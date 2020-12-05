@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+        
+        #inner {
+            width: 300px;
+            height: 300px;
+            margin: 100px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            var outer = document.getElementById('outer');
+
+            // 左键双击 dblclick
+            outer.ondblclick = function() {
+                console.log('outer元素被双击了');
+            }
+
+            // 鼠标悬停 mouseover
+            outer.onmouseover = function() {
+                console.log('mouseover');
+            }
+
+            // 鼠标移出 mouseout
+            outer.onmouseout = function() {
+                console.log('mouseout');
+            }
+
+            // 鼠标进入 mouseenter
+            outer.onmouseenter = function() {
+                console.log('mouseenter');
+            }
+
+            // 鼠标离开 mouseleave
+            outer.onmouseleave = function() {
+                console.log('mouseleave');
+            }
+
+            // 鼠标移动 mousemove
+            outer.onmousemove = function() {
+                console.log('移动');
+            }
+
+            // 鼠标按下 mousedown
+            outer.onmousedown = function() {
+                console.log('按下');
+            }
+
+            // 鼠标弹起 mouseup
+            outer.onmouseup = function() {
+                console.log('弹起');
+            }
+
+            // 右键点击 contextmenu
+            outer.oncontextmenu = function() {
+                console.log('右键点击');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+</body>
+
+</html>

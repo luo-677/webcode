@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // console.log(location.search);
+        // 获取URL从问号开始的信息
+        // search的数据可以在多页面中进行传递
+
+        var data = location.search.slice(1).split('&');
+        // console.log(data);
+
+        data.forEach(function(val) {
+            var temp = val.split('=');
+            switch (temp[0]) {
+                case 'username':
+                    console.log('用户名是:' + temp[1]);
+                    break;
+                case 'password':
+                    console.log('密码是:' + temp[1]);
+                    break;
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <a href="https://www.baidu.com">百度</a>
+</body>
+
+</html>

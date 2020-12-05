@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数可以带有参数 也可以没有参数
+        // 1. 参数仅在函数内部使用
+        // 2. 多个参数 使用英文逗号隔开
+        // 3. 参数声明(形式参数)在小括号中
+        // 4. 实际参数可以是任意数据类型(null,undefined,number,string,boolean,object,function...)
+
+        // 创建函数的时候 小括号 就是参数列表
+        // 参数命名与变量名相同
+        // 声明参数 就相当于在 函数中  声明了局部的变量
+        // function myFn(num1, num2) {
+        //     console.log(num1, num2);
+        //     console.log(num1 + num2);
+        // }
+
+        // 使用参数可以让函数更加灵活
+        // 调用函数时 在括号中写入的参数 会依次为形式参数进行赋值
+        // myFn(1, 2); // 调用函数时传入的参数 叫  实际参数
+        // myFn(10, 15);
+
+        // 当声明形参 调用函数未进行传参时 参数默认值是 undefined
+        // myFn();
+
+        // ----------------------------------------------------
+        // 为函数设置默认参数
+        // function fn(num) {
+        //     num = num || 1;         // 使用短路逻辑
+        //     console.log(num);
+        // }
+        // fn(5);
+        // fn();
+
+        // ES6(ES2015) 可以为函数的参数直接设置默认值
+        function fn(num = 5, num2 = 3) {
+            console.log(num);
+        }
+
+        fn(8);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

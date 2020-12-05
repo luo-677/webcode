@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #list {
+            list-style: none;
+            overflow: hidden;
+        }
+        
+        #list>li {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 10px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 3em;
+            border: 3px solid black;
+            float: left;
+            color: white;
+            background-color: red;
+        }
+        
+        #list>li:last-child {
+            background-color: blue;
+        }
+    </style>
+    <script>
+        // 红色球 1-33 需要6个
+        // 蓝色球 1-16 需要1个
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var list = document.getElementById('list');
+
+            var redBall = []; // 存放红色球
+            var redResult = []; // 存放抽取的红色球结果
+
+            function random(min, max) {
+                return Math.round(Math.random() * (max - min) + min);
+            }
+
+            btn.onclick = function() {
+                // 每次执行随机前对数据进行初始化
+                redBall.length = 0;
+                redResult.length = 0;
+                list.innerHTML = '';
+
+
+                for (var i = 0; i < 33; i++) {
+                    redBall.push(i + 1);
+                }
+
+
+                // 随机出6个红色球
+                for (var j = 0; j < 6; j++) {
+                    // 在红色球数组中随机出一个索引值
+                    var _index = random(0, redBall.length - 1);
+                    // 将随机出的结果索引所对应的元素从redBall删除
+                    // 将删除的这个值添加进 redResult
+                    redResult.push(redBall.splice(_index, 1)[0]);
+                    // 将结果放入页面
+                    list.innerHTML += '<li>' + redResult[j] + '</li>';
+                }
+
+                // 随机出一个蓝色球
+                var blueBall = random(1, 16);
+                list.innerHTML += '<li>' + blueBall + '</li>';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">随机一组双色球彩票</button>
+    <ul id="list">
+
+    </ul>
+</body>
+
+</html>

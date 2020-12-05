@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function fn() {
+        //     // arguments.callee 是一个指针
+        //     // 指向的是当前函数
+        //     // console.log(arguments.callee === fn);
+        // }
+
+        // fn(1, 2, 3);
+        function fn(num1){
+            if(num1 < 1){
+                console.log("结束");
+                return;
+            }else{
+                console.log(num1);
+                fn(num1-1);
+            }
+        }
+        fn(6);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

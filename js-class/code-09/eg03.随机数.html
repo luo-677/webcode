@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 随机数  
+        // 在JavaScript中 使用 Math.random() 新建一个随机数
+        // 随机数的范围是 [0-1)  包含0不包含1
+
+        // 编写一个函数 用于创建指定范围的随机数
+        function random(min, max) {
+            // return Math.floor(Math.random() * (max - min + 1) + min);
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        for (var i = 0; i < 50; i++) {
+            console.log(random(0, 5));
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

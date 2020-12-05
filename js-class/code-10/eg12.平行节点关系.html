@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var list = document.getElementById('list');
+
+            var li2 = list.children[1];
+
+            // console.log(li2.previousSibling); // 上一个兄弟节点
+            // console.log(li2.nextSibling); // 下一个兄弟节点
+
+            // console.log(li2.previousElementSibling); // 上一个兄弟元素
+            // console.log(li2.nextElementSibling); // 下一个兄弟元素
+
+            function f(current) {
+                if (current.nextElementSibling) {
+                    current.style = "color:red";
+                }
+
+                if (current.nextElementSibling) {
+                    return f(current.nextElementSibling);
+                }
+            }
+
+            f(li2);
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li class="li1">第1个li元素</li>
+        <li class="li2">第2个li元素</li>
+        <li class="li3">第3个li元素</li>
+        <li class="li4">第4个li元素</li>
+        <li class="li5">第5个li元素</li>
+        <li class="li6">第6个li元素</li>
+        <li class="li7">第7个li元素</li>
+        <li class="li8">第8个li元素</li>
+        <li class="li9">第9个li元素</li>
+        <li class="li10">第10个li元素</li>
+    </ul>
+</body>
+
+</html>

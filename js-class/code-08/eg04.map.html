@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Array.prototype.map()
+        // 语法: arr.map(callback)
+        // 参数: callback 回调函数
+        // 回调参数: 
+        //        currentValue 
+        //        index
+        //        array
+        // 描述: 映射
+        //      1. 遍历数组 为数组的每一个元素执行一次回调函数
+        //      2. 操作(修改)数组 中的元素
+        //      3. 返回一个修改后的新数组
+        // 返回值: 新数组
+
+        var arr = [1, 2, 3, 4, 5];
+        // var result = [];
+        // arr.forEach(function(val) {
+        //     if (val % 2) {
+        //         result.push(val * 2);
+        //     } else {
+        //         result.push(val * 3);
+        //     }
+        // });
+        // console.log(result);
+
+        // -----------------------------------
+        // var result = arr.map(function(val) {
+        //     // map中会将所有的返回值组成一个新的数组
+        //     return val % 2 ? val * 2 : val * 3;
+        //     // if (val % 2) {
+        //     //     return val * 2;
+        //     // } else {
+        //     //     return val * 3;
+        //     // }
+        // });
+
+        // console.log(result);
+
+        // ---------------------------------------
+        // 原理
+
+        Array.prototype.map1 = function(callback) {
+            var result = [];
+            for (var i = 0; i < this.length; i++) {
+                // 将回调函数的返回值 存入需要返回的新数组
+                result.push(callback(this[i], i, this));
+            }
+            return result; // 返回新数组
+        }
+
+        var arr = [5, 12, 623, 43, 2];
+        var result = arr.map1(function(val) {
+            return val / 2;
+        });
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

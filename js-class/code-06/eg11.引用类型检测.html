@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // typeof 用于检测 基本类型的数据 准确率较高
+        // typeof 无法检测引用类型的数据
+        var o = {};
+        var arr = [];
+        // console.log(typeof o);
+        // console.log(typeof arr);
+
+        // ECMAScript提供了解决方案  准确率不高
+        // 关键字 instanceof   (...的)(实例)
+        // console.log(arr instanceof Array);
+        // console.log(o instanceof Object);
+        // console.log(o instanceof Array);
+        // console.log(arr instanceof Object); // true
+
+        // ---------------------------------------
+        // 如何检测引用类型
+        // 使用对象的 constructor 属性
+        // 无法使用 constructor 检测出 null 和 undefined
+        // console.log(o.constructor === Object);
+        // console.log(o.constructor === Array);
+        // console.log(arr.constructor === Array);
+        // console.log(arr.constructor === Object);
+        // var num = 1;
+        // console.log(num.constructor === Number);
+        // var a = true;
+        // console.log(a.constructor);
+
+        // 检测null值
+        // var n = null;
+        // console.log(typeof n === 'object' && n === null);
+
+        // --------------------------------------------------
+        // 自定义函数检测数据类型
+
+        function getClass(o) {
+            return Object.prototype.toString.call(o).slice(8, -1);
+        }
+
+        console.log(getClass(123));
+        console.log(getClass('123'));
+        console.log(getClass(null));
+        console.log(getClass(true));
+        console.log(getClass({}));
+        console.log(getClass([]));
+        console.log(getClass(function() {}));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

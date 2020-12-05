@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var list = document.getElementById('list'); // 获得一个 元素节点
+
+            // DOM树中  元素 属性 文本 注释 都被看做是节点
+            // 在JS中 所有的节点 都是对象
+
+            // console.log(list.parentNode.parentNode.parentNode); // 获得父级节点
+            // 元素节点的 parentNode 表示获得父级节点 最高级别的节点是 #document
+
+            // console.log(list.childNodes); // 获得子节点集合  子节点集合 是一个 类数组对象
+
+            // console.log(list.firstChild); // 获得第一个 子节点
+            // console.log(list.lastChild); // 获得最后一个 子节点
+
+            // console.log(list.firstElementChild); // 获得第一个子元素
+            // console.log(list.lastElementChild); // 获得最后一个子元素
+
+            // console.log(list.children); // 获得所有子元素集合  类数组对象
+
+            for (var i = 0; i < list.children.length; i++) {
+                if (i % 2) {
+                    list.children[i].style = "color:red";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li>第1个li元素</li>
+        <li>第2个li元素</li>
+        <!-- 这里有一个注释 -->
+        <li>第3个li元素</li>
+        <li>第4个li元素</li>
+        <li>第5个li元素</li>
+        <li>第6个li元素</li>
+        <li>第7个li元素</li>
+        <li>第8个li元素</li>
+        <li>第9个li元素</li>
+        <li>第10个li元素</li>
+    </ul>
+</body>
+
+</html>

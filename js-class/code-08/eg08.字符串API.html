@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // String.prototype.charAt();
+        // 语法: str.charAt(index);
+        // 参数: index(number) 索引
+        // 返回值: 返回索引对应的字符(string)
+        // var str = 'abc';
+        // var res = str.charAt(1); // 相当于 str[1]
+        // console.log(res);
+
+        // -------------------------------------
+        // String.prototype.charCodeAt();
+        // 语法: str.charCodeAt(index);
+        // 参数: index(number) 索引
+        // 返回值: 索引所对应字符的Unicode编码 (number)  0-65535
+        // var str = 'abc';
+        // console.log(str.charCodeAt(0));
+        // 小写字母 97-122
+        // 大写字母 65-90
+        // 数字    48-57
+        // var str2 = '放学别跑，迪厅见';
+        // var arr = [];
+        // for (var i = 0; i < str2.length; i++) {
+        //     arr.push(str2.charCodeAt(i) + 438);
+        // }
+        // console.log(arr);
+
+        // --------------------------------------
+        // String.fromCharCode()
+        // 语法: String.fromCharCode(unicode);
+        // 返回值: unicode编码对应的字符
+        // arr.forEach(function(val) {
+        //     console.log(String.fromCharCode(val - 438));
+        // });
+        // --------------------------------------
+        // String.prototype.concat()
+        // 语法: str.concat(value[,value2,...valueN]);
+        // 参数: value(string) 需要合并到str上的字符
+        // 描述: 将value依次合并到str上并返回一个新字符串
+        // 返回值: 新字符串
+        // + 拼接符
+
+        // var str = 'hello';
+        // var str2 = 'world';
+        // var str3 = str.concat(str2, '!');
+        // console.log(str);
+        // console.log(str3);
+        // --------------------------------------
+        // String.prototype.indexOf()
+        // 语法: str.indexOf(searchString,fromIndex=0);
+        // 参数: searchString 需要在str中查找的字符串
+        //       fromIndex 开始查找的初始索引值
+        // 描述: indexOf用于在字符串找中查找指定的内容
+        //       如果找到内容则返回结果字符串的第一个字符的索引值
+        //       如果没有找到内容返回-1
+        // 返回值: 索引值或-1
+        // var str = 'JavaScript';
+        // console.log(str.indexOf('s'));
+        // ---------------------------------------
+        // String.prototype.laseIndexOf()
+        // 语法: str.lastIndexOf(searchString,fromIndex=0)
+        // 参数: searchString 需要在str中查找的字符串
+        //       fromIndex 开始查找的初始索引值
+        // 描述: indexOf用于在字符串找中 从后向前 查找指定的内容
+        //       如果找到内容则返回结果字符串的第一个字符的索引值
+        //       如果没有找到内容返回-1
+        // 返回值: 索引值或-1
+        // var str = 'JavaScript';
+        // 从后往前找  
+        // 索引永远都是从前往后算
+        // console.log(str.lastIndexOf('ri'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
