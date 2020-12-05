@@ -11,6 +11,7 @@
             var result = document.getElementById('result');
 
             // 键盘按下  keydown
+            // 按下的时候获取到按下前的信息，比如按下前只有一个s，按下后只能获取到一个s，并不能获取到两个s
             // inp.onkeydown = function() {
             //     // this
             //     // this是一个关键字 
@@ -20,15 +21,17 @@
             // }
 
             // 持续按下 keypress
-            // inp.onkeypress = function() {value
-            //     console.log(2);
+            // 当只有字符产生时，按下的键才会进行触发，所以功能键不会触发这个事件
+            // inp.onkeypress = function() {//value
+            //     console.log(this.value);
             // }
 
             // 键盘弹起  keyup
-            inp.onkeyup = function() {
-                // console.log(this.value);
-                result.innerHTML = this.value;
-            }
+            // 键盘弹起后获取到对应的值，不是实时键入实时获取
+            // inp.onkeyup = function() {
+            //     // console.log(this.value);
+            //     result.innerHTML = this.value;
+            // }
         }
     </script>
 </head>
