@@ -182,7 +182,7 @@ for循环和for...in...循环
         返回值：undefined
 
     (14)Array.prototype.filter()
-        参数：callback
+        参数：callback 需要return
         描述：检测数组中的元素是否符合逻辑表达式
         返回值：符合条件的元素组成的新数组
 
@@ -202,3 +202,318 @@ for循环和for...in...循环
         描述：提供一个逻辑表达式，每一个元素都满足，则返回true
         注意：必须要每一个元素都满足条件
         返回值：布尔值
+
+    (18)Array.prototype.some()
+        参数：callback
+        描述：提供一个逻辑表达式，只要有一个值满足，则返回true
+        注意：只要有一个元素满足条件即可
+        返回值：布尔值
+
+    (19)Array.prototype.find()
+        参数：callback
+        描述：提供一个逻辑表达式，返回数组中第一个满足这个表达式的值
+        注意：没有元素满足则返回undefined
+        返回值：值 / Undefined
+
+    (20)Array.prototype.findIndex()
+        参数：callback
+        描述：返回满足逻辑表达式的第一个值的下标
+        注意：若没有值满足，则返回-1
+        返回值：索引 / -1
+
+字符串API：
+    (1)String.prototype.charAt()
+        参数：index(Number) 索引
+        注意：和arr[index]用法相同
+        返回值：索引对应的字符 / Undefined
+
+    (2)String.prototype.charCodeAt()
+        参数：index(Number) 索引
+        返回值：索引对应的字符的unicode / NaN
+    
+    (3)String.fromCharCode()
+        参数：unicode
+        返回值：unicode对应的字符
+
+    (4)String.prototype.concat()
+        描述：将传入的值与现有的字符串进行拼接
+        注意：与+号的用处相同
+        返回值：拼接完的字符串
+
+    (5)String.prototype.indexOf()
+        描述：在字符串中查找指定的内容，有的话返回第一个字符的索引，没有的话返回-1
+        参数：
+            searchString 需要查找的字符串
+            fromIndex 从指定的下标开始查询
+        返回值：索引 / -1
+
+    (6)String.prototype.laseIndexOf()
+        描述：从后往前查找指定字符串，索引值还是从前往后
+        参数：
+            searchString 需要查找的字符串
+            fromIndex 从指定的下标开始查询
+        返回值：索引 / -1
+    
+    (7)String.prototype.slice()
+        描述：截取[start,end)字符串片段
+        参数：
+            start(number) 开始索引
+            end(number) 结束索引
+        注意：
+            不修改原字符串
+            参数允许是负数
+        返回值：新生成的字符串
+
+    (8)String.prototype.split()
+        描述：使用指定的分隔符进行字符串切割
+        参数：sep 分隔符
+        注意：这是join的逆向操作
+        返回值：新数组
+
+    (9)String.prototype.substr()
+        描述：在字符串中进行字符串切割
+        参数：
+            start 开始索引
+            length 长度
+        注意：
+            不写开始则截取一整个字符串
+            不写长度则默认切割到最后
+        返回值：新字符串
+
+    (10)String.prototype.substring()
+        参数：
+            from 开始索引
+            to 结束索引
+        描述：截取[from,to)字符串
+        注意：不建议使用该方法，使用slice
+
+    (11)String.prototype.replace()
+        参数：
+            regexp 正则表达式
+            string 需要替换的文本内容
+        描述：用心的字符串替换匹配的文本内容
+        返回值：替换后的新字符串
+
+Math对象：
+    注意：没有构造函数，不能进行实例化
+    方法：
+        Math.abs()
+        Math.ceil()
+        Math.log(2)
+        Math.floor()
+        Math.max() / Math.max(...arr)
+        Math.min() / Math.min(...arr)
+        Math.pow()
+        Math.round()
+        Math.sqrt()
+        Math.sin()
+        Math.cos()
+        Math.tan()
+
+Date对象：
+    注意：Date有构造函数
+    var d = new Date() 创建一个标准时间对象，不传参数默认为当前时间
+    (y,m,d,h,m,s)
+    (y,m,d h:m:s)
+    d.getFullYear() 获得年份
+    d.getMonth() 获得月份 取值范围(0-11)
+    d.getDate() 获得日期 取值范围(1-31)
+    d.getHours() 获得小时
+    d.getMinutes() 获得分钟
+    d.getSeconds() 获得秒
+    d.getDay() 获得星期
+    d.getMilliseconds() 获得毫秒
+    d.getTime() 获得当前时间的时间戳
+    创建时间戳的快捷方式：
+        Date.now()
+
+周期性计时器：
+    setInterval(callback,delay)
+    参数：
+        callback 回调函数
+        delay 间隔时间
+    返回值：id(Number) 执行函数的间隔时间 毫秒
+
+    关闭周期性计时器：
+        clearInterval(id)
+
+一次性计时器：
+    setTimeout(callback,delay)
+    参数：
+        callback
+        delay
+    返回值：id(Number) 计时器编号
+
+    关闭一次性计时器：
+        clearTimeout(id)
+
+BOM：
+    没有标准，厂商自定义BOM对象
+
+window：
+    BOM的根对象
+    浏览器环境下，JS的全局对象
+    每建立一个浏览器窗口，就会创建一个window对象
+    浏览器中级别最高的对象
+    访问window的子属性或者方法可以省略 window.
+    window的所有成员都是全局对象
+    this在全局环境下指向window
+    this在函数中指向它的对象
+
+全局属性：
+    length 框架数量 已经废弃
+    name 字符串类型，在定义变量的时候要记得规避
+    如果不确定变量是否存在，在属性前面加上下划线
+
+全局方法：
+    confirm
+    alert
+    prompt
+
+JS引擎运行原理：
+    JS引擎是一个单线程环境，所以JS可以看作为单线程执行
+    计时器是一个需要等待的操作，叫做阻塞操作
+    一旦出现阻塞操作，就会被主线程踢出，踢到事件队列
+    当主线程执行完成后，开始执行事件队列
+    这些操作又称为异步操作
+
+navigator：
+    用于判断用户使用的是什么浏览器
+    userAgent
+
+location:
+    location.href 获取或设置URL地址
+    location.hash 获取URL中的锚点部分
+    location.host 获取主机名和端口号
+    location.pathname 设置或返回路径 第一个斜杠开始到文件名结束
+    location.hostname 主机名
+    location.port 端口号
+    location.protocol 协议
+
+SPA：
+    使用hash的值进行判断，分别显示对应的内容
+
+location.search：
+    获取URL从问号开始的信息
+    search的数据可以在多页面中进行传递
+    对search的数据进行分割处理，分别进行应用
+
+上下层节点之间的关系：
+    parentNode 父级节点
+    childNodes 所有子节点 类数组
+    firstChild 获得第一个子节点
+    lastChild 获得最后一个子节点
+    firstElementChild 获得第一个子元素节点
+    lastElementChild 获得最后一个子元素节点
+    children 所有子元素 类数组对象
+
+平行节点：
+    previousSibling 上一个兄弟节点
+    nextSibling 下一个兄弟节点
+    previousElementSibling 上一个兄弟元素
+    nextElementSibling 下一个兄弟元素
+
+节点名称：
+    nodeName 只读属性：string
+        元素节点 tagName，所有名称都大写
+        文本节点 #text
+        注释节点 #comment
+        文档节点 #document
+        属性节点 属性名
+        文档声明 html
+
+节点类型：
+    nodeType 数据类型 number
+        元素节点 1
+        属性节点 2
+        文本节点 3
+        注释节点 8
+        文档节点 9
+        文档声明 10
+
+文本内容：
+    innerHTML 获取全部内容，包括标签，但是不获取格式
+    innerText 不获取标签，获取格式
+    textContent 不获取标签，也不获取格式
+
+属性集合：
+    元素节点的 attributes 属性
+    是一个类数组对象
+    attributes[index] / attributes[attr] 获得属性节点
+    每一个属性节点都是一个单独的对象
+    xxx.nodeName / nodeType / nodeValue
+    转数组的方式：
+        ES6
+        1.var arr = [...box.attributes];
+        兼容低版本ie
+        2.var arr = [].slice.call(box.attributes);
+
+获得元素的属性值：
+    1.element.attributes[index].value
+    2.element.attributes["attr"].value
+    3.element.getAttributeNode("attr").value
+    4.element.getAttribute("attr"); 推荐使用
+
+设置元素的属性值：
+    1.element.setAttribute(name,value); 推荐使用
+    将某个元素的属性值赋给另一个元素
+    xx1.setAttribute(xx2.attributes[i].nodeName,xx2,attributes[i].nodeValue)
+    2.element.setAttributeNode(attrNode);
+
+移除属性：
+    1.element.removeAttribute(attrName);
+    2.element.removeAttributeNode(attrNode);
+
+判断属性是否还存在：
+    element.hasAttribute(attrname);
+
+类名的操作：
+    addClass(box, 'red')
+    removeClass(box, 'red')
+    HTML5:
+        xxx.classList.add('red')
+        xxx.classList.remove('red')
+        xxx.classList.replace('red', 'green')
+
+元素的选取：
+    1.通过标签名选择元素
+        node.getElementsByTagName()
+        类数组对象
+    2.通过name获取元素，一般为表单元素
+        node.getElementsByName()
+        类数组对象
+    3.通过元素类名获取元素
+        node.getElementsByClassName()
+        类数组对象
+    4.通过CSS选择器选择第一个匹配到的元素
+        node.querySelector(selector);
+    5.通过CSS选择器选择所有匹配的元素
+        node.querySelectorAll(selector);
+            a[href^="https://news"]
+            a[href*="baidu.com"]
+            .list1>li:nth-child(odd)
+    6.特别选取
+        都只存在一个
+        1.document.documentElement
+        2.document.body
+        3.document.head
+
+元素的创建：
+    document.createElement(tagName)
+
+元素的插入：
+    parentNode.appendChild(childNode)
+    在父元素的结尾插入一个元素
+    parentNode.insertBefore(newChild, oldChild)
+    在父元素的节点的某个子节点前面插入
+
+删除元素：
+    在父元素中删除子节点
+        1.parentNode.removeChild(childNode)
+        返回被删除的元素
+        2.删除指定的DOM元素，没有返回值
+        DOMElement.remove()
+
+替换节点：
+    使用新节点替换旧节点
+    parentNode.replaceChild(newChild, oldChild)
