@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <script>
+        window.onload = function(){
+            var btn_add = document.getElementById("btn_add");
+            var tbody = document.querySelector(".container>table>tbody");
+            var inp = document.querySelectorAll("table input");
+            btn_add.onclick = function(){
+                var tr = document.createElement("tr");
+                tbody.appendChild(tr);
+                var last_tr = tbody.lastChild;
+                for(let i=0; i<3;i++){
+                    var td = document.createElement("td");
+                    last_tr.appendChild(td);
+                }
+                var new_inp = document.createElement("input");
+                for(let j=0;j<inp[0].attributes.length;j++){
+                    new_inp.setAttribute(inp[0].attributes[j].nodeName, inp[0].attributes[j].nodeValue);
+                }
+                last_tr.querySelectorAll("td")[2].appendChild(new_inp);
+                new_inp.onclick = function(){
+                    tbody.removeChild(this.parentNode.parentNode);
+                }
+            }
+            for(let i=0; i<inp.length; i++){
+                inp[i].onclick = function(){
+                    tbody.removeChild(this.parentNode.parentNode);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center h1">表格操作</div>
+        <button class="btn btn-success btn-block" id="btn_add">添加一行数据</button>
+        <table class="table table-bordered table-hover text-center">
+            <tr>
+                <td>编号</td>
+                <td>内容</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>测试内容111</td>
+                <td>
+                    <input type="button" value="删除此行" class="btn btn-danger">
+                </td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>测试内容222</td>
+                <td>
+                    <input type="button" value="删除此行" class="btn btn-danger">
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
