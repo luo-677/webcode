@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        
+        .red {
+            background: red;
+        }
+    </style>
+    <script src="./className.js"></script>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+            var btn = document.getElementById('btn');
+
+            // btn.onclick = function() {
+            //     addClass(box, 'box');
+            //     addClass(box, 'red');
+            // }
+
+            btn.onclick = function() {
+                removeClass(box, 'box2');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div id="box" class="box1 box2 box3"></div>
+</body>
+
+</html>

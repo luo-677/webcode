@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            width: 300px;
+            margin: 100px auto;
+            font-size: 2em;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="./animate.css">
+    <script>
+        window.onload = function() {
+            // https://animate.style/
+            var btn = document.getElementById('btn');
+            var title = document.getElementById('title');
+
+            btn.onclick = function() {
+                // HTML5 API  
+                // classList
+
+                // console.log(title.classList);
+
+                // title.classList.add('red'); // 添加类名
+
+                // title.classList.remove('title'); // 删除类名
+
+                // title.classList.replace('hello', 'world'); // 替换类名
+
+
+                title.classList.add('animate__rotateIn');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <h1 id="title" class="animate__animated animate__infinite">你好世界</h1>
+</body>
+
+</html>

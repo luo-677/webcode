@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // 将p元素替换成 h2
+
+            // 使用新节点替换旧节点
+            // parentNode.replaceChild(newChild,oldChild);
+
+            var box = document.querySelector('.box');
+            var red = document.querySelector('.red');
+
+            var h2 = document.createElement('h2');
+            h2.innerHTML = red.innerHTML;
+
+            // 遍历属性
+            for (var i = 0; i < red.attributes.length; i++) {
+                // 将 red的属性设置给h2
+                h2.setAttribute(red.attributes[i].nodeName, red.attributes[i].nodeValue);
+            }
+
+            // 替换元素
+            box.replaceChild(h2, red);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h1>这里是一个标题</h1>
+        <p class="red" title="red text">hello world</p>
+    </div>
+</body>
+
+</html>

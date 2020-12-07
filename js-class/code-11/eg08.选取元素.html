@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+
+            // 通过标签名选择元素
+            // node.getElementsByTagName()
+            // 选择到的结果为类数组对象
+            // var list = document.getElementById('list');
+            // var oLi = document.getElementsByTagName('li');
+            // console.log(oLi);
+
+            // 通过name属性选取元素  一般选取的都是表单元素
+            // node.getElementsByName()
+            // var oCheck = document.getElementsByName('check');
+            // // console.log(oCheck);
+
+            // oCheck[0].onclick = function() {
+            //     for (var i = 1; i < oCheck.length; i++) {
+            //         // 可以通过判断 checkbox 和 radio 的checked属性 可以判断元素是否被选中
+            //         // 并获得一个布尔值
+            //         oCheck[i].checked = this.checked;
+            //     }
+            // }
+
+            // node.getElementsByClassName();  // 通过类名选择元素
+
+            // var t = document.getElementsByClassName('test');
+            // console.log(t);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check">
+    <input type="checkbox" name="check">
+    <input type="text" name="text">
+
+    <ul id="list">
+        <li>001</li>
+        <li class="test">002</li>
+        <li>003</li>
+    </ul>
+
+    <ul>
+        <li class="test">001</li>
+        <li>002</li>
+        <li>003</li>
+    </ul>
+</body>
+
+</html>

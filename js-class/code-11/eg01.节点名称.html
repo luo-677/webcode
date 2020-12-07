@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            // 节点名称  nodeName
+            // 它是一个只读属性  string类型
+            // 所有节点都拥有这个属性
+
+
+            // 元素节点的节点名   tagName(大写)
+            // 文本节点的节点名   #text
+            // 注释节点的节点名   #comment
+            // 文档节点的节点名   #document
+            // 属性节点的节点名   属性名
+            // 文档申明的节点名   html
+
+            console.log(box.nodeName);
+            console.log(box.children[2].nodeName);
+            console.log(box.firstChild.nodeName);
+            console.log(box.childNodes[7].nodeName);
+            console.log(document.nodeName);
+            console.log(box.firstElementChild.attributes[0].nodeName);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <a href="">link</a>
+        <span>abc</span>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae ducimus in repudiandae earum illo porro deserunt minus deleniti magni ipsum delectus consectetur nostrum hic provident, laudantium rerum molestiae mollitia dolorum.
+        </p>
+        <!-- 这里是注释 -->
+        <h1>title</h1>
+    </div>
+</body>
+
+</html>

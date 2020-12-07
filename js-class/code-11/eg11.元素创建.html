@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var btn = document.querySelector('.btn');
+            var box = document.querySelector('#box');
+
+            btn.onclick = function() {
+                // 新增一个span元素
+
+                // 创建元素节点
+                // document.createElement(tagName);
+                var span = document.createElement('span');
+                span.textContent = 'hello world';
+                // console.log(span);
+
+
+
+                // 在指定父节点结尾插入 一个 子节点
+                // parentNode.appendChild(childNode);
+                // box.appendChild(span);
+
+                // 在指定父节点中 某个子节点之前插入 一个子节点
+                // parentNode.insertBefore(newChild,existingChild);
+
+                var inner = box.querySelector('div');
+                box.insertBefore(span, inner);
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button class="btn">按钮</button>
+    <div id="box">
+        <div>inner</div>
+    </div>
+</body>
+
+</html>

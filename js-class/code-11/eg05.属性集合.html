@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            // 属性集合 
+            // 元素节点的 attributes 属性
+            // 获得到元素节点的属性集合 类数组对象
+
+            // 通过 attributes[index] 或 attributes[attr] 可以获得到属性节点
+            // 每一个属性节点 都是一个单独的对象
+            // console.log(typeof box.attributes[0]);
+
+            // console.log(box.attributes['class']);
+            // console.log(box.attributes[1]);
+
+            // console.log(box.attributes['class'].nodeName);
+            // console.log(box.attributes['class'].nodeValue);
+            // console.log(box.attributes['class'].nodeType);
+
+
+            // 类数组转数组的方式 es6
+            // var arr = [...box.attributes];
+            // console.log(arr);
+
+            // 兼容低版本ie
+            // var arr2 = [].slice.call(box.attributes);
+            // console.log(arr2);
+
+
+            // 获得元素的属性值
+
+            // 1. element.attributes[index].value
+            // console.log(box.attributes[2].value);
+
+            // 2. element.attributes['attr'].value
+            // console.log(box.attributes['title'].value);
+
+            // 3. element.getAttributeNode('attr').value;
+            // console.log(box.getAttributeNode('class').value);
+
+            // 4. element.getAttribute('attr');  // 推荐使用
+            // console.log(box.getAttribute('id'));
+
+            // 设置属性值
+            // 1. element.setAttribute(name,value);  // 推荐使用
+            // box.setAttribute('id', 'abc');
+            // box.setAttribute('name', 'aaa');
+
+            // 2. element.setAttributeNode(attrNode);
+            // var attr = document.createAttribute('name');
+            // attr.nodeValue = 'new name';
+            // box.setAttributeNode(attr);
+
+
+            // 移除属性
+            // 1. element.removeAttribute(attrName); // 推荐使用
+            // box.removeAttribute('title');
+
+            // 2. element.removeAttributeNode(attrNode);
+
+
+            // 判断属性是否存在
+            // element.hasAttribute(attrname);
+            // console.log(box.hasAttribute('name'));
+
+            var btn = document.getElementById('btn');
+
+            // 点击按钮切换颜色
+            var flag = true;
+            btn.onclick = function() {
+                // box.getAttribute('class') == 'red' ? box.setAttribute('class', 'yellow') : box.setAttribute('class', 'red');
+
+                // box.setAttribute('class', box.getAttribute('class') == 'red' ? 'yellow' : 'red');
+
+                box.setAttribute('class', flag ? 'yellow' : 'red');
+                flag = !flag;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">anniu</button>
+    <div id="box" class="red" title="div element"></div>
+</body>
+
+</html>

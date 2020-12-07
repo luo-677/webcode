@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+
+    <script>
+        window.onload = function() {
+            var oLi = document.querySelectorAll('#tabs>ul>li');
+            var oDiv = document.querySelectorAll('#tabs>div');
+
+            // 1. 为li元素添加点击事件
+            for (var i = 0; i < oLi.length; i++) {
+                // html5标准规定 自定义属性使用 data-开头
+                oLi[i].setAttribute('data-index', i); // 设置属性index
+                oLi[i].onclick = function() {
+                    for (var j = 0; j < oLi.length; j++) {
+                        // 2. 遍历所有li元素 为li元素删除类名 active
+                        oLi[j].classList.remove('active');
+                        // 4. 删除所有div元素的show 类名
+                        oDiv[j].classList.remove('show');
+                    }
+                    // 3. 为被点击的元素添加 active类名
+                    this.classList.add('active');
+
+                    // 获取属性index
+                    oDiv[this.getAttribute('data-index')].classList.add('show');
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li class="active">选项内容一</li>
+            <li>选项内容二</li>
+            <li>选项内容三</li>
+            <li>选项内容四</li>
+            <li>选项内容五</li>
+            <li>选项内容六</li>
+        </ul>
+        <div class="show">显示内容一</div>
+        <div>显示内容二</div>
+        <div>显示内容三</div>
+        <div>444444444444</div>
+        <div>555555555555</div>
+        <div>66666666666</div>
+    </div>
+</body>
+
+</html>

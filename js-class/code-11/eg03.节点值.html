@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+            // 节点值 nodeValue
+            // 元素节点  null
+            // 文本节点  文本值
+            // 注释节点  注释内容
+            // 属性节点  属性值
+            // 文档节点  null
+            // 文档申明  null
+
+
+
+            // console.log(box.firstElementChild.firstChild.nodeValue);
+
+            // console.log(box.childNodes[9].nodeValue);
+
+            // console.log(document.nodeValue);
+
+            // console.log(document.firstChild.nodeValue);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <div>123</div>
+        <p>222</p>
+        <span>1111111</span>
+        <div>123</div>
+        <!-- 注释 -->
+        <p>222</p>
+        <div>123</div>
+        <div>123</div>
+        <p>222</p>
+        <div>123</div>
+    </div>
+</body>
+
+</html>

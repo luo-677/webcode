@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // 1. 通过css选择器选择第一个匹配到的元素
+            // node.querySelector(selector);   
+
+            // var list1 = document.querySelector('li');
+            // console.log(list1);
+
+            // 2. 通过css选择器选择所有匹配的元素
+            // node.querySelectorAll(selector);
+
+            // var oLi = document.querySelectorAll('.list2>li:nth-child(5)');
+            // console.log(oLi);
+
+            // var newsLink = document.querySelectorAll('a[href^="https://news"]');
+
+            // // console.log(newsLink);
+            // newsLink.forEach(function(elm) {
+            //     elm.style = 'color:red;';
+            // });
+
+            // var baiduLink = document.querySelectorAll('a[href*="baidu.com"]');
+            // baiduLink.forEach(function(elm) {
+            //     elm.style = 'color:red';
+            // });
+
+            // var oddLi = document.querySelectorAll('.list1>li:nth-child(odd)');
+            // oddLi.forEach(function(elm) {
+            //     elm.style = 'color:red';
+            // });
+
+            // -------------------------------------
+
+            // 特别选取
+
+            // 选择根元素(HTML)
+            // console.log(document.documentElement);
+
+            // 选择body
+            // console.log(document.body);
+
+            // 选择head
+            // console.log(document.head);
+        }
+    </script>
+</head>
+
+<body>
+
+    <a href="https://www.baidu.com">百度</a>
+    <a href="https://tieba.baidu.com">百度贴吧</a>
+    <a href="https://news.baidu.com/2020/10/11/1.html">百度新闻</a>
+    <a href="https://music.baidu.com">百度音乐</a>
+    <a href="https://music.163.com">网易云音乐</a>
+    <a href="https://news.sina.com.cn">新浪新闻</a>
+
+
+
+    <ul class="list1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+        <li>006</li>
+        <li>007</li>
+        <li>008</li>
+        <li>009</li>
+        <li>010</li>
+    </ul>
+
+    <ul class="list2">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+        <li>006</li>
+        <li>007</li>
+        <li>008</li>
+        <li>009</li>
+        <li>010</li>
+    </ul>
+</body>
+
+</html>

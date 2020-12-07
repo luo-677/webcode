@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var list = document.querySelector('.list');
+            var li = document.querySelector('.list>li:nth-child(2)');
+
+            // 在父节点中删除子节点
+            // parentNode.removeChild(childNode);
+            // 返回被删除的元素
+
+            // var result = list.removeChild(li);
+            // console.log(result);
+
+
+            // 删除指定dom元素 没有返回值
+            // DOMElement.remove();
+            // var res = li.remove();
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+
+</html>
