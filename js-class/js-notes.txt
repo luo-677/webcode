@@ -178,7 +178,6 @@ for循环和for...in...循环
     (13)Array.prototype.forEach()
         参数：callback
         描述：为每一个数组中每一个值执行一次回调函数
-        注意：直接修改原数组
         返回值：undefined
 
     (14)Array.prototype.filter()
