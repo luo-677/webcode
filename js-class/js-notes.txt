@@ -364,6 +364,10 @@ window：
     length 框架数量 已经废弃
     name 字符串类型，在定义变量的时候要记得规避
     如果不确定变量是否存在，在属性前面加上下划线
+    innerHeight 显示区域的高度
+    innerWidth 显示区域的宽度
+    outerHeight 浏览器窗口高度
+    outerWidth 浏览器窗口宽度
 
 全局方法：
     confirm

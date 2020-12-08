@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            border: 1px solid black;
+            /* line-height: 200px; */
+            display: table-cell;
+            vertical-align: middle;
+            /* float: left;  */
+            /* 所有浮动的元素都是块级元素 */
+            /* 如果非要进行浮动加表格模式，就在外面再套一层父元素，让父元素去浮动 */
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // var table = document.getElementById('table');
+
+            // console.log(table.rows); // 获得所有行  类数组对象
+
+            // for (var i = 0; i < table.rows.length; i++) {
+            //     console.log(table.rows[i].cells); // tablerow.cells  获得单元格集合
+
+            //     console.log(table.rows[i].rowIndex); // tablerow.rowIndex 返回当前行在表格中 索引
+            // }
+
+            // console.log(table.rows[1].cells[1].cellIndex); // tablecell 对象 cellIndex 返回当前单元格在行中的索引
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        你好<br>世界
+    </div>
+
+    <!-- <table id="table">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table> -->
+</body>
+
+</html>

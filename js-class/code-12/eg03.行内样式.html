@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            font-size: 3em;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+
+            var box = document.getElementById('box');
+            // console.log(box.style); //获得的是样式集合
+            // 获得行内样式文本
+            // console.log(box.style.cssText);
+
+
+            // 遍历样式集合 获得所有属性
+            // for (var i = 0; i < box.style.length; i++) {
+            //     console.log(box.style[i]);
+            //     console.log(box.style[box.style[i]]);
+            // }
+
+            // 获得单个行内样式
+            // console.log(box.style.color);
+            // 修改单个行内样式
+            // box.style.color = 'yellow';
+
+            console.log(box.style.fontSize); // 多单词 使用驼峰命名法
+            console.log(box.style['font-size']);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box" style="width:300px;height:300px;color:red;font-size:2em;">你好世界</div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            position: relative;
+            padding: 10px;
+        }
+        
+        .inner {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            position: absolute;
+            top: 10px;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box');
+            var inner = document.querySelector('.inner');
+            // 获取元素的宽高  使用 offsetWidth/offsetHeight
+            // offsetWidth/offsetHeight获得元素的实际大小 取决于是什么盒模型
+            // 常见盒模型
+            // border-box  大小=宽高
+            // content-box 大小=宽高+内填充+边框
+
+            // console.log(box.offsetWidth);
+            // console.log(box.offsetHeight);
+
+            // 获得元素的定位值  offsetTop/offsetLeft
+            // 如果元素的定位值是static 则根据body 0 0 点计算坐标
+            // 如果父级元素设置了定位  则根据 父级元素的 0 0 点计算坐标
+            // margin 会影响offsetTop/offsetLeft
+            // 定位置是从边框开始计算的
+            console.log(inner.offsetTop);
+            console.log(inner.offsetLeft);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+</body>
+
+</html>

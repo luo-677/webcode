@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+            // 获得计算后样式
+            // 最后生效的样式
+
+            // getComputedStyle(elm)[style]  标准浏览器
+            // elm.currentStyle[style]        ie浏览器(ie9以下)
+
+            // console.log(getComputedStyle(box)['width']);
+            // console.log(box.currentStyle['width']);
+
+            function getStyle(elm, style) {
+                if (typeof getComputedStyle === 'function') {
+                    return getComputedStyle(elm)[style];
+                } else {
+                    return elm.currentStyle[style];
+                }
+            }
+
+            console.log(getStyle(box, 'color'));
+        }
+    </script>
+</head>
+
+
+<body>
+    <div id="box" style="width:300px">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea odio deserunt consequatur. Veniam mollitia, sint quas voluptate modi earum fugit. Beatae voluptatibus excepturi rerum odio dolor officiis repellendus nobis voluptates!
+    </div>
+</body>
+
+</html>
