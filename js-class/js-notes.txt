@@ -510,10 +510,13 @@ location.search：
 删除元素：
     在父元素中删除子节点
         1.parentNode.removeChild(childNode)
-        返回被删除的元素
+            返回被删除的元素
         2.删除指定的DOM元素，没有返回值
-        DOMElement.remove()
+            DOMElement.remove()
 
 替换节点：
     使用新节点替换旧节点
     parentNode.replaceChild(newChild, oldChild)
+
+移动元素：
+    将需要移动的元素进行删除返回至一个新的变量，再将这个变量进行添加
