@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addEvent(elm, type, fn) {
+            if (elm.addEventListener) { // 判断是否支持DOM2级事件
+                elm.addEventListener(type, fn);
+            } else if (elm.attachEvent) {
+                elm.attachEvent('on' + type, fn);
+            }
+        }
+
+        function removeEvent(elm, type, fn) {
+            if (elm.removeEventListener) {
+                elm.removeEventListener(type, fn);
+            } else if (elm.detachEvent) {
+                elm.detachEvent('on' + type, fn);
+            }
+        }
+
+
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+
+            addEvent(btn, 'click', function() {
+                alert(1);
+
+                removeEvent(btn, 'click', arguments.callee);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+
+</html>

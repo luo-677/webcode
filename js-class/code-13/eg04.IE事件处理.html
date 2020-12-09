@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+
+            // IE事件处理
+            // elm.attachEvent(eventType,callback);
+
+            // IE移除事件
+            // elm.detachEvent(eventType,callback);
+
+            // IE的事件需要写on
+            btn.attachEvent('onclick', function() {
+                alert(1);
+                btn.detachEvent('onclick', arguments.callee);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+
+</html>

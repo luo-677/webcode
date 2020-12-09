@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 惰性函数 是一种函数的高阶用法
+        // 函数的作用需要执行一次才能确定
+
+        // function fn(type) {
+        //     if (type == 1) {
+        //         fn = function() {
+        //             console.log(1);
+        //         }
+        //     } else if (type == 2) {
+        //         fn = function() {
+        //             console.log(2);
+        //         }
+        //     }
+        //     return fn(type);
+        // }
+
+        // fn(1);
+        // fn(2);
+        // fn(3);
+
+        // fn(2);
+        // fn(1);
+
+        // -------------------------------------------------------
+        // 惰性函数应用场景
+        // 解决兼容问题 多次判断的业务逻辑
+
+        // function addEvent(elm, type, callback) {
+        //     if (elm.addEventLinsener) {
+        //         addEvent = function(elm, type, callback) {
+        //             elm.addEventLinsener(type, callback);
+        //         }
+        //     } else if (elm.attachEvent) {
+        //         addEvent = function(elm, type, callback) {
+        //             elm.attachEvent('on' + type, callback);
+        //         }
+        //     }
+        //     return addEvent(elm, type, callback);
+        // }
+
+        // addEvent(btn1, 'click', function() {});
+        // addEvent(btn2, 'click', function() {});
+        // addEvent(btn3, 'click', function() {});
+
+        // --------------------------------------------------
+        // 终极版本
+        var addEvent = (function() {
+            if (document.addEventListener) {
+                return function(elm, type, callback) {
+                    elm.addEventListener(type, callback);
+                }
+            } else if (document.attachEvent) {
+                return function(elm, type, callback) {
+                    elm.attachEvent('on' + type, callback);
+                }
+            }
+        })();
+
+        window.onload = function() {
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+            var btn3 = document.getElementById('btn3');
+
+            addEvent(btn1, 'click', function() {
+                alert(1);
+            });
+            addEvent(btn2, 'click', function() {
+                alert(2);
+            });
+            addEvent(btn3, 'click', function() {
+                alert(3);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn1">btn1</button>
+    <button id="btn2">btn2</button>
+    <button id="btn3">btn3</button>
+</body>
+
+</html>

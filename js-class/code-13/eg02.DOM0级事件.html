@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // DOM0级事件处理 指的是将 一个事件处理函数  赋值给一个事件处理的属性
+            // DOM0级也叫做  事件绑定
+            // 事件绑定只能为一个事件绑定 1个事件处理函数
+            // 当进行多次赋值时以最后一次赋值为准
+
+            var btn = document.querySelector('#btn');
+
+            btn.onclick = function() {
+                alert(1);
+
+                // DOM0级事件 移除事件 只需要将事件处理属性赋值为 null
+                btn.onclick = null;
+            }
+
+            // btn.onclick = function() {
+            //     alert(2);
+            // }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+</body>
+
+</html>
