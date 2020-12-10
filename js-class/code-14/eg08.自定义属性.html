@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box::after {
+            display: inline;
+            content: attr(data-name);
+        }
+    </style>
+    <script>
+        // HTML5标准允许用户 对HTML元素的属性进行自定义
+        // 用于保存一些需要使用的值
+
+        // 并提供了相关的操作接口
+        // HTML5约定 所有的自定义属性 都由  'data-'   前缀开头
+
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+
+            btn.onclick = function() {
+                // 获得自定义属性
+                // HTML5提供了JS接口  dataset
+                // console.log(box.dataset.name);
+
+                box.dataset.name = '李四';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div id="box" data-name="zhangsan" data-age="20">
+        欢迎
+    </div>
+</body>
+
+</html>

@@ -669,3 +669,27 @@ event对象：
         元素的左上角
     screenX,screenY
         屏幕的左上角
+
+键盘事件：
+    判断用户按键行为，给document添加keyup事件
+    ev.keyCode 键盘的按键编码 ASKII编码
+    ev.which 按键编码
+    组合键：
+        ctrlKey
+        altKey
+        shiftKey
+
+鼠标右键事件：
+    oncontextmenu
+
+阻止事件默认行为：
+    ev.preventDefault() 标准DOM方法
+    ev.returnValue = false IE兼容写法
+    return false 不是标准写法，不推荐
+
+就绪事件：
+    DOMcontentLoaded DOM结构加载完毕(HTML5)
+
+滚轮事件：
+    mousewheel       chrome / ie
+    DOMMouseScroll   FireFox
