@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 正则表达式 是一种中立于语言的 用于描述特定的字符规则的表达式
+
+        // JavaScript诞生于 1995年 由网景公司开发的
+        // 语言设计初衷  验证表单信息的有效性
+        // 在JavaScript中 正则表达式 属于 ECMAScript的内置对象
+
+        // RegExp
+
+        // 所有的正则表达式 都是由一些普通字符和特殊字符组成
+        // 用于字符规则的验证
+
+        // ECMAScript为正则表达式提供了构造函数
+        // 可以使用构造函数创建正则表达式
+        // 正则表达式在ES中是引用类型的数据
+
+        // --------------------------------------------
+
+        // 1. 使用构造函数创建
+        // 正则可以传递两个参数 参数1正则字符  参数2匹配属性
+        // var reg = new RegExp('abc');
+        // console.log(reg);
+
+
+        // 2. 直接量创建(字面量创建)
+        var reg2 = /abc/;
+        // console.log(reg2);
+
+        // console.log(reg === reg2);
+
+        // 正则表达式中有些字符有特殊的语法含义，是不能直接使用的，必须使用 \ 进行转义后才能使用
+        //  .   \    /    *    ?    +    [   ]    (    )  {    }   ^    |    $
+
+
+        // RegExp.prototype.test()
+        // 语法: reg.test(string);
+        // 描述: 通过正则表达式reg验证string是否符合reg的规范
+        // 返回值: 一个布尔值
+
+        console.log(reg2.test('abc'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

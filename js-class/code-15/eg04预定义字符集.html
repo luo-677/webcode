@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            // 预定义字符集
+            // 预先定义好的字符集 字符集表示一个字符
+
+            // \d 表示匹配一个数字 等同于 [0-9]
+            // \D 表示匹配一个非数字 等同于[^0-9]
+            // \w 表示匹配字母 数字 下划线 等同于 [A-Za-z0-9_]
+            // \W 表示匹配 非 字母 数字 下划线 等同于 [^A-Za-z0-9_]
+            // \s 表示匹配空白符 (空格 制表符)
+            // \S 表示匹配非空白符
+            // .  表示匹配除回车换行(\r\n)外的任意字符
+
+            var reg = /./;
+
+            userinput.onchange = function() {
+                result.innerHTML = reg.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>

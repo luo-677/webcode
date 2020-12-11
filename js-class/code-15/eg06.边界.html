@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            // 匹配边界
+            // ^ 表示匹配边界开始
+            // $ 表示匹配边界结束
+            // \b 匹配单词边界
+            // \B 匹配非单词边界
+            // ?=x 表示之后紧跟x的字符串
+            // ?!x 表示之后没有紧跟的x字符串
+
+            // var reg = //;
+
+            // 验证手机号格式
+            var phoneNumber = /^1[3-9]\d{9}$/;
+
+            userinput.onchange = function() {
+                result.innerHTML = phoneNumber.test(this.value) ? '通过验证' : '未通过验证';
+
+                // console.log(this.value.replace(reg, '123'));
+                // console.log(this.value.match(reg));
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>
