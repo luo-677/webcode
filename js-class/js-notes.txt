@@ -745,14 +745,46 @@ event对象：
     $ 表示匹配边界结束
     \b 匹配单词边界
     \B 匹配非单词边界
-    ?=x 表示之后紧跟x的字符串
+    ?=x 表示之后紧跟x的字符串(不包含x)
     ?!x 表示之后没有紧跟的x字符串
+    ?:n 表示之后紧跟x的字符串(包含x)
 
 正则表达式选择分组：
     | 在正则表达式中表示选择 相当于逻辑或
     () 一个小括号表示一个整体，分配一个分组编号
 
 正则表达式API：
-    RegExp.prototype.test(string)
-    描述：通过正则表达式验证字符串是否符合标准
-    返回值：布尔值
+    (1)RegExp.prototype.test(string)
+        描述：通过正则表达式验证字符串是否符合标准
+        返回值：布尔值
+
+    (2)String.prototype.match(regexp)
+        语法：str.match(regexp)
+        描述：查找匹配正则表达式的内容，返回一个数组
+        注意：返回数组的长度，取决于正则表达式是否有全局属性
+        返回值：数组，包含正则表达式的文本内容，否则null
+    
+    (3)String.prototype.search(regexp)
+        语法：str.search(regexp)
+        描述：查找匹配的第一个文本内容并返回索引值
+        注意点：没有匹配到则返回-1
+        返回值：索引值
+        
+    (4)String.prototype.replace(regexp,string)
+        语法：str.replace(regexp,string)
+        描述：使用正则表达式匹配字符串中的内容，进行替换
+        注意：
+        返回值：替换后的新字符串
+
+    (5)RegExp.prototype.exec(string)
+        语法：reg.exec(string)
+        描述：exec()方法在一个指定字符串中执行一个搜索匹配，返回一个数组或null
+        返回值：数组或null
+
+去除前后空格函数：
+    String.prototype.trim();
+    但是这个函数有兼容问题，需要进行兼容判断*****
+
+文本采集，主要是用于防范恶意攻击
+    (1)替换
+    (2)混淆 / 转义 &lt; &gt;

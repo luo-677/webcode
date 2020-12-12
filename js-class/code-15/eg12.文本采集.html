@@ -19,7 +19,7 @@
             var submit = document.getElementById('submit');
 
             submit.onclick = function() {
-                output.value = input.value.replace(/<[^<>]+>/g, '');
+                output.value = input.value.replace(/<[^<>]+>/g, ''); // 直接对标签进行匹配替换
             }
         }
     </script>
