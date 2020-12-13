@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 面试题
+        // 编写一个函数 去除字符串前后空格
+        // 编写一个trim函数
+
+        if (!String.prototype.trim) {
+            String.prototype.trim = function() {
+                return this.replace(/^\s+|\s+$/g, '');
+            }
+        }
+
+        window.onload = function() {
+            var username = document.getElementById('username');
+
+            username.onchange = function() {
+                console.log(this.value.trim());
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .box {
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            overflow: hidden;
+            float: left;
+            position: relative;
+        }
+        
+        p {
+            user-select: none;
+            position: absolute;
+        }
+        
+        .scroll {
+            width: 15px;
+            height: 500px;
+            float: left;
+            border: 1px solid black;
+            margin-left: 5px;
+            position: relative;
+        }
+        
+        .movebox {
+            width: 13px;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box'),
+                p = document.querySelector('.box>p'),
+                scroll = document.querySelector('.scroll'),
+                movebox = document.querySelector('.movebox');
+
+            // 1.movebox拖拽 只改变y轴
+            movebox.onmousedown = function(ev) {
+                var offsetY = ev.offsetY;
+
+                document.onmousemove = function(ev) {
+                    var pageY = ev.pageY;
+                    var y = pageY - offsetY;
+
+                    move(y);
+
+                    // if (y < 0) {
+                    //     y = 0;
+                    // } else if (y > scroll.offsetHeight - movebox.offsetHeight) {
+                    //     y = scroll.offsetHeight - movebox.offsetHeight - 2;
+                    // }
+
+
+                    // // 2. 在得到y以后计算比例
+                    // var ratio = y / (scroll.offsetHeight - movebox.offsetHeight - 2);
+                    // // console.log(ratio);
+                    // // 3. 得到比例后修改文本的定位
+
+                    // p.style.top = (p.offsetHeight - box.offsetHeight - 2) * -ratio + 'px';
+
+                    // movebox.style.top = y + 'px';
+                }
+
+                document.onmouseup = function() {
+                    document.onmousemove = null;
+                }
+            }
+
+            function move(y) {
+                if (y < 0) {
+                    y = 0;
+                } else if (y > scroll.offsetHeight - movebox.offsetHeight) {
+                    y = scroll.offsetHeight - movebox.offsetHeight - 2;
+                }
+
+
+                // 2. 在得到y以后计算比例
+                var ratio = y / (scroll.offsetHeight - movebox.offsetHeight - 2);
+                // console.log(ratio);
+                // 3. 得到比例后修改文本的定位
+
+                p.style.top = (p.offsetHeight - box.offsetHeight - 2) * -ratio + 'px';
+
+                movebox.style.top = y + 'px';
+            }
+
+
+
+
+            var addEvent = (function() {
+                if (document.addEventListener) {
+                    return function(elm, type, callback) {
+                        elm.addEventListener(type, callback);
+                    }
+                } else if (document.attachEvent) {
+                    return function(elm, type, callback) {
+                        elm.attachEvent('on' + type, callback);
+                    }
+                }
+            })();
+
+
+            function mouseScroll(ev) {
+                ev = ev || event;
+                var flag = true; // 方向
+                if (ev.wheelDelta) {
+                    flag = ev.wheelDelta > 0 ? true : false;
+                } else {
+                    flag = ev.detail < 0 ? true : false;
+                }
+
+
+                if (flag) {
+                    move(movebox.offsetTop - 10);
+                } else {
+                    move(movebox.offsetTop + 10);
+                }
+            }
+
+            addEvent(box, 'mousewheel', mouseScroll);
+            addEvent(box, 'DOMMouseScroll', mouseScroll);
+            addEvent(scroll, 'mousewheel', mouseScroll);
+            addEvent(scroll, 'DOMMouseScroll', mouseScroll);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ullam voluptatibus, consequuntur perferendis a possimus debitis accusamus quo deserunt nam hic aliquam expedita quisquam dolore magnam nesciunt officiis eligendi. Similique, pariatur.
+        </p>
+    </div>
+    <div class="scroll">
+        <div class="movebox"></div>
+    </div>
+</body>
+
+</html>

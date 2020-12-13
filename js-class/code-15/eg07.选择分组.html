@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            // 选择分组
+            // | 在正则中表示选择 相当于es中逻辑或(||)
+            // () 在正则中表示分组 一个小括号被看做一个整体 会自动获得一个分组编号
+
+            var reg = /^abc((abc)|(123))$/;
+
+            userinput.onchange = function() {
+                result.innerHTML = reg.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>

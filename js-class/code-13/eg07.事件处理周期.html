@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 事件处理周期 ( 事件流 )
+
+        // DOM中 事件的处理周期 分为三个阶段
+        // 1. 事件捕获 从最不具体的事物到最具体的事物 事件沿着DOM树向下传播
+        // 2. 目标触发 运行事件处理函数
+        // 3. 事件冒泡 从最具体的事物到最不具体的事物 事件沿着DOM树向上传播
+
+        // 标准浏览器 可以选择捕获或冒泡 
+        // DOM2级 事件监听  addEventListener(type,fn[,boolean=false])
+
+        // 在浏览器中事件默认冒泡
+
+        // 注意：IE浏览器中没有捕获阶段
+
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+
+
+
+            box.addEventListener('click', function() {
+                alert(2);
+            },true);
+
+            btn.addEventListener('click', function() {
+                alert(1);
+            },true);
+
+            document.body.addEventListener('click', function() {
+                alert(3);
+            },true);
+
+            document.documentElement.addEventListener('click', function() {
+                alert(4);
+            },true);
+
+            window.addEventListener('click', function() {
+                alert(5);
+            },true);
+
+
+
+            // btn.onclick = function() {
+            //     alert(1);
+            // }
+
+            // box.onclick = function() {
+            //     alert(2);
+            // }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <button id="btn">按钮</button>
+    </div>
+</body>
+
+</html>

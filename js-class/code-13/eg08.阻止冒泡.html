@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+
+            // 阻止事件冒泡
+            // 标准DOM方法 
+            // ev.stopPropagetion()
+
+            // 所有的事件 在事件处理函数中的第一个参数 都是事件对象 event ev e
+            // btn.addEventListener('click', function(ev) {
+            //     ev.stopPropagation();
+            //     alert(1);
+            // });
+
+            // box.addEventListener('click', function() {
+            //     alert(2);
+            // });
+
+
+            // 在IE9以下阻止事件冒泡
+            // event.cancelBubble = true;
+
+            btn.onclick = function(ev) {
+                // event对象兼容ie写法
+                ev = ev || event;
+
+                // 兼容ie的阻止冒泡
+                if (ev.stopPropagation) {
+                    ev.stopPropagation();
+                } else {
+                    ev.cancelBubble = true;
+                }
+
+
+
+                alert(1);
+            }
+
+            box.onclick = function() {
+                alert(2);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <button id="btn">按钮</button>
+    </div>
+</body>
+
+</html>

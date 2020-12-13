@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            box.addEventListener('click', function(ev) {
+                // ev对象常用属性
+                // type 事件类型
+                // console.log(ev.type);
+                // target 事件目标(事件源)
+                // console.log(ev.target);
+
+                // 鼠标事件 坐标属性
+                console.log(ev.clientX, ev.clientY); // 根据浏览器可视区域坐上角开始计算坐标位置
+                console.log(ev.pageX, ev.pageY); // 根据页面内容左上角开始计算坐标
+                console.log(ev.layerX, ev.layerY); // 同上 兼容FF
+                console.log(ev.offsetX, ev.offsetY); // 根据元素的左上角开始计算坐标
+                console.log(ev.screenX, ev.screenY); // 根据屏幕左上角开始计算坐标
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

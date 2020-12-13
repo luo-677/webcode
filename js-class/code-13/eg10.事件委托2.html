@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            box.onclick = function(ev) {
+                switch (ev.target.className) {
+                    case 'h1':
+                        console.log('这里点击的是h1');
+                        break;
+                    case 'span':
+                        console.log('本此点击了span');
+                        break;
+                    case 'div':
+                        console.log('本次点击了div');
+                        break;
+                    case 'p':
+                        console.log('本次点击了p');
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <h1 class="h1">hello world</h1>
+        <span class="span">text</span>
+        <div class="div">1111111111</div>
+        <p class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis commodi hic soluta ea aperiam ipsam optio sed inventore quisquam dolor illum iusto saepe cum, harum, at quis officia quo ab.</p>
+    </div>
+</body>
+
+</html>

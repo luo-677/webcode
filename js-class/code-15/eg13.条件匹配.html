@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            // ?=n   匹配任何其后紧接指定字符串 n 的字符串。只返回n前面的字符串
+
+            // ?!n   匹配任何其后没有紧接指定字符串 n 的字符串。
+
+            // ?:n  n前面的字符串和n一起返回
+
+            var reg = /windows(?=98|2000)/;
+
+            var str = '我使用的系统是 windows2000 操作系统';
+            console.log(reg.test(str));
+            console.log(str.match(reg));
+
+            userinput.onchange = function() {
+                result.innerHTML = reg.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>

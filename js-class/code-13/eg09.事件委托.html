@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 事件委托 (事件委派)
+        // 将事件处理函数 添加给事件目标的 父级或祖先级元素
+        // 通过事件冒泡原理 并判断事件的目标对象 为目标添加事件
+
+        // event对象
+        // 每一个事件都会拥有一个对应的event对象 用于事件信息的记录
+        // 它会作为事件处理函数的第一个参数 自动 注入 到函数中
+
+
+        // 使用事件委托的好处
+        // 1. 减少DOM的查找次数
+        // 2. 减少事件的添加(绑定) 次数
+        // 3. 可以为未来元素添加事件
+
+
+        window.onload = function() {
+            var box = document.getElementById('box');
+
+            box.onclick = function(ev) {
+                // ev.target 目标元素 DOM元素
+                // ev.srcElement 目标元素  DOM元素
+
+                // 如果需要处理兼容
+                ev = ev || event;
+                var target = ev.target || ev.srcElement;
+
+
+                if (target.nodeName === 'BUTTON') {
+                    var newBtn = document.createElement('button');
+                    newBtn.innerText = '按钮';
+                    box.appendChild(newBtn);
+                }
+            }
+
+
+            // var btns = document.querySelectorAll('button');
+            // btns.forEach(function(el) {
+            //     el.onclick = function() {
+            //         // 未来元素(页面中不存在的 是使用JS创建的元素)
+            //         var newBtn = document.createElement('button');
+            //         newBtn.innerText = '按钮';
+            //         box.appendChild(newBtn);
+            //     };
+            // });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <button>按钮</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var userinput = document.querySelector('#userinput');
+            var result = document.querySelector('#result');
+
+            var reg = /abc/;
+
+            userinput.onchange = function() {
+                result.innerHTML = reg.test(this.value) ? '通过验证' : '未通过验证';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+    <span id="result"></span>
+</body>
+
+</html>
