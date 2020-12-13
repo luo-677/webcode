@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**选择排序的思路：
+         *    (1)将第一个元素假设为最小的元素，记录下坐标min，与后面所有的元素进行比较
+         *    (2)当后面有元素的值比第一个元素大时，将min的坐标值修改为这个元素的下标
+         *    (3)每次大循环结束后，将这个循环的首个元素与min值对应的元素进行位置交换
+         */
+        var arr = [5,4,3,2,1];
+        for(var i=0; i<arr.length-1; i++){
+            var min = i;
+            for(var j=i+1; j<arr.length; j++){
+                if(arr[min]>arr[j]){
+                    min = j;
+                }
+            }
+            var tmp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = tmp;
+        }
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
