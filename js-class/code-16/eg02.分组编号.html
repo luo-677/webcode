@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var reg = /(\d+)([a-z]+)/;
+        var str = '123486123lkas';
+        console.log(reg.test(str));
+
+        // // RegExp.$1  ... RegExp.$N
+        // // 表示正则表达式的分组
+        // // 在使用正则方法后可以使用 能获得匹配的内容
+        // console.log(RegExp.$1);
+        // console.log(RegExp.$2);
+
+        var str2 = 'abc123';
+        console.log(str2.replace(/([a-z]+)(\d+)/, '$2$1'));
+        console.log(RegExp.$1);
+        console.log(RegExp.$2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

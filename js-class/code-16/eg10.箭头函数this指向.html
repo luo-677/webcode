@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // this 关键字 在JS中  是动态的指针
+        // this的指向和定义无关 和执行有关
+
+
+        // 箭头函数中的this 是静态的指向
+
+        // 箭头函数中this 指向定义时所在的环境
+
+        // 箭头函数有几个使用注意点。
+
+        // (1) 函数体内的this对象， 就是定义时所在的对象， 而不是使用时所在的对象。
+
+        // (2) 不可以当作构造函数， 也就是说， 不可以使用new命令， 否则会抛出一个错误。
+
+        // (3) 不可以使用arguments对象， 该对象在函数体内不存在。 如果要用， 可以用 rest 参数代替。
+
+        // (4) 不可以使用yield命令， 因此箭头函数不能用作 Generator 函数。
+
+        // 上面四点中， 第一点尤其值得注意。 this对象的指向是可变的， 但是在箭头函数中， 它是固定的。
+
+        // 箭头函数的this是继承过来的，所以在声明时如果函数已经决定了this的指向，指向不会再变
+
+        // 若箭头函数在定义时，上下文有具体的函数进行指向，那就直接继承上下文的this，不然则指向window
+
+        // var x = 3;
+
+        // let obj = {
+        //     x: 5,
+        //     fn: function() {
+        //         console.log(this.x);
+
+        //         setTimeout(() => {
+        //             console.log(this.x); // obj.x
+        //         }, 1000);
+
+
+        //     },
+        //     fn2: () => {
+        //         console.log(this.x); // window.x
+        //     }
+        // }
+
+        // obj.fn(); // obj.x
+        // obj.fn2();
+
+        // obj.fn();
+
+        window.onload = function() {
+            // 使用箭头函数时需要注意  不要给事件处理函数使用箭头函数
+            let btn = document.querySelector('#btn');
+            btn.addEventListener('click', () => {
+                console.log(this);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">anniu</button>
+</body>
+
+</html>

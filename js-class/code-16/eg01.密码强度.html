@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 判断密码强度
+        // 要求密码组成有不同的字符类型
+        // 字母 数字 特殊符号 密码长度
+        // 判断组成密码字符的字符的种类
+
+        window.onload = function() {
+            var password = document.getElementById('password');
+            var result = document.getElementById('result');
+
+            // 大写字母
+            // 小写字母
+            // 数字
+            // 特殊符号
+            // 密码长度 不小于8位
+
+            // 组成密码的字符串有两种字符 弱
+            //                   三种字符 中
+            //                  四种字符  强
+
+            var reg = [
+                /^.{8,16}$/,
+                /[A-Z]+/,
+                /[a-z]+/,
+                /\d+/,
+                /[^A-Za-z0-9]/
+            ];
+
+            password.oninput = function() {
+                var _this = this;
+                // 用每一条正则来验证输入框的值
+                var check = reg.map(function(el) { // 返回值是一个数组
+                    return el.test(_this.value); // 存放了每一个正则的验证结果
+                });
+
+                var strength = check.reduce(function(obj, current) {
+                    current && obj.count++;
+                    return obj;
+                }, {
+                    count: 0
+                });
+
+                if (check[0]) {
+                    switch (strength.count) {
+                        case 3:
+                            result.innerHTML = '弱';
+                            break;
+                        case 4:
+                            result.innerHTML = '中';
+                            break;
+                        case 5:
+                            result.innerHTML = '强';
+                            break;
+                    }
+                } else {
+                    result.innerHTML = '密码长度不足8位';
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="password"> <span id="result"></span>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Generator 是ES6新增的一种函数用法
+        // 遍历器对象
+        // 用于解决异步操作的问题
+        // 让异步代码同步化执行
+
+        // Generator 不会单独使用 一般是配合nodejs的 co 函数库使用
+        // co.js 函数库 提供了一个遍历器函数 会自动调用 Generator
+
+        // 在函数关键字和函数名中间 添加一个* 
+        // 这个函数就会变成 Generator
+        function* fn() {
+            console.log('函数被调用了');
+            yield '你';
+            console.log('第二次调用');
+            yield '好';
+            console.log('第三次调用');
+            yield '世';
+            console.log('第四次调用');
+            return '界';
+        }
+
+        // 调用Generator会获得一个遍历器对象
+        // Generator会将一个函数分成多次执行
+        // 在Generator中 会配合 yield 语句使用
+        // 每一次调用 遍历器对象的 next 方法 会获得一个返回的结果
+        // 这个结果包含了 本次Generator产生的值 和 一个done属性 表示是否已完成遍历
+        // 一般最后一次使用return关键字表示遍历结束 并产生结果
+
+        let gen = fn();
+
+        let result;
+
+        while (result = gen.next()) {
+            console.log(result.value);
+            if (result.done) break;
+        }
+
+        result = gen.next();
+        console.log(result);
+
+        // result = gen.next();
+        // console.log(result);
+
+        // result = gen.next();
+        // console.log(result);
+
+        // result = gen.next();
+        // console.log(result);
+
+
+
+        // console.log(gen);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

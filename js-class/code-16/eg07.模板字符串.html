@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ES6新增了一种便于模板书写和拼接的字符串格式  称之为 模板字符串
+        // 模板字符串采用反引号书写方式  ``
+
+        // 1. 模板字符串会保留原字符串书写的模板格式
+        // 2. 可以换行
+        // 3. 拼接方便 使用 ${} 拼接变量
+
+        // let str = `你
+        // 好
+        // 世
+        // 界`;
+        // console.log(str);
+
+        window.onload = function() {
+            let list = document.querySelector('#list');
+
+            let li = '';
+
+            for (let i = 0; i < 10; i++) {
+                li += `<li style="color:red">这里是第${i+1}个li元素</li>`;
+            }
+
+            list.innerHTML = li;
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list"></ul>
+</body>
+
+</html>

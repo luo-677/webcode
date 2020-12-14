@@ -159,7 +159,50 @@ if语句：
     if...else if...else...
 
 switch语句：
+    swith(表达式 变量){
+        case 值:
+            do...;
+            [break;]
+        ...
+        [default:
+            do...;]
+    }
+    注意:switch常用于分支判断，需要有具体的范围
+         break不是必须的，需要看需求进行添加
+         case表示确定的某一种情况
     
+if-else 和 switch 的区别：
+    if-else 可以判断相等，不相等，大小关系，适用性比较广
+    switch 判断相等，结构清晰，简洁效率高
+
+while循环：
+    while(布尔表达式){
+        循环体:需要重复执行的代码;
+    }
+    注意：在使用while循环语句时，一定要设置出口，不能死循环
+
+break 和 continue：
+    break：直接总断当前循环
+    continue：结束当前次数循环，进入下一轮循环
+
+do-while循环：
+    先进行一次循环，再进行循环条件判断
+
+while 和 do...while 的区别：
+    do.while不管在什么样的情况下，至少能执行一次条件块中的代码
+    while可能一次都不执行
+
+for语句：
+    for(表达式1;表达式2;表达式3;){
+        循环体;
+    }
+    执行顺序：
+        (1)表达式1
+        (2)表达式2
+        (3)代码块
+        (4)表达式3
+        (5)表达式2
+        ... 表达式2不成立，结束循环
 
 鼠标事件：
     (1)onclick 左键单击
@@ -951,3 +994,151 @@ event对象：
 文本采集，主要是用于防范恶意攻击
     (1)替换
     (2)混淆 / 转义 &lt; &gt;
+
+正则表达式的分组编号：
+    str = 'abc123'
+    /([a-z]+)([0-9]+)/
+    RegExp.$1 = abc;
+    RegExp.$2 = 123;
+    str.replace(/([a-z]+)([0-9]+)/,"$2$1")
+        字符串快速倒序
+        在使用该方法时，正则的顺序必须要匹配
+
+严格模式：
+    "use strict"
+    (1)严格模式必须写在作用域的顶部，前面只能有注释
+    (2)变量必须先声明再使用
+    (3)严格模式下，全局函数的this不再指向window
+    (4)严格模式下，eval有独立的作用域
+
+Function.prototype.bind()
+    语法：
+        fn.bind(thisObj[,arg1...,argN])
+    参数：
+        thisObj：this需要指向的新对象
+        arg：需要绑定给新函数的实参
+    返回值：一个新函数
+    注意：
+        bind可以为函数绑固定的实际参数
+        绑定参数后，后续外部传入的参数会进行顺延
+    应用场景：
+        需要保存this指针的地方都可以使用
+    
+let和const：
+    let 定义变量
+    const 定义常量 引用类型中的值可以进行改变
+
+结构赋值：
+    左右对等的模式匹配，结构相等，自动拆解进行赋值
+    解构不成功时自动定义为undefined
+    解构允许设置默认值
+
+对象的解构：
+    对象是无序的，解构时必须使用对象的属性名
+
+字符串结构：
+    跟数组解构一致
+
+模板字符串：
+    `xxxxxxx${}xxxx${}xxxxxxxx`
+
+Symbol:
+    Symbol没有构造函数，不能使用new进行创建实例
+    Symbol用于解决对象的命名冲突问题
+    let s = Symbol['username'];
+    obj[s] = "lisi";
+    使用Symbol类型时不能使用点操作符
+    console.log(obj[s]);
+
+箭头函数：
+    函数语法糖
+    适用于只有一个参数(省略小括号)，且只有一条返回语句(省略大括号)
+    通常适用于回调函数和匿名函数
+    let fn = function(a){
+        return a + 2;
+    }
+    let fn = a => a + 2;
+
+箭头函数的this：
+    this的指向在声明的时候被决定，上下文有具体的函数指向，那句集成父函数的this指向，不然就指向window
+
+set结构：
+    set是一种类似数组的数据结构，值唯一，不允许重复
+    可以通过set构造函数创建set结构
+    set主要用于数组的去重
+    将类数组转为数组：
+        Array.from()
+        [...arrayLike]
+        [].slice.call(arrayLike)
+
+Set的API：
+    Set.prototype.add()
+        用于向set结构中添加元素
+        set的add方法支持链式调用
+        set.add(1).add(2).add(3)
+
+    Set.prototype.size
+        获得set结构的长度
+        set结构没有length属性
+    
+    Set.prototype.delete(value)
+        删除set中的元素，并返回一个布尔值
+
+    Set.prototype.has(value)
+        判断set中是否存在value，返回一个布尔值
+
+    Set.prototype.clear()
+        清空set结构，删除所有元素
+
+Map结构：
+    Map是一种hash结构，是值和值的对应，key可以是任意类型
+    Map.prototype.set(key,value)
+        设置键值对
+    
+    Map.prototype.get(key)
+        通过key获得值
+
+    Map.prototype.has(key)
+        通过key判断键值对是否存在
+
+    Map.prototype.delete(key)
+        通过key删除一个键值对
+
+    Map.prototype.clear()
+        清空Map
+
+for-of：
+    es6新增的一种遍历方法，遍历Iterator接口所支持的数据结构
+    for-in 和 for-of 都可以用于遍历数组
+        for-in 遍历的是 key
+        for-of 遍历的是 value
+    for(let key in arr){
+        console.log(arr[key]);
+    }
+    for(let value of arr){
+        console.log(value);
+    }
+    用于结构Map：
+        for(var [key,value] of Map){
+            console.log(key,value);
+        }
+
+Generator：
+    ES6新增的一种函数用法
+        遍历器对象
+        用于解决异步操作的问题
+        让异步代码同步化执行
+        Generator一般不会单独使用，一般配合node.js的co函数库使用
+        co.js库函数提供了一个遍历器函数会自动调用Generator
+    在函数关键字和函数名中间添加一个*，函数就会变成Generator
+    调用Generator会获得一个遍历器对象
+    Generator会将一个函数分成多次执行
+    在Generator中会配合yield语句使用
+    每一次调用遍历器对象的next方法会获得一个返回的结果(value,done)
+    这个结果包含了本次Generator产生的值和一个done属性，表示是否已完成遍历
+    一般最后一次使用return关键字表示遍历结束并产生结果
+    使用while循环进行分步执行：
+        while(result = gen.next()){
+            console.log(result.value);
+            if(result.done) break;
+        }

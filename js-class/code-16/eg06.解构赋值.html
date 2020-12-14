@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 解构赋值
+        // 解构赋值是一种左右对等的模式匹配
+        // 指的是赋值符左右两边 结构相同 自动拆解 进行赋值
+
+        // let arr = [1, 2, 3, 4, 5];
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+        // let d = arr[3];
+        // let e = arr[4];
+        // let [a, b, c, d, e] = arr;
+        // console.log(a, b, c, d, e);
+
+        // let arr2 = [654, [123, 11]];
+        // let [a, b, c] = arr2;
+        // console.log(b);
+        // console.log(c);
+
+        // 解构不成功时自动取值undefined
+        // let arr3 = [1, 2, 3, 4];
+        // let [a, , b, c, d] = arr3;
+        // console.log(b);
+        // console.log(d);
+
+        // 解构赋值允许设置默认值
+        // let arr4 = [1, 2, 3, 4, 5, 0];
+        // let [a, b, c, d, e, f = 6] = arr4;
+        // console.log(a, b, c, d, e, f);
+
+
+        // let arr5 = [1, 2, 3, 4, 5];
+        // let [a, ...b] = arr5;
+        // console.log(b);
+
+        // -------------------------------------------------
+        // 对象的解构
+        // 对象是无序的数据结构
+        // 数组是有序的数据结构
+
+        // let obj = {
+        //     username: 'zhangsan',
+        //     age: 20,
+        //     sex: 'nan'
+        // };
+
+        // 结构对象时 变量名必须是对象的属性名
+        // let {
+        //     username,
+        //     age,
+        //     sex
+        // } = obj;
+        // console.log(username, age, sex);
+
+        // let {
+        //     PI,
+        //     random,
+        //     max
+        // } = Math;
+
+        // console.log(PI);
+        // console.log(random());
+
+        // ---------------------------------------------
+        // 字符串可以解构
+        // let str = 'abcdefg';
+        // let [a, b, c] = str;
+        // console.log(a, b, c);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

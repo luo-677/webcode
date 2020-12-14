@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 严格模式  是由ES5标准引入的
+        // 消除JS中一些不合理的情况
+        // 提高编译器的效率
+
+        // 进入严格模式 使用 
+        "use strict";
+        // 如果是老版本浏览器不支持严格模式则会将这条语句当成普通字符串进行忽略
+
+        // 严格模式必须出现在作用域的顶部
+
+        // 且前面不允许由任何代码 包括空语句
+
+        // 严格模式下 变量必须先声明 后使用
+        // a = 10;
+        // console.log(a);
+
+
+        // 严格模式下 全局函数的this不再指向window
+        // function fn() {
+        //     console.log(this); // 严格模式下 undefiend
+        // }
+
+        // fn();
+
+
+        // --------------------------------------------------
+        // 在严格模式下 eval有独立的作用域
+        eval('var a = 5;var b = 3;console.log(a+b);'); //将一个字符串当作JS代码执行
+
+        console.log(a + b);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ES6 新增了一种基本数据类型 Symbol
+        // 它是ES中的第六种基本数据类型
+        // Symbol没有构造函数  不能通过new关键字来实例
+
+        // Symbol用于解决对象的命名冲突问题
+
+
+        let s1 = Symbol('username');
+        let s2 = Symbol('username');
+        let s3 = Symbol('usernmae');
+
+        let obj = {
+            // username: 'zhangsan'
+        }
+
+        // obj.username = 'lisi';
+
+        // 使用Symbol类型时不能使用点操作符
+        obj[s1] = 'zhangsan';
+        obj[s2] = 'lisi';
+        obj[s3] = 'wangwu'
+        console.log(obj[s1]);
+        console.log(obj[s2]);
+        console.log(obj[s3]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Map 是ES6新增的数据结构
+        // 这种数据结构是一种  哈希结构(hash)  键值对  key=value
+        // JavaScript的对象 也是一种哈希结构 属性名对应一个值
+        // 字符串:值  Symbol:值
+
+        window.onload = function() {
+            var box = document.querySelector('#box');
+            var box2 = document.querySelector('#box2');
+
+            // 对象的属性名 字符串类型
+            // 当一个对象无法作为 另外一个对象的属性名时  会自动将其toString()
+
+            // console.log(box.toString()); // '[object HTMLDivElement]'
+            // console.log(box2.toString()); // '[object HTMLDivElement]'
+
+            // 对象无法作为key使用
+
+            // var obj = {};
+            // obj[box] = 123;
+            // obj[box2] = 456;
+            // console.log(obj[box]);
+
+
+            // -----------------------------------------------------------
+
+            // Map也是一种hash结构 和对象不同的是
+            // 对象是 字符串和值的对应
+            // Map是 值和值的对应
+            // Map的key可以是任意类型
+
+            let map = new Map();
+
+            let o = {
+                x: 1
+            };
+
+
+            // Map.prototype.set(key,value);  // 设置键值对
+
+            map.set(o, 123);
+
+            console.log(map);
+
+            // Map.prototype.get(key)  // 通过kye 获取值
+            console.log(map.get(o));
+
+            // Map.prototype.has(key) //通过key判断键值对是否存在
+            console.log(map.has(o));
+
+            // Map.prototype.delete(key)  // 通过key删除一个键值对
+
+            // Map.prototype.clear()  // 清空Map
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

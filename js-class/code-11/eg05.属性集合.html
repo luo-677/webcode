@@ -41,8 +41,10 @@
 
 
             // 类数组转数组的方式 es6
-            // var arr = [...box.attributes];
-            // console.log(arr);
+            var arr = [...box.attributes];
+            console.log(arr);
+            // console.log(arr[style]); 报错
+            console.log(arr[3]);
 
             // 兼容低版本ie
             // var arr2 = [].slice.call(box.attributes);
@@ -103,7 +105,7 @@
 
 <body>
     <button id="btn">anniu</button>
-    <div id="box" class="red" title="div element"></div>
+    <div id="box" class="red" title="div element" style="color:red"></div>
 </body>
 
 </html>

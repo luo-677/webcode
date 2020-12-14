@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // for-of 是es6新增一种遍历语法 
+        // 它主要用于遍历 Iterator 接口所支持的数据结构
+
+        // let arr = [333, 5643, 451, 23, 543];
+
+        // for (let key in arr) {
+        //     console.log(arr[key]);
+        // }
+
+        // for (let value of arr) {
+        //     console.log(value);
+        // }
+
+        // for-in 和 for-of 都可以用于遍历数组
+        // 都无法遍历不可枚举属性
+        // for-in 遍历的是 key
+        // for-of 遍历的是 value
+
+        let map = new Map();
+        map.set('key1', 132);
+        map.set(true, 456);
+        map.set([11, 22, 33], 777);
+
+        console.log(map);
+
+        for (let [key, value] of map) {
+            console.log(key, value);
+        }
+
+
+        // -----------------------------------------
+        // var obj = {
+        //     x: 1,
+        //     y: 2
+        // };
+
+        // for (let value of obj) {
+        //     console.log(value);
+        // }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

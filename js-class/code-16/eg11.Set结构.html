@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数据结构
+
+        // 将数据按特定关系或方式进行保存
+
+        // Set 是 ES6 新增的一种数据结构
+        // 它是一种类似于数组的数据结构
+        // Set的值是唯一的， 不允许有重复的值
+
+        // 通过Set构造函数创建Set结构
+
+        // let set = new Set([arrayLike]);
+
+        // let set = new Set([2, 54, 12, 534, 12]);
+        // console.log([...set]);
+
+        // 应用场景 数组去重
+
+        // 将类数组转数组的方法
+        // Array.from();
+        // [...arrayLike]
+        // [].slice.call(arrayLike)
+
+
+        // ------------------------------------------
+        let set = new Set();
+        // Set.prototype.add();
+        // 用于向set结构中添加元素
+        // set的add方法支持链式调用
+
+        // set.add('123');
+        // set.add('222');
+        // set.add('333');
+
+        set.add(1).add(2).add(3);
+
+        // console.log(set);
+
+
+        // Set.prototype.size
+        // 获得长度  Set结构没有length属性
+        // console.log(set.size);
+
+
+        // Set.prototype.delete(value);
+        // 删除set中的元素 并返回一个布尔值
+        // console.log(set.delete(2));
+        // console.log(set);
+
+        // Set.prototype.has(value);
+        // 判断元素在set中是否存在 并返回一个布尔值
+        // console.log(set.has(3));
+
+        // Set.prototype.clear();
+        // 清空set结构 删除所有元素
+        set.clear();
+        console.log(set);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

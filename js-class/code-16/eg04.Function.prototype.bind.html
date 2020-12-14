@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Function.prototype.bind()
+        // 语法: fn.bind(thisObj[,arg1...,argN]);
+        // 参数: thisObj 对象 函数中this指针需要指向的新对象
+        //       arg any 需要绑定给新函数的实参
+        // 返回值: 一个新函数
+        // 描述: bind函数可以修改函数中的this指向 让其指向一个固定对象
+        //       bind函数可以为函数绑定固定的实际参数
+
+
+        var x = 1;
+        var o = {
+            x: 3,
+            fn: function() {
+                console.log(this.x);
+            }
+        }
+
+        var o2 = {
+            x: 5
+        }
+
+        o.fn(); // 3 
+        var fn = o.fn;
+        console.log(fn === o.fn); // true
+        fn(); // 1
+
+        var fn = o.fn.bind(o2);
+        console.log(fn);
+        console.log(o.fn.bind(o2));
+        console.log(fn === o.fn); // false
+        fn(); // 5
+
+        // window.onload = function() {
+        //     var box = document.getElementById('box');
+
+        //     // 应用场景  需要保存this指针的地方都可以使用  比如 计时器
+        //     box.onclick = function() {
+        //         setTimeout(function() {
+        //             this.style = "color:red";
+        //         }.bind(this), 3000);
+        //     }
+        // }
+
+        // --------------------------------------------------------------
+        var obj = {
+            x: 5,
+            fn: function(a, b, c) {
+                console.log(this.x + a + b + c);
+            }
+        }
+
+        var x = 1;
+
+        obj.fn(1, 2);
+
+        var fn = obj.fn.bind(this, 2);
+
+        fn(1, 2); // 函数传参会进行顺延，1给了b，2无效
+
+        // --------------------------------------------------------------
+
+        // console.log = console.log.bind(console, '你好');
+    </script>
+</head>
+
+<body>
+    <div id="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus impedit atque doloribus ea autem est delectus inventore, temporibus reprehenderit aspernatur architecto mollitia nam. Doloribus quis omnis facilis quidem, cupiditate illo.</div>
+</body>
+
+</html>
