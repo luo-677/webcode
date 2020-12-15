@@ -1248,3 +1248,7 @@ Generator：
             console.log(result.value);
             if(result.done) break;
         }
+
+函数运动：
+    原理：修改元素的定位
+    获取到元素当前的位置(offsetLeft,offsetTop)，在其前面进行加减操作

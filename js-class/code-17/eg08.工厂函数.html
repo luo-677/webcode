@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 工厂模式
+
+
+        // 工厂的意义是生产产品
+        // 批量生产
+        // 工厂生产出来的产品对于对接的客户来说是成品
+        // 生产的材料由客户提供
+        // 工厂会对生产好的产品进行 包装(封装)
+        // 生产好的产品 还给客户
+
+        function iPhone(cpu, scn, mainboard, ram, rom) {
+            var iphone = new Object(); // 每一件新的产品 都是一个新的对象
+            iphone.cpu = cpu;
+            iphone.scn = scn;
+            iphone.mainboard = mainboard;
+            iphone.ram = ram;
+            iphone.rom = rom;
+            return iphone;
+        }
+
+        let iphone12 = iPhone('A14', '三星', 'Apple', '8G', '128G');
+
+
+        console.log(iphone12);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

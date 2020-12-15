@@ -25,7 +25,7 @@
 
         // 1. 使用构造函数创建
         // 正则可以传递两个参数 参数1正则字符  参数2匹配属性
-        // var reg = new RegExp('abc');
+        var reg = new RegExp('abc');
         // console.log(reg);
 
 
@@ -33,7 +33,7 @@
         var reg2 = /abc/;
         // console.log(reg2);
 
-        // console.log(reg === reg2);
+        console.log(reg === reg2);
 
         // 正则表达式中有些字符有特殊的语法含义，是不能直接使用的，必须使用 \ 进行转义后才能使用
         //  .   \    /    *    ?    +    [   ]    (    )  {    }   ^    |    $

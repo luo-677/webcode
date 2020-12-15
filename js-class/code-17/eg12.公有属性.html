@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function iPhone(cpu, scn, mainboard, ram, rom, color) {
+            this.cpu = cpu;
+            this.scn = scn;
+            this.mainboard = mainboard;
+            this.ram = ram;
+            this.rom = rom;
+            this.color = color;
+
+            // 绑定在this上的属性是 私有属性
+            // 函数绑定在this关键字上 叫做 私有函数
+            // this.phoneCall = function(phoneNumber) {
+            //     console.log(`正在使用${this.color}色的iphone 打电话给${phoneNumber}`);
+            // }
+        }
+
+        // prototype 原型对象
+        // 原型对象是函数的子属性 所有的函数都拥有一个原型对象
+        // 每一个原型对象中拥有一个 constructor 指针 它指向的是当前函数
+
+        // prototype 的作用是用于保存 构造函数 实例的 公有属性
+        // 如果你的函数 不是当作构造函数使用 那么 prototype 将毫无意义
+        // prototype 中所有的属性 都可以被 构造函数实例的所访问
+        // console.log(iPhone.prototype);
+
+
+        iPhone.prototype.test = 'abc';
+
+        iPhone.prototype.phoneCall = function(phoneNumber) {
+            console.log(`正在使用${this.color}色的iphone 打电话给${phoneNumber}`);
+        }
+
+        iPhone.prototype.play = function(game) {
+            console.log(`正在使用${this.color}色的iphone 玩${game}`);
+        }
+
+
+        let iphone1 = new iPhone('A14', '三星', 'Apple', '8G', '128G', 'blue');
+        let iphone2 = new iPhone('A14', '三星', 'Apple', '8G', '128G', 'yellow');
+
+        // console.log(iphone1);
+        // console.log(iphone2);
+        // console.log(iphone1.test);
+        // console.log(iphone2.test);
+
+
+
+        // iphone1.phoneCall(13888888888);
+        // iphone2.phoneCall(13666666666);
+
+        // console.log(iphone1.phoneCall === iphone2.phoneCall);
+
+        iphone1.play('王者荣耀');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .line {
+            width: 1px;
+            height: 500px;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 700px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+
+
+            function getStyle(elm, style) {
+                if (getComputedStyle) {
+                    return getComputedStyle(elm)[style];
+                } else {
+                    return elm.currentStyle[style];
+                }
+            }
+
+            // 使用回调函数解决执行顺序问题
+            function bufferMove(elm, style, target, callback) { //  元素  属性  目标值
+                let speed = 0;
+                let timer;
+
+                timer = setInterval(function() {
+                    let currentStyle = parseInt(getStyle(elm, style)); // 获得当前位置
+                    // 计算速度
+                    speed = (target - currentStyle) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); // 速度取整
+
+                    if (currentStyle === target) {
+                        clearInterval(timer);
+                        callback && callback(); // 在动画结束后调用回调函数
+                    }
+
+                    elm.style[style] = currentStyle + speed + 'px';
+
+                }, 20);
+            }
+
+            let box = document.querySelector('.box');
+
+            bufferMove(box, 'width', 700, function() {
+                bufferMove(box, 'height', 500, function() {
+                    bufferMove(box, 'width', 100, function() {
+                        bufferMove(box, 'height', 100);
+                    });
+                });
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="line"></div>
+</body>
+
+</html>

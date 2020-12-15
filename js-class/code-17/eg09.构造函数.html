@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 构造函数 
+        // 指的是用于创建对象的函数
+
+        // 如何判断一个函数是否是构造函数 主要看调用方式
+
+        // 如果使用new关键字调用 就是构造函数
+        // 如果不使用new关键字调用就是普通函数
+
+        function Iphone() {
+            // 构造函数用于创建对象
+            // 在构造函数中 this 关键字指向的是新创建的对象
+            // 所有需要添加到新对象上的属性直接绑定在this关键字上
+
+            // 构造函数由默认行为
+            // 它的默认行为是在内存中开辟一块存储空间 并保存新对象 返回地址
+            // 这个内存空间指的是 堆 
+
+            // 当一个函数被当作构造函数使用时 函数内的this指向新对象
+            // 如果不是当作构造函数使用 this 指向函数的调用者
+            // 没有调用者  指向window
+            this.a = 'aaaaaa';
+        }
+
+
+        let i = new Iphone();
+        console.log(i);
+
+        let i2 = new Iphone();
+        console.log(i2);
+
+        let i3 = Iphone(); // undefined 普通函数 没有返回值默认返回 undefined
+        console.log(i3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

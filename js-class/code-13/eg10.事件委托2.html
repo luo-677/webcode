@@ -10,6 +10,7 @@
             var box = document.getElementById('box');
 
             box.onclick = function(ev) {
+                console.log(this);
                 switch (ev.target.className) {
                     case 'h1':
                         console.log('这里点击的是h1');

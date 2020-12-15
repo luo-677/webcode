@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .cls {
+            position: absolute;
+            right: 0;
+            top: -5px;
+            font-size: 1.2em;
+            color: #eee;
+            user-select: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let box = document.querySelector('.box');
+            let cls = document.querySelector('.cls');
+            let speedX = 8;
+            let speedY = 3;
+            let timer;
+
+            box.onmouseover = function() {
+                clearInterval(timer);
+            }
+
+            box.onmouseout = function() {
+                ad();
+            }
+
+            cls.onclick = function() {
+                clearInterval(timer);
+                box.remove();
+            }
+
+
+            function ad() {
+                timer = setInterval(() => {
+                    let x = box.offsetLeft + speedX;
+                    let y = box.offsetTop + speedY;
+
+                    if (x >= innerWidth - box.offsetWidth) {
+                        x = innerWidth - box.offsetWidth;
+                        speedX *= -1;
+                    } else if (x <= 0) {
+                        x = 0;
+                        speedX *= -1;
+                    }
+
+                    if (y >= innerHeight - box.offsetHeight) {
+                        y = innerHeight - box.offsetHeight;
+                        speedY *= -1;
+                    } else if (y <= 0) {
+                        y = 0;
+                        speedY *= -1;
+                    }
+
+                    box.style.top = y + 'px';
+                    box.style.left = x + 'px';
+                }, 20);
+
+            }
+
+            ad();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <span class="cls">&times;</span>
+    </div>
+</body>
+
+</html>

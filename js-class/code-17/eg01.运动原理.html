@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* transition: all 1s; */
+        }
+        /* .box:hover {
+            top: 50px;
+            left: 100px;
+        } */
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box');
+
+            // 运动的原理就是修改元素的 定位
+            // 使用JS让元素运动
+            // 先获得元素当前的位置 在当前位置上进行 加减操作
+
+            // 获得元素当前的定位位置
+            // offsetTop/offsetLeft
+
+            box.onclick = function() {
+                setInterval(function() {
+                    box.style.top = box.offsetTop + 5 + 'px';
+                    box.style.left = box.offsetLeft + 5 + 'px';
+                }, 20);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

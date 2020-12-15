@@ -33,9 +33,21 @@
 
         // --------------------------------------------------
         // 在严格模式下 eval有独立的作用域
-        eval('var a = 5;var b = 3;console.log(a+b);'); //将一个字符串当作JS代码执行
+        // eval('var a = 5;var b = 3;console.log(a+b);'); //将一个字符串当作JS代码执行
 
-        console.log(a + b);
+        // console.log(a + b);
+        var arr = [];
+        var count = 0;
+        for (var i = 0; i < 100000000000; i++) {
+            var num = Math.ceil(Math.random() * 10);
+            if (num == 0) {
+                console.log(1);
+            } else {
+                count++;
+            }
+        }
+        console.log(count);
+        // console.log(arr.indexOf(0));
     </script>
 </head>
 

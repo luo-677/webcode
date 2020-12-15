@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function iPhone(cpu, scn, mainboard, ram, rom, color) {
+            this.cpu = cpu;
+            this.scn = scn;
+            this.mainboard = mainboard;
+            this.ram = ram;
+            this.rom = rom;
+            this.color = color;
+
+            // 绑定在this上的属性是 私有属性
+            // 函数绑定在this关键字上 叫做 私有函数
+            this.phoneCall = function(phoneNumber) {
+                console.log(`正在使用${this.color}色的iphone 打电话给${phoneNumber}`);
+            }
+        }
+
+        let iphone1 = new iPhone('A14', '三星', 'Apple', '8G', '128G', 'blue');
+        let iphone2 = new iPhone('A14', '三星', 'Apple', '8G', '128G', 'yellow');
+
+        iphone1.phoneCall(13888888888);
+        iphone2.phoneCall(13666666666);
+
+        console.log(iphone1.phoneCall === iphone2.phoneCall);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

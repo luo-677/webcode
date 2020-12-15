@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .line {
+            width: 1px;
+            height: 500px;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 700px;
+        }
+    </style>
+    <script>
+        // 缓冲 是一个减速的过程
+        // 先快后慢
+
+        window.onload = function() {
+            // let box = document.querySelector('.box');
+            // let speed = 0;
+            // let timer;
+
+            // box.onclick = function() {
+            //     timer = setInterval(() => {
+            //         // 速度先快后慢
+            //         // 每次让元素移动总距离的1/10  
+            //         // 总距离700  70 
+            //         //       630  63
+            //         //       567  56.7
+
+            //         speed = Math.ceil((700 - box.offsetLeft) / 10);
+
+            //         let x = box.offsetLeft + speed;
+
+            //         // 到达目标 
+            //         if (box.offsetLeft >= 700) clearInterval(timer);
+
+            //         box.style.left = x + 'px';
+            //     }, 20);
+            // }
+
+            //-------------------------------------------------------------------------
+
+            function getStyle(elm, style) {
+                if (getComputedStyle) {
+                    return getComputedStyle(elm)[style];
+                } else {
+                    return elm.currentStyle[style];
+                }
+            }
+
+            function bufferMove(elm, style, target) { //  元素  属性  目标值
+                let speed = 0;
+                let timer;
+
+                timer = setInterval(function() {
+                    let currentStyle = parseInt(getStyle(elm, style)); // 获得当前位置
+                    // 计算速度
+                    speed = (target - currentStyle) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); // 速度取整
+
+                    if (currentStyle === target) clearInterval(timer);
+
+                    elm.style[style] = currentStyle + speed + 'px';
+
+                }, 20);
+            }
+
+            let box = document.querySelector('.box');
+
+            bufferMove(box, 'width', 700);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="line"></div>
+</body>
+
+</html>

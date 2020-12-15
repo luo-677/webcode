@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function A(a, b, c) {
+            // 在构造函数中 this 指向的是新对象 实例对象
+            // this关键字上所有的属性 叫做 私有属性
+            // this上的所有属性 在所有的实例中都可以被访问
+
+            // 构造函数 在JS中的地位就相当于 面向对象编程语言中的 类
+            // 可以将构造函数看做是类
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        let a1 = new A(1, 2, 3);
+        console.log(a1);
+
+        let a2 = new A(4, 5, 6);
+        a2.d = 123456;
+        console.log(a2);
+
+        let a3 = new A();
+        console.log(a3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -25,6 +25,7 @@
         // 赋值符 的关联性 是从右到左
         // 先执行右边
         while (result = reg.exec(str)) {
+            console.log(result[0]);
             arr.push(result[0]);
         }
 

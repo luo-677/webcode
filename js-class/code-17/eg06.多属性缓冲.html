@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function getStyle(elm, style) {
+            if (typeof getComputedStyle === 'function') {
+                return getComputedStyle(elm)[style];
+            } else {
+                return elm.currentStyle[style];
+            }
+        }
+
+        // style属性变成了对象
+        // 对象的键值对 为 属性名-属性值
+        function bufferMove(elm, style, callback) { //  元素  属性  目标值
+            var speed = 0;
+            // var timer;
+
+            clearInterval(elm.timer); // 开始下一个动画之前 关闭上一个动画的计时器
+            elm.timer = setInterval(function() {
+                var currentStyle;
+                var flag = true; // 开关 当开关的值为true时 可以停止动画
+
+
+                for (var attr in style) {
+                    if (attr === 'opacity') {
+                        currentStyle = Math.ceil(getStyle(elm, attr) * 100);
+                    } else {
+                        currentStyle = parseInt(getStyle(elm, attr)); // 获得当前位置
+                    }
+
+                    // 计算速度
+                    speed = (style[attr] - currentStyle) / 10;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); // 速度取整
+
+                    if (currentStyle != style[attr]) {
+                        flag = false;
+                    }
+
+                    if (attr === 'opacity') {
+                        elm.style[attr] = (currentStyle + speed) / 100;
+                        elm.style['filter'] = 'alpha(opacity=' + (currentStyle + speed) + ')';
+                    } else {
+                        elm.style[attr] = currentStyle + speed + 'px';
+                    }
+
+                    if (flag) {
+                        clearInterval(elm.timer);
+                        callback && callback();
+                    }
+                }
+
+            }, 20);
+        }
+
+        window.onload = function() {
+            var box = document.querySelectorAll('.box');
+
+
+            box.forEach(function(el) {
+
+                el.onmouseover = function() {
+                    bufferMove(this, {
+                        width: 300
+                    });
+                }
+
+                el.onmouseout = function() {
+                    bufferMove(this, {
+                        width: 100
+                    });
+                }
+
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+
+</body>
+
+</html>
