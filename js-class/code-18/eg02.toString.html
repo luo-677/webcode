@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object.prototype.toString(); // '[object Object]'
+
+        // function Foo() {
+        //     // this.toString = function() {
+        //     //     return 'string';
+        //     // }
+        // }
+
+        // // Foo.prototype.toString = function() {
+        // //     return '123';
+        // // }
+
+        // let foo = new Foo();
+
+
+        // console.log(foo.toString());
+        // console.log(foo.__proto__.__proto__);  // 通过2次原型链向上查找 找到 toString方法 属于Object.prototype
+
+
+        // 在ECMAScirpt中 由很多数据类型 对toString进行了重载
+        // delete Array.prototype.toString;
+
+        // let arr = [1, 2, 3, 4, 5];
+        // // console.log(arr.toString()); // '[object Array]'
+        // console.log(arr.toString === Object.prototype.toString);
+
+        // -----------------
+
+        // 判断数据类型
+        function getType(o) {
+            return Object.prototype.toString.call(o).slice(8, -1);
+        }
+
+        console.log(getType('aaa'));
+        console.log(getType(123));
+        console.log(getType(true));
+        console.log(getType(null));
+        console.log(getType([]));
+        console.log(getType({}));
+        console.log(getType(function() {}));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object.create()
+        // 方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。
+        // 创建一个新对象 使用一个现有对象作为新对象的原型
+
+        let obj = {
+            name: 'zhangsan',
+            age: 20
+        };
+
+        let obj2 = Object.create(obj);
+
+        obj2.name = 'lisi'; // 为obj2 设置私有属性
+
+        console.log(obj2.name);
+        console.log(obj2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

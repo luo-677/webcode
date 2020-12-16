@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // prototype 原型
+        // 用于保存构造函数实例的公有属性
+        // 原型下所有的属性和函数都可以在实例(由构造函数创建的对象)中访问
+
+        // 对象
+        // 对象是哪来的?
+        // new 关键字
+        // 对象是由函数创建的
+
+        // function Foo() {
+        //     this.f = 'ffff';
+        // }
+
+        // Foo.prototype.PI = 3.141592653;
+
+        // let foo1 = new Foo();
+        // console.log(foo1);
+        // console.log(foo1.PI);
+        // JS中的对象 可以访问到原型中的属性和方法
+        // 为什么可以访问原型的属性和方法
+
+        // 所有的对象 都是由函数创建的
+        // 所有的对象 都拥有一个隐藏属性 这个属性就是 __proto__ 该属性不可枚举 它是一个指针
+        // 这个指针指向的是构建这个对象的构造函数的原型
+        // console.log(foo1.__proto__ === Foo.prototype);
+        // // console.log(foo1.constructor);
+        // let foo2 = new foo1.constructor();
+        // console.log(foo2.constructor.name); // 所有的函数 都拥有一个name属性返回的是函数名
+
+        // let arr = [];
+        // console.log(arr.constructor.name);
+
+        // let num = 5;
+        // console.log(num.constructor.name);
+
+        // let n = null;
+        // console.log(n.constructor.name);
+
+        // ------------------------------------------------------
+
+        function Foo() {
+            this.f = 'ffff';
+        }
+
+        Foo.prototype.f = 'aaaaa';
+
+        // 对象查找属性优先查找私有属性
+        // 如果私有属性中没有找到 则查找公有属性
+        let f = new Foo();
+        console.log(f.toString());
+
+
+
+        // 所有的原型对象 都是由 Object 创建的
+        // console.log(Foo.prototype.__proto__.constructor);
+        // console.log(Foo.prototype.__proto__ === Object.prototype);
+        // console.log(Object.prototype);
+
+
+        // 函数是谁创建的  函数也是对象
+        // function Function(){}
+        // console.log(Foo.__proto__.constructor.name);
+        // console.log(Foo.__proto__ === Function.prototype);
+        // console.log(Object.__proto__ === Function.prototype);
+        // console.log(Function.prototype.__proto__ === Object.prototype);
+        // console.log(Function.__proto__ === Function.prototype);
+
+        // console.log(Object.prototype.__proto__);
+
+
+        // 当一个对象需要访问属性时
+        // 1. 查找私有属性 
+        // 2. 查找自身公有属性
+        // 3. 沿原型链向上查找
+        // 如果在Object的原型中也没有查找到属性 则返回 undefined
+
+
+
+
+
+
+
+
+
+        // let arr = [];
+        // arr['sort'] = 123;
+
+        // console.log(arr);
+        // console.log(arr.sort);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

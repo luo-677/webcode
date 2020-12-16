@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Object.assign();
+        // Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。它将返回目标对象。
+        // 语法: Object.assign(target, ...sources)
+        // 返回值: target 
+
+        // let o1 = {
+        //     name: 'zhangsan'
+        // };
+
+        // let o2 = {
+        //     age: 18,
+        //     name: 'lisi'
+        // };
+
+        // let o3 = {
+        //     name: 'wangwu'
+        // }
+
+        // // Object.assign 用于合并对象的属性
+        // // 将多个源对象的属性添加到目标对象中 
+        // // 如果属性名出现同名情况 以最后一个出现的值为结果值
+        // Object.assign(o1, o2, o3);
+        // console.log(o1);
+
+        // --------------------------------------------------------------
+        // 应用场景
+        // 为函数提供默认参数 合并参数
+        function fn(options) {
+            let defaults = {
+                name: 'zhangsan',
+                age: 20
+            };
+
+            Object.assign(defaults, options);
+
+            console.log(defaults);
+        }
+
+        fn({
+            age: 18,
+            phoneNumber: 13888888888
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

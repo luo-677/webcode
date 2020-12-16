@@ -44,7 +44,14 @@
         // 描述: 通过正则表达式reg验证string是否符合reg的规范
         // 返回值: 一个布尔值
 
+        var reg = /[abc]/;
         console.log(reg2.test('abc'));
+
+        function getType(target) {
+            return (target.__proto__.constructor.name);
+        }
+        // var res = getType(reg);
+        console.log(getType(reg));
     </script>
 </head>
 
