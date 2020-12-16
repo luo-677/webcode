@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function gys(m, n) {
+            let r;
+            if (m == n) {
+                console.log("最大公约数为" + n);
+                return n;
+            }
+            if (m > n) {
+                r = m % n;
+                if (r == 0) {
+                    console.log("最大公约数为" + n);
+                    return n;
+                }
+            } else {
+                r = n % m;
+                if (r == 0) {
+                    console.log("最大公约数为" + m);
+                    return m;
+                }
+            }
+            m = n;
+            n = r;
+            gys(m, n);
+        }
+        gys(18, 16);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = new Array();
+        for (var i = 1; i <= 100; i++) {
+            arr.push(i);
+        }
+        while (arr.length > 2) {
+            for (var i = arr.length - 1; i >= 0; i--) {
+                if (i % 2) {
+                    arr.splice(i, 1);
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

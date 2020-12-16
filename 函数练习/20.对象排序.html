@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [{
+            name: 'zhangsan',
+            age: 20
+        }, {
+            name: 'lisi',
+            age: 15
+        }, {
+            name: 'wangwu',
+            age: 17
+        }, {
+            name: 'zhaoliu',
+            age: 23
+        }, {
+            name: 'fengqi',
+            age: 31
+        }, {
+            name: 'xiaoming',
+            age: 11
+        }];
+        // 封装一个函数，将数组中的对象进行传入，并且可以调整排列的顺序
+        function sortBy(prop, rev = true) {
+            return function(a, b) {
+                val1 = a[prop];
+                val2 = b[prop];
+                return rev ? val1 - val2 : val2 - val1;
+            }
+        }
+        arr.sort(sortBy("age"));
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

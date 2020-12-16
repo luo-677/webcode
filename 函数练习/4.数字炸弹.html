@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let numBoom = Math.floor(Math.random() * 101);
+        console.log(numBoom);
+        let num = parseInt(prompt("请输入一个数字"));
+        while (num != numBoom) {
+            if (num > numBoom) {
+                num = parseInt(prompt("大，请输入一个数字"));
+            } else {
+                num = parseInt(prompt("小，请输入一个数字"));
+            }
+        }
+        alert("恭喜");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

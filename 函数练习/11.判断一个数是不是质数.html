@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 输入一个数，判断是不是质数
+        var num = parseInt(prompt("请输入一个正整数"));
+        var flag = true;
+        for (var i = 2; i < num; i++) {
+            if (num % i == 0) {
+                alert("这不是一个质数");
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            alert("这是一个质数");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
