@@ -1,0 +1,28 @@
+<script>
+    // 需要判断用户按键进行操作时为 document 添加 keyup 事件
+    document.addEventListener('keyup', function(ev) {
+        // ev.keyCode  键盘的按键编码  ASKII编码
+        // ev.which    按键编码
+        // console.log(ev.keyCode);
+        // console.log(ev.which);
+
+        // 用于组合键的判断
+        // ctrlKey 
+        // altKey
+        // shiftKey
+        // console.log(ev);
+        if (ev.altKey) {
+            switch (ev.keyCode) {
+                case 90:
+                    console.log('你好');
+                    console.log(ev.which);
+                    break;
+                case 65:
+                    console.log('世界');
+                    console.log(ev.which);
+                    break;
+            }
+        }
+        ev.keyCode == 13 ? location.href = "https://www.baidu.com" : null;
+    });
+</script>

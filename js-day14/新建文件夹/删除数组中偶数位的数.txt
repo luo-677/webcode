@@ -1,0 +1,14 @@
+<script>
+    var arr = new Array();
+    for (var i = 1; i <= 100; i++) {
+        arr.push(i);
+    }
+    while (arr.length > 2) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if (i % 2) {
+                arr.splice(i, 1);
+            }
+        }
+    }
+    console.log(arr);
+</script>

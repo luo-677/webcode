@@ -1,0 +1,10 @@
+var num = parseInt(prompt("num"));
+var flag = true;
+for(var i=0; i<num; i++){
+    if(num%2==0){
+        console.log("这不是一个质数");
+        flag = flase;
+        break;
+    }
+}
+flag && console.log("是质数");

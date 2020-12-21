@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // class 关键字 类 自定义的数据类型
+        // es6的class关键字本质上是 构造函数的 语法糖
+        // ECMAScript 从来就没有类的概念
+
+
+        // class的本质是函数
+        // 类 在面向对象编程语言中采用 大驼峰命名法
+        // 类 的作用是用于对象的构建
+        // 在面向对象编程语言中 类名于文件名相同
+
+        class Student {
+            // 类中的构造函数 使用 constuctor
+            constructor(className, name, age, sex) {
+                // 在构造函数中 this关键字指向新对象
+                // 为对象添加私有属性  需要将属性绑定在this关键字上
+                this.className = className;
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+
+            }
+
+            // 公有函数 提供公有共享的函数 减少内存开销
+            // 所有公有函数都可以在实例对象上访问到 
+            // 本质上公有函数依旧存在在 原型中
+            play() {
+                console.log('play');
+            }
+
+            // 静态函数
+            // 静态函数不出现在原型中
+            // 存在类名中
+            static getName() {
+                console.log(this.name);
+            }
+
+
+        }
+        // class依旧可以访问原型对象
+        Student.prototype.abc = 123;
+
+        let s1 = new Student('html5-2011', 'zhangsan', 20, 'nan');
+        console.log(s1);
+
+        s1.play();
+
+        Student.getName(); // 静态方法调用 直接使用 类名调用
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

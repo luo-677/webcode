@@ -1,0 +1,10 @@
+function gys(m,n){
+    var r = m%n;
+    m = n;
+    n = r;
+    if(r == 0){
+        return n;
+    }else{
+        return gys(m,n);
+    }
+}

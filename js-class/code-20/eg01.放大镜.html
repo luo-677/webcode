@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .small {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            float: left;
+            position: relative;
+        }
+        
+        .movebox {
+            background-color: orange;
+            opacity: .2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #ccc;
+        }
+        
+        .small>img {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .big {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            float: left;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .bigimg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+        }
+    </style>
+
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            let movebox = $('.movebox'),
+                big = $('.big'),
+                bigimg = $('.bigimg'),
+                small = $('.small');
+
+            // 1. 鼠标悬停 small 显示movebox 和 big
+            small.on('mouseover', function() {
+                // 显示元素
+                movebox.addClass('show');
+                big.addClass('show');
+
+                // 4. 计算movebox大小
+                movebox.css({
+                    width: (small.offset().width * big.offset().width / bigimg.offset().width) + 'px',
+                    height: (small.offset().height * big.offset().height / bigimg.offset().height) + 'px'
+                });
+
+
+                // 3. 让movebox跟随鼠标
+                small.on('mousemove', function(ev) {
+                    let top = ev.pageY - small.offset().top - movebox.offset().height / 2;
+                    let left = ev.pageX - small.offset().left - movebox.offset().width / 2;
+
+                    // 5. 移动比例计算
+                    let ratio = bigimg.offset().width / small.offset().width;
+
+
+                    if (left <= 0) {
+                        left = 0;
+                    } else if (left >= small.offset().width - movebox.offset().width) {
+                        left = small.offset().width - movebox.offset().width - 2;
+                    }
+
+                    if (top <= 0) {
+                        top = 0;
+                    } else if (top >= small.offset().height - movebox.offset().height) {
+                        top = small.offset().height - movebox.offset().height - 2;
+                    }
+
+                    movebox.css({
+                        top: top + 'px',
+                        left: left + 'px'
+                    });
+
+                    // 6. 移动大图
+                    bigimg.css({
+                        top: ratio * -top + 'px',
+                        left: ratio * -left + 'px'
+                    });
+                });
+            });
+
+            // 2. 鼠标离开 删除类名show
+
+            small.on('mouseout', function() {
+                movebox.removeClass('show');
+                big.removeClass('show');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="small">
+        <img src="./iphone.jpg" alt="">
+        <div class="movebox hide"></div>
+    </div>
+    <div class="big hide">
+        <img src="./iphone.jpg" class="bigimg" alt="">
+    </div>
+</body>
+
+</html>

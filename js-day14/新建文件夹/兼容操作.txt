@@ -1,0 +1,64 @@
+//获取事件对象采用的一种兼容写法
+document.onclick = function(ev) {
+    let ev = ev || event;
+}
+
+//事件冒泡兼容
+if (ev.stopPropagation) {
+    ev.stopPropagation();
+} else {
+    ev.canceBubble = true;
+}
+
+// keyCode和which获取键盘上按键对应的unicode编码 --兼容
+var code = ev.which || ev.keyCode; //兼容的写法。
+
+//浏览器默认行为的兼容
+ev.preventDefault();
+//标准浏览器阻止默认事件, DOM事件使用此方法取消默认事件。
+ev.returnValue = false;
+//非标准浏览器（ IE8） 阻止默认事件
+return false;
+//退出执行, 所有触发事件和动作都不会被执行.可以用来替代 preventDefault(普通的事件处理函数)
+
+//css属性值的兼容
+//如果是方法的兼容，利用方法的名称进行判断(将方法变成属性进行判断)
+//封装时，将可变的设为参数。
+function getStyle(obj, attr) {
+    if (window.getComputedStyle) { //支持：标准浏览器。
+        return window.getComputedStyle(obj)[attr];
+    } else { //非标准，IE浏览器
+        return obj.currentStyle[attr];
+    }
+    return window.getComputedStyle ? window.getComputedStyle(obj)[attr] : obj.currentStyle[attr];
+}
+alert(getStyle(box, 'position'));
+console.log(window.getComputedStyle()); //IE:undefined   标准：ƒunction getComputedStyle() { [native code] }
+
+//事件绑定兼容写法
+function addEvent(obj, etype, fn, bool) { //obj:元素对象 etype:事件类型  fn:事件处理函数  bool:是否捕获
+    bool = bool || false; //早期设置默认值的方式。
+    if (obj.addEventListener) { //标准浏览器
+        obj.addEventListener(etype, fn, bool);
+    } else { //IE浏览器
+        obj.attachEvent('on' + etype, fn);
+    }
+}
+function fnTest() {
+    alert('事件绑定的测试');
+}
+addEvent(document, 'click', fnTest);
+
+//取消事件绑定。
+function removeEvent(obj, etype, fn, bool) { //obj:元素对象 etype:事件类型  fn:事件处理函数  bool:是否捕获
+    bool = bool || false; //早期设置默认值的方式。
+    if (obj.removeEventListener) { //标准浏览器
+        obj.removeEventListener(etype, fn, bool);
+    } else { //IE浏览器
+        obj.detachEvent('on' + etypr, fn);
+    }
+}
+removeEvent(document, 'click', fnTest); //删除
+
+//获取当前操作的目标元素兼容
+var element = ev.target || ev.srcElement;

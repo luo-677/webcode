@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <style>
         * {
             margin: 0;
@@ -30,7 +24,6 @@
                 // 获取鼠标在拖拽对象中的位置
                 var offsetX = ev.offsetX;
                 var offsetY = ev.offsetY;
-                // console.log(offsetX,offsetY);
                 var arr = [];
                 // 创建鼠标移动事件
                 document.onmousemove = function(ev) {
@@ -42,19 +35,15 @@
                         // 计算获得拖拽对象在页面中的坐标
                         var x = pageX - offsetX;
                         var y = pageY - offsetY;
-                        // box.style.top = y + "px";
-                        // box.style.left = x + "px";
                         box.style.top = y + "px";
                         box.style.left = x + "px";
                         // 创建空对象，将拖拽对象的坐标进行记录，添加到一个数组中
                         var obj = {};
                         obj["x"] = x;
                         obj["y"] = y;
-                        console.log(obj);
                         arr.push(obj);
-                        // console.log(arr[0]["x"]);
                     }
-                    // 创建鼠标抬起事件
+                // 创建鼠标抬起事件
                 document.onmouseup = function() {
                     // 鼠标抬起时关闭鼠标移动事件
                     document.onmousemove = null;
@@ -66,24 +55,18 @@
                             box.style.left = 0;
                             // 关闭计时器
                             clearInterval(timer);
-                            // console.log(box.style.left,box.style.top);
                             return;
                         }
                         // 移动结束后，将每次的坐标对象进行拆解，分别赋值
                         var loc = arr.pop();
                         box.style.top = loc["y"] + "px";
                         box.style.left = loc["x"] + "px";
-                        // box.style.Top = loc["y"] + "px";
-                        // box.style.Left = loc["x"] + "px";
                     }, 10);
                 }
             }
         }
     </script>
 </head>
-
 <body>
     <div id="box"></div>
 </body>
-
-</html>

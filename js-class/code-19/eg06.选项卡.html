@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            let btns = $('#tabs>ul>li');
+            btns.on('click', function() {
+                $(this).addClass('active').siblings().removeClass('active');
+                let index = btns.index(this);
+                $('#tabs>div').eq(index).addClass('show').siblings().removeClass('show');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li class="active">选项内容一</li>
+            <li>选项内容二</li>
+            <li>选项内容三</li>
+            <li>选项内容四</li>
+            <li>选项内容五</li>
+            <li>选项内容六</li>
+        </ul>
+        <div class="show">显示内容一</div>
+        <div>显示内容二</div>
+        <div>显示内容三</div>
+        <div>444444444444</div>
+        <div>555555555555</div>
+        <div>66666666666</div>
+    </div>
+</body>
+
+</html>

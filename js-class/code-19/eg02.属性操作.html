@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Z.js"></script>
+    <script>
+        // 就绪事件语法
+        // $(function(){})
+        $(function() {
+            $('#btn').on('click', function() {
+                // console.log($('.box').attr('title'));
+
+                // $('.box').attr('title', 'color:red');
+
+                // $('.box').attr('title', function(oldvalue, i) {
+                //     return oldvalue + '!';
+                // });
+
+
+                $('.box').removeAttr('title');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div class="box" title="title1">11111111111</div>
+    <div class="box" title="title2">1222222222</div>
+    <div class="box" title="title3">333333333</div>
+    <div class="box" title="title4">4444444444</div>
+</body>
+
+</html>

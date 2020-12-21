@@ -1,0 +1,12 @@
+var time = document.getElementById("time");
+var future = new Date(2021, 0, 1, 0, 0, 0);
+var timer = setInterval(function() {
+    var now = new Date();
+    var cal = future - now;
+    var s = cal / 1000;
+    var day = parseInt(s / 86400);
+    var hour = parseInt(s % 86400 / 3600);
+    var min = parseInt(s % 3600 / 60);
+    var sec = parseInt(s % 60);
+    time.innerHTML = `距离2021年1月1号还有${day}天${hour}小时${min}分${sec}秒`;
+}, 1000);

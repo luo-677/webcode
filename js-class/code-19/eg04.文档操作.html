@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // console.log($('ul').find('li'));
+
+            // console.log($('.list').eq(1));
+
+            // console.log($('.list>li').eq(2).siblings());
+            // console.log($('.list>li').eq(2).siblings('.test'));
+
+            // $('.list2>li').eq(2).css('color', 'red').siblings('.test').css('color', 'blue');
+
+
+            // console.log($('.list2').children());
+            console.log($('.list1').children('.test'));
+        });
+    </script>
+</head>
+
+<body>
+    <ul class="list1">
+        <li class="test">第1个</li>
+        <li>
+            <ul>
+                <li>1</li>
+                <li class="test">2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li class="test">第3个</li>
+        <li class="test">第4个</li>
+        <li>第5个</li>
+    </ul>
+    <ul class="list2">
+        <li>第1个</li>
+        <li>第2个</li>
+        <li>第3个</li>
+        <li class="test">第4个</li>
+        <li>第5个</li>
+    </ul>
+</body>
+
+</html>

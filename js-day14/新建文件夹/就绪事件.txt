@@ -1,0 +1,12 @@
+<script>
+    window.onload = function() {
+        console.log(1);
+    };
+    // DOMContentLoaded   DOM结构加载完毕   事件来自HTML5
+    document.addEventListener('DOMContentLoaded', function() {
+        // var btn = document.getElementById('btn');
+        // console.log(btn);
+
+        console.log(2);
+    });
+</script>

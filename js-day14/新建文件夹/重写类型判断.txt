@@ -1,0 +1,3 @@
+function getType(targrt){
+    return targrt.constructor.namr;
+}

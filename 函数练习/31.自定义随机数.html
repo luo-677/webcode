@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function random(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+        console.log(random(5, 10));
+    </script>
 </head>
 
 <body>
-    <div style="border: 1px solid black; width:200px;"></div>
-</body>
-<script>
-    var num = 250;
 
-    function fn() {
-        alert(num);
-        var num = 350;
-    }
-    fn();
-</script>
+</body>
 
 </html>

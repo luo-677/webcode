@@ -1,0 +1,19 @@
+<style>
+    .red {
+        color: red;
+    }
+</style>
+<script>
+    window.onload = function() {
+        var h1 = document.querySelector("h1");
+        var h2 = document.createElement("h2");
+        h2.innerHTML = h1.innerHTML;
+        for (let i = 0; i < h1.classList.length; i++) {
+            h2.setAttribute(h1.classList[i].nodeName, h1.classList[i].nodeValue);
+        }
+    }
+</script>
+
+<body>
+    <h1 class="red">11111111111111</h1>
+</body>

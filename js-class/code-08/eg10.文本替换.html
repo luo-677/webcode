@@ -35,6 +35,7 @@
             // 屏蔽敏感词汇
             var arr = ['cnm', 'qnlmgb', 'mmp', '习大大', '中国共产党'];
             var str = arr.join('|');
+            console.log(str);
             // 使用正则表达式的构造函数 创建正则表达式
             var reg = new RegExp(str, 'ig');
             console.log(reg);

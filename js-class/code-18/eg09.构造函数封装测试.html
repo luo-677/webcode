@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Z.js"></script>
+    <script>
+        window.onload = function() {
+            // let elms = $('.box');
+            // console.log(elms);
+
+
+            // console.log($('.box'));
+
+            // $('.box:nth-child(odd)').on('click', function() {
+            //     alert(1);
+            // });
+
+            // $('.box').on({
+            //     'mouseover': function() {
+
+            //     },
+            //     'mouseout': function() {
+
+            //     }
+            // });
+
+
+            // $('.box:not(:last-child)').css('color', 'red');
+            $('.box:not(:last-child)').css({
+                'color': 'red',
+                'font-size': '2em'
+            }).css('background', 'blue');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">1</div>
+    <div class="box" style="background-color: yellow;">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+</body>
+
+</html>

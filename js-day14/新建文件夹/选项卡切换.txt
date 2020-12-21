@@ -1,0 +1,42 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script>
+        window.onload = function() {
+            var tabs = document.querySelectorAll("#tabs>ul>li");
+            var divs = document.querySelectorAll("#tabs>div");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].setAttribute("data-index", i);
+                tabs[i].onclick = function() {
+                    for (let j = 0; j < tabs.length; j++) {
+                        tabs[j].classList.remove("active");
+                        divs[j].classList.remove("show");
+                    }
+                    this.classList.add("active");
+                    divs[tabs[i].getAttribute("data-index")].classList.add("show");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li class="active">选项内容一</li>
+            <li>选项内容二</li>
+            <li>选项内容三</li>
+            <li>选项内容四</li>
+            <li>选项内容五</li>
+            <li>选项内容六</li>
+        </ul>
+        <div class="show">显示内容一</div>
+        <div>显示内容二</div>
+        <div>显示内容三</div>
+        <div>444444444444</div>
+        <div>555555555555</div>
+        <div>66666666666</div>
+    </div>
+</body>

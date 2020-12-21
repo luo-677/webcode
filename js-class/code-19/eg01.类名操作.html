@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green {
+            color: green;
+        }
+        
+        .blue {
+            color: blue;
+        }
+        
+        .red {
+            color: red;
+        }
+    </style>
+    <script src="./Z.js"></script>
+
+    <script>
+        window.onload = function() {
+            $('#btn').on('click', function() {
+                // $('.list>li:nth-child(3)').addClass('red').css('background', '#ccc');
+                // $('.list>li').removeClass('red');
+
+                // $('.list>li').toggleClass('red');
+                // $('.list>li').replaceClass('red', 'yellow');
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <ul class="list">
+        <li class="blue red">第1个li</li>
+        <li>第2个li</li>
+        <li class="blue red">第3个li</li>
+        <li>第4个li</li>
+        <li class="blue red">第5个li</li>
+        <li>第6个li</li>
+        <li class="blue red">第7个li</li>
+        <li>第8个li</li>
+        <li>第9个li</li>
+        <li>第10个li</li>
+    </ul>
+</body>
+
+</html>

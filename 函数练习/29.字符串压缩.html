@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        let arr = [1, 2, 3, 4, 5, 6, 7, 8];
-        var res = arr.reduce(function(obj, current) {
-            if (current % 2) {
-                obj.odd++;
+        var str3 = 'aaaabbbbbccdddddeefggggg';
+        var res = "";
+        var count = 1;
+        for (var i = 0; i < str3.length; i++) {
+            if (str3[i] === str3[i + 1]) {
+                count++;
             } else {
-                obj.even++;
+                res += count + str3[i];
+                count = 1;
             }
-            return obj;
-        }, {
-            odd: 0,
-            even: 0
-        })
+        }
         console.log(res);
     </script>
 </head>

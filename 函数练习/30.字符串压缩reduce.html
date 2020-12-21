@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let str = 'aaaabbbbbccdddddeefggggg';
+        let arr = str.split("");
+        console.log(arr);
+        let res = arr.reduce(function(obj, elm) {
+            obj[elm] ? obj[elm]++ : obj[elm] = 1;
+            return obj;
+        }, {})
+        console.log(res);
+        let resStr = "";
+        for (let key in res) {
+            resStr += res[key] + key;
+        }
+        console.log(resStr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

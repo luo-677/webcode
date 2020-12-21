@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 实现一个 URLSearchParams 类
+        // 使用class语法
+
+        //  https://www.rootbk.cn/?p=239
+
+        class URLSearchParams extends Array {
+            constructor(data) {
+                let temp;
+                let result = [];
+                if (typeof data === 'string') { // 判断参数类型
+                    temp = data.split('&'); // 拆分后得到一个数组
+                    result = temp.map(elm => elm.split('=')); // 拆分结果 成为二维数组
+                } else if (data.constructor.name === 'Object') { // 判断数据类型是对象
+                    for (let key in data) { // 遍历对象 
+                        result.push([key, data[key]]); // 将结果设置成二维数组
+                    }
+                }
+
+                super(...result); //调用父类构造函数 创建新数组
+            }
+
+
+            get(key) {
+                let result = this.filter(elm => elm[0] === key);
+                return result.length ? result[0][1] : null;
+            }
+
+            set(key, value) {
+                this.forEach(elm => {
+                    if (elm[0] === key) {
+                        elm[1] = value;
+                    }
+                });
+                // 链式调用的原理
+                // 在公有函数中使用return this
+                return this; // 让set方法支持链式调用
+            }
+
+            has(key) {
+                return this.some(elm => elm[0] === key);
+            }
+
+            append(key, value) {
+                if (typeof key === 'string' && typeof value === 'string' && !!key && !!value) {
+                    this.push([key, value]);
+                }
+            }
+
+            toString() {
+                let result = '';
+                this.forEach(elm => {
+                    result += elm.join('=') + '&';
+                });
+
+                return result.slice(0, result.length - 1);
+            }
+        }
+
+        let s = new URLSearchParams('foo=1&bar=2');
+
+        // console.log(s.get('bara'));
+
+        s.set('foo', 10).set('bar', 5);
+
+        console.log(s.has('foo'));
+        console.log(s.has('foo1'));
+
+        s.append('foo', '100');
+
+
+
+
+
+        console.log(s.toString());
+
+
+
+        for (const [key, value] of s) {
+            console.log([key, value]);
+        }
+
+        // let s2 = new URLSearchParams({
+        //     foo: 1,
+        //     bar: 2
+        // });
+
+        // for (let value of s) {
+        //     console.log(value);
+        // }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
