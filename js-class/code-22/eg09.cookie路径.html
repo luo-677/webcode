@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // cookie的使用是有路径问题的
+        // 相同的路径中 cookie数据 可以在多个页面进行共享
+        // 在父级(祖先级) 路径中设置的cookie数据 可以在所有后代路径中进行访问
+        // 在后代路劲中设置的cookie数据 祖先级路径无法访问
+
+        // 让父级路径获得子级路径的cookie数据  解决方案
+        // 设置cookie的 path 属性为 根目录
+
+        document.cookie = 'test=123';
+    </script>
+</head>
+
+<body>
+    <a href="./test/test.html">test</a>
+</body>
+
+</html>

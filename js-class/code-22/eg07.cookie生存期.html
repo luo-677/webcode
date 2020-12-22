@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // cookie 的生存期 指的是 cookie的有效期
+            // 每一条cookie数据都可以单独的设置生存期
+            // 如果没有设置cookie生存期 那么该数据的生存期为 一次会话
+            // 设置生存期 使用属性 expires
+            // cookie生存期采用标准时间格式
+
+            $('#set').on('click', function() {
+                let d = new Date();
+                d.setDate(d.getDate() + 1);
+                document.cookie = 'username=zhangsan;expires=' + d;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="set">存cookie</button>
+    <button id="get">取cookie</button>
+</body>
+
+</html>

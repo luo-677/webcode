@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // equal函数 接收两个对象作为参数
+        // 判断两个对象是否相同
+        // function equal(obj1, obj2) {
+        //     return JSON.stringify(obj1) === JSON.stringify(obj2);
+        // }
+
+        // let o = {
+        //     children: {
+        //         x: 1,
+        //         y: 2
+        //     }
+        // };
+
+        // let o2 = {
+        //     children: {
+        //         x: 1,
+        //         y: 2
+        //     }
+        // };
+
+        // console.log(equal(o, o2)); // true
+        // console.log(o == o2);
+    </script>
+</head>
+
+<body>
+    <div id="page">
+        <div class="content main">
+            <ul>
+                <li id="li1" class="li1 li2 li3">111111</li>
+                <li>22222222</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // 实现一个函数 genCssSelector
+        // 获得被点击元素的选择器
+        // 如果点击的的li元素
+        // 返回选择器 'html body #page .content.main ul li'
+        // html body #page .content.main ul #li1.li1.li2.li3
+        // genCssSelector 返回的选择器可以支持 querySelectorAll('html body #page .content.main ul li')
+        // function genCssSelector(node, selector) {
+        //     // 获得每一个节点的选择器
+        //     let thisNodeSelector = '';
+
+        //     if (node.id) thisNodeSelector += `#${node.id}`; // 有id就将id拼接进选择器
+
+        //     if (node.className) { // 有类名 则拆分类名
+        //         let classList = node.className.split(' ');
+        //         classList.forEach(elm => {
+        //             thisNodeSelector += `.${elm}`; 
+        //         });
+        //     }
+
+        //     if (!thisNodeSelector) thisNodeSelector = node.nodeName.toLowerCase(); // 没有id和class使用元素名
+
+        //     selector.push(thisNodeSelector); // 将当前元素的选择器放入数组
+
+        //     if (node.parentNode && node.parentNode != document) {
+        //         return genCssSelector(node.parentNode, selector); // 递归调用传入 父级节点 和 选择器结果
+        //     } else { // 没有父级节点以后
+        //         return selector.reverse().join(' ');
+        //     }
+
+        // }
+
+        // document.addEventListener('click', function(e) {
+        //     let selector = genCssSelector(e.target, []);
+        //     let elms = document.querySelectorAll(selector);
+        //     console.log(elms);
+        // });
+
+        // -------------------------------------------------------------------------
+        // 实现模板字符串提取
+        // 调用split函数 传入字符串
+        // 得到结果 ['abc','${test}','aa','${test2}','test3'];
+
+        let str = 'abc${test}aa${test2}test3';
+
+        function split(str) {
+            return str.match(/(\w+)|(\$\{\w+\})/g);
+        }
+
+        console.log(split(str));
+    </script>
+</body>
+
+</html>

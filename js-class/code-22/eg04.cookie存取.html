@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#set').on('click', function() {
+                // 将数据键值对保存到cookie中
+                // document.cookie = 'key=value';
+                document.cookie = 'username=' + $('#username')[0].value;
+            });
+
+            $('#get').on('click', function() {
+                // 获得cookie  直接访问 document.cookie
+                console.log(document.cookie);
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <input type="button" value="存cookie" id="set">
+    <input type="button" value="取cookie" id="get">
+</body>
+
+</html>

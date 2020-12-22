@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.cookie = 'children=123;path=/';
+        console.log(document.cookie);
+    </script>
+    <script>
+        window.onload = function() {
+            let user = document.getElementById("user");
+            user.innerHTML = "xiaoluo";
+            let oA = document.getElementById("loginout");
+            oA.onclick = function() {
+                document.cookie = 'username="";expires=-1';
+                location.href = "login.html";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

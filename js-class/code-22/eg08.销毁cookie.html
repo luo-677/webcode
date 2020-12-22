@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#remove').on('click', function() {
+                // 如何销毁cookie
+                // 让生存期变成 session
+                // 将cookie值 设置成 空字符串
+                // 将生存期设置成-1  就会变成 session
+                document.cookie = 'username="";expires=-1';
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="remove">removeCookie</button>
+</body>
+
+</html>

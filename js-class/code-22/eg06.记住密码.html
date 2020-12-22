@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // 判断是否存有cookie数据
+            if (document.cookie) {
+                // 获得cookie数据
+                let cookies = document.cookie.split('; ');
+                cookies.forEach(elm => {
+                    let item = elm.split('=');
+                    switch (item[0]) {
+                        case 'username':
+                            $('input[name="username"]').attr('value', item[1]);
+                            $('#savepwd').attr('checked', 'checked');
+                            break;
+                        case 'password':
+                            $('input[name="password"]').attr('value', item[1]);
+                            break;
+                    }
+                });
+            }
+
+
+            $('#savepwd').on('click', function() {
+                if (this.checked) {
+                    document.cookie = 'username=' + $('input[name="username"]')[0].value;
+                    document.cookie = 'password=' + $('input[name="password"]')[0].value;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center h2">登陆页</h1>
+        <form action="#" method="POST">
+            <div class="input-group">
+                <span class="input-group-addon">用户名:</span>
+                <input type="text" name="username" class="form-control">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">密码:</span>
+                <input type="text" name="password" class="form-control">
+            </div>
+            <div class="input-group text-center center-block">
+                记住密码
+                <input type="checkbox" id="savepwd">
+            </div>
+            <input type="submit" class="btn btn-block btn-success">
+        </form>
+    </div>
+</body>
+
+</html>

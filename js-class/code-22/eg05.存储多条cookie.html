@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#set').on('click', function() {
+                // 添加多条cookie数据 直接使用document.cookie进行多次赋值
+                // 不会覆盖的
+                document.cookie = 'username=zhangsan';
+                document.cookie = 'age=20';
+                document.cookie = 'sex=nan';
+            });
+
+            $('#get').on('click', function() {
+                // 获得到的多条cookie数据 默认使用 '; '进行分割
+                // 获得每条cookie数据需要对字符串进行拆分
+                // console.log(document.cookie);
+
+                let cookies = document.cookie.split('; ');
+                // console.log(cookies);
+
+                cookies.forEach(elm => {
+                    let item = elm.split('=');
+                    console.log(`key:${item[0]}  value:${item[1]}`);
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="set">存</button>
+    <button id="get">取</button>
+</body>
+
+</html>
