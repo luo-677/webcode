@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script src="./cookie.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .input-group {
+            width: 100%;
+        }
+        
+        .input-group-addon {
+            width: 100px;
+        }
+    </style>
+    <script>
+        $(function() {
+            // 权限判断
+            if (!(cookie.get('isLogined') && cookie.get('username') === 'admin')) {
+                // 不是管理员登陆则跳转到登陆页
+                location.href = "./eg01.login.html";
+            }
+
+            let data = location.search.slice(1).split('&');
+
+            data.forEach(el => {
+                let item = el.split('=');
+
+                switch (item[0]) {
+                    case 'id':
+                        $('#userid')[0].value = item[1];
+                        break;
+                    case 'username':
+                        $('#username')[0].value = item[1];
+                        break;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center h2">修改信息</h1>
+        <form action="./interface/update.php" method="POST">
+            <div class="input-group">
+                <span class="input-group-addon">编号:</span>
+                <input type="text" name="userid" id="userid" readonly class="form-control">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">用户名:</span>
+                <input type="text" name="username" id="username" readonly class="form-control">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">密码:</span>
+                <input type="text" name="password" class="form-control">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">邮箱:</span>
+                <input type="text" name="email" class="form-control">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">地址:</span>
+                <input type="text" name="address" class="form-control">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">电话:</span>
+                <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">性别:</span> 男:
+                <input type="radio" name="sex" value="1"> 女:
+                <input type="radio" name="sex" value="0">
+            </div>
+            <input type="submit" class="btn btn-block btn-success">
+        </form>
+    </div>
+</body>
+
+</html>

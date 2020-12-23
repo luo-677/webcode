@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#submit').on('click', function() {
+                // 数据使用 location.search
+                // 语法 ?username=zhangsan&password=123456
+                // 通过 location.href 发送get请求 将数据拼接在search上
+
+                location.href = `./interface/search.php?username=${
+                    $('#username')[0].value
+                    }&password=${
+                    $('#password')[0].value
+                    }`;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <input type="text" id="password">
+    <a href="javascript:;" id="submit">提交</a>
+</body>
+
+</html>

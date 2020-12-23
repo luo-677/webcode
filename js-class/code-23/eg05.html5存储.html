@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // HTML5 标准 新增了两种本地存储的方式
+
+        // localStorage      本地存储 长期有效 主动清空或用户清除缓存后失效
+        // sessionStorage    会话存储 存储时长为一次会话
+
+        // console.log(localStorage);
+        // console.log(sessionStorage);
+        // storage 拥有一个长度属性 length 表示存储的数据数量
+
+        let ls = localStorage;
+
+        // 设置内容
+        // ls.setItem(key,value);
+        // key在storage必须是唯一的
+        // value的数据类型 必须是字符串 如果不是会自动调用 toString()方法
+        // 如果key已存在 则修改value
+
+        // ls.setItem('username', 'zhangsan');
+        // let user = {
+        //     name: 'zhangsan',
+        //     age: 20
+        // };
+        // ls.setItem('user', JSON.stringify(user));
+
+        // 获得内容
+        // ls.getItem(key)
+        // 通过key获得value
+        // console.log(JSON.parse(ls.getItem('user')));
+
+        // 删除数据
+        // ls.removeItem(key);
+        // 通过key删除内容
+        // ls.removeItem('username');
+
+        // 获得key
+        // ls.key(index)
+        // for (let i = 0; i < ls.length; i++) {
+        //     console.log(ls.getItem(ls.key(i))); // 遍历所有的值
+        // }
+
+
+        // 清空所有数据
+        // ls.clear();
+
+        // ls.setItem('gameJS', 'var a = 1;var b = 5;console.log(a+b);');
+        // eval(ls.getItem('gameJS'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

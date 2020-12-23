@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 使用ajax发送get请求的步骤
+
+        // 1. 创建一个ajax对象  获得 XMLHttpRequest 的实例对象
+        // 2. 使用open方法  建立请求
+        // 3. 使用send方法  发送请求
+        // 4. 设置 readystatechange 事件
+
+        const xhr = new XMLHttpRequest(); // 创建ajax对象
+
+        // console.log(xhr.readyState);
+
+        xhr.open('get', './interface/helloworld.txt');
+        // console.log(xhr.readyState);
+
+        xhr.send();
+        // console.log(xhr.readyState);
+
+        xhr.onreadystatechange = function() {
+            // console.log(xhr.readyState);
+            // 当xhr的状态码为4 且http状态码为200 可以处理数据
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#username').on('input', function() {
+                const xhr = new XMLHttpRequest();
+                xhr.open('get', './interface/hasuser.php?username=' + this.value);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // console.log(xhr.responseText);
+                        let data = JSON.parse(xhr.responseText);
+
+                        if (data.has) {
+                            $('#msg').removeClass('green').addClass('red');
+                        } else {
+                            $('#msg').removeClass('red').addClass('green');
+                        }
+                        $('#msg')[0].innerHTML = data.msg;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <span id="msg"></span>
+</body>
+
+</html>

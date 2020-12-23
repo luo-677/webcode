@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // load函数的本质是ajax
+            // ajax是异步发送请求   ajax请求过来的元素是未来元素
+            $('.header').load('./interface/template/nav.html', function() {
+                $('#btn1').on('click', function() {
+                    alert(1);
+                });
+            });
+
+            // 事件绑定先执行了  没有选中元素
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header"></div>
+
+</body>
+
+</html>

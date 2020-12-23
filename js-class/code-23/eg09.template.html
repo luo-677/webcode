@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('get', './interface/template/nav.html');
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    $('.header')[0].innerHTML = xhr.responseText;
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // post请求和get请求的区别
+            // post请求需要设置请求头信息
+            // post请求的数据在send的参数中填写
+
+            $('#username').on('input', function() {
+                let json = {
+                    username: this.value
+                };
+
+                const xhr = new XMLHttpRequest();
+
+                xhr.open('post', './interface/hasuser-json.php');
+                // 设置请求头
+                // xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=utf-8');
+
+                // 如果传输的是 json格式 
+                // 请求头设置 application/json
+                xhr.setRequestHeader('content-type', 'application/json;charset=utf-8');
+
+                // xhr.send('username=' + this.value);
+
+                xhr.send(JSON.stringify(json));
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        let data = JSON.parse(xhr.responseText);
+
+                        if (data.has) {
+                            $('#msg').removeClass('green').addClass('red').html(data.msg);
+                        } else {
+                            $('#msg').removeClass('red').addClass('green').html(data.msg);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <span id="msg"></span>
+</body>
+
+</html>
