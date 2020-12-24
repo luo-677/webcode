@@ -11,9 +11,19 @@
     <div style="border: 1px solid black; width:200px;"></div>
 </body>
 <script>
-    document.cookie = 'username=root';
-    document.cookie = 'password=123456';
-    document.cookie = 'sex=1';
+    let p = new Promise((resolve, reject) => {
+        let num = '1';
+        if (isNaN(num)) {
+            reject('变量 num 是NaN');
+        } else {
+            resolve('变量 num 是有效数字');
+        }
+    })
+    p.then(val => {
+        console.log(val);
+    }).catch(val => {
+        console.log(val);
+    });
 </script>
 
 </html>
