@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            // resolve('no zuo no die');
+
+            resolve('成功');
+            // reject('失败');
+        });
+
+        // Promise.prototype.then() 返回一个新的promise对象
+        // 它支持链式调用 可以一直 .then
+        // p.then(val => {
+        //     return val.toUpperCase();
+        // }).then(val => {
+        //     return val.split(' ');
+        // }).then(val => {
+        //     console.log(val);
+        // });
+
+
+        // p.then(val => {
+        //     // 第一个表示成功
+        //     console.log(val);
+        // }, val => {
+        //     // 第二个表示失败 替代了catch
+        //     console.log(val);
+        // });
+
+        // Promise.prototype.finally()
+        // finally 无论promise的状态是成功还是失败 都会执行
+        // 最后执行
+        p.then(val => {
+                console.log(val);
+            })
+            .catch(val => {
+                console.log(val);
+            })
+            .finally(() => {
+                console.log(1);
+            });
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

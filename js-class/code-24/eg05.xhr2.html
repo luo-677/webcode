@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Z.js"></script>
+    <script>
+        $(function() {
+            $('#username').on('input', function() {
+                const xhr = new XMLHttpRequest();
+                xhr.open('get', 'http://localhost/2011/day24/interface/hasuser.php?username=' + this.value);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log(xhr.responseText);
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <span id="msg"></span>
+</body>
+
+</html>

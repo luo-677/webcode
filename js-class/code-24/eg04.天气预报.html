@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #city {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        #list {
+            list-style: none;
+            overflow: hidden;
+        }
+        
+        #list>li {
+            float: left;
+            margin: 10px;
+            width: 360px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+    </style>
+
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#city').on('change', function() {
+                let script = document.createElement('script');
+                let url = 'http://api.k780.com?';
+                let query = {
+                    app: 'weather.future',
+                    weaid: this.value,
+                    appkey: '38926',
+                    sign: 'f8b4121c2d581be2623569b24f798dee',
+                    format: 'json',
+                    jsoncallback: 'callback'
+                };
+
+                for (let key in query) {
+                    url += `${key}=${query[key]}&`;
+                }
+                url = url.slice(0, -1);
+                script.src = url;
+                document.body.appendChild(script);
+                document.body.removeChild(script);
+            });
+        });
+
+        function callback(data) {
+            console.log(data);
+            let tempstring = '';
+            data.result.forEach(el => {
+                tempstring += `
+                <li>
+                    城市:${el.citynm}<br>
+                    日期:${el.days}<br>
+                    温度:${el.temperature}<br>
+                    天气:${el.weather} <img src="${el.weather_icon}"> <img src="${el.weather_icon1}"><br>
+                    风向:${el.wind} 风力:${el.winp}<br>
+                </li>
+                `;
+            });
+
+            $('#list').html(tempstring);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="city">
+    <ul id="list">
+
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // (相)同源(头)策略
+
+        // 同源策略是浏览器提供的一种安全策略(协议)
+        // 核心思想 一个页面无法跨源访问数据(不能访问其他网站的数据)
+        // 同源策略必须保证数据来自相同源头 保证数据安全
+
+        // ajax是完全遵循同源策略的
+
+        // 同源必须同时满足3个条件
+        // 1. 相同的地址(ip 域名)
+        // 2. 相同的协议
+        // 3. 相同的端口
+
+        // 跨源(跨域)
+        // 有需要第三方数据支持 需要从别人的服务器获得数据
+        // 1. JSONP (前端实现跨域 需要后端进行配合提供跨域接口)
+        // 2. XHR2(cors) 需要后端开放请求权限 设置请求头信息
+        // 3. 反向代理 使用最多 使用web服务器代理请求的地址
+
+
+        // JSONP 和 JSON 没有关系
+        // JSONP是诞生于社区的一种（非官方）跨域解决方案
+        // JSONP没有标准
+
+        // JSONP的原理是利用了浏览器部分属性可以跨源访问数据的特性
+        // <img src="">
+        // <iframe src="">
+        // <script src="">
+
+        // src属性可以跨源访问数据
+        // 不受同源策略限制
+
+        // 可以使用src属性来进行请求发送 get 请求
+
+        // html页面中引入的所有外部资源  图片 样式表 JS文件 视频 音频 ... 
+        // 都是http请求 并且这些请求 都是 get 请求 
+
+
+        // const xhr = new XMLHttpRequest();
+        // xhr.open('get', './interface/hasuser.php?username=admin');
+        // xhr.send();
+        // xhr.onreadystatechange = function() {
+        //     if (xhr.status == 200 && xhr.readyState == 4) {
+        //         console.log(xhr.responseText);
+        //     }
+        // }
+    </script>
+</head>
+
+<body>
+    <iframe src="https://www.baidu.com" frameborder="0"></iframe>
+</body>
+
+</html>

@@ -11,19 +11,8 @@
     <div style="border: 1px solid black; width:200px;"></div>
 </body>
 <script>
-    let p = new Promise((resolve, reject) => {
-        let num = '1';
-        if (isNaN(num)) {
-            reject('变量 num 是NaN');
-        } else {
-            resolve('变量 num 是有效数字');
-        }
-    })
-    p.then(val => {
-        console.log(val);
-    }).catch(val => {
-        console.log(val);
-    });
+    var div = document.querySelector("div");
+    console.log(div.offsetWidth);
 </script>
 
 </html>

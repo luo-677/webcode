@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let ajax = new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('get', './interface/helloworld.txt');
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    resolve(xhr.responseText);
+                }
+
+                setTimeout(() => {
+                    reject(new Error('连接超时'));
+                }, 2000);
+            }
+        });
+
+        console.log(1);
+
+        // promise.then catch 里面的函数 都是异步函数
+
+        ajax.then(val => {
+            console.log(2);
+            console.log(val);
+        }).catch(err => {
+            console.error(err);
+        });
+        console.log(3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

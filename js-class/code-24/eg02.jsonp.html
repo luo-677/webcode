@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        // JSONP 原理
+        // JSONP是采用src属性不受同源策略限制的特点诞生的一种请求方式
+        // script元素是具有可以执行JS代码的特点 配合src属性发送求完成的
+
+        // JSONP的请求步骤
+        // 1. 动态的创建script元素     document.createElement('script');
+        // 2. 将请求的地址和数据拼接到src上  script.src="url?data=value";
+        // 3. 将script元素动态的放入页面   docuemnt.body.appendChild(script);
+        // 4. 设置回调函数   全局函数
+        // 在回调函数中处理数据
+
+        $(function() {
+            $('#search').on('input', function() {
+                let script = document.createElement('script');
+                script.src = "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1462,33226,33306,31660,32971,33286,33351,33313,33312,33311,33310,33231,33309,26350,33308,33307,33237,22160,33389&wd=" + this.value + "&req=2&csor=3&pwd=12&cb=callback&_=1608774297561";
+                document.body.appendChild(script);
+            });
+        });
+
+        function callback(data) {
+            let tempLi = '';
+            data.g.forEach(el => {
+                tempLi += `<li><a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=${el.q}&fenlei=256&rsv_pq=bd8dac69001dc96d&rsv_t=87afopzppavIFGYzu8c56WjmQoRxY0izsaVSmifTLRRix6%2FEA3oIhyZP%2FVw&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=13&rsv_sug1=11&rsv_sug7=101&rsv_sug2=0&rsv_btype=i&inputT=299394&rsv_sug4=299660&rsv_sug=1">${el.q}</a></li>`;
+            });
+            $('#list').html(tempLi);
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="text" id="search">
+    <ul id="list"></ul>
+</body>
+
+</html>

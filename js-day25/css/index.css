@@ -1,0 +1,72 @@
+.tab1 {
+    margin: 30px 0;
+}
+
+.tab1-h2 {
+    color: #0059b2;
+    font-size: 30px;
+    margin: 20px 0 10px 0;
+}
+
+.tab1-p {
+    font-size: 18px;
+    color: #999;
+    margin: 20px 0 40px 0;
+}
+
+.col {
+    padding: 20px;
+}
+
+.tab1-h4 {
+    margin: 5px 0 20px 0;
+}
+
+.tab2 {
+    padding: 60px 20px;
+    background-color: #eee;
+}
+
+.tab2-text {
+    margin-top: 89px;
+}
+
+.tab3 {
+    padding: 60px 20px;
+}
+
+@media (min-width: 768px) {
+    .tab1-h2 {
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 992px) {
+    .tab1-h2 {
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .tab1-h2 {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .tab1-p {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .tab1-p {
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .tab1-p {
+        font-size: 18px;
+    }
+}

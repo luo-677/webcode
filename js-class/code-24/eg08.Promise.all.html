@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Promise.all()
+        // 方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。
+
+        let p1 = new Promise((resolve, reject) => {
+            resolve('第1个promise');
+        });
+        let p2 = new Promise((resolve, reject) => {
+            // reject('第2个promise');
+            resolve('第2个promise');
+        });
+        let p3 = new Promise((resolve, reject) => {
+            // reject('第3个promise');
+            resolve('第3个promise');
+        });
+        let p4 = new Promise((resolve, reject) => {
+            resolve('第4个promise');
+        });
+
+        // Promise.all([promise,...,promise]);
+        // 接收一个数组作为参数 数组内存放的都是promise实例
+        // 返回值:新的promise对象
+        // 如果数组中的所有promise实例的状态都为 成功 
+        // 则新promise的状态为成功
+        // 新的promise对象的then将接收一个数组为所有promise的结果
+
+
+        // 如果数组中有一个primise的状态为 失败
+        // 则新primise的状态为失败
+        // 第一个失败的结果会成为 catch的结果
+
+        let p5 = Promise.all([p1, p2, p3, p4]);
+        // console.log(p5);
+        p5.then(result => {
+            console.log(result);
+        }).catch(res => {
+            console.log(res);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

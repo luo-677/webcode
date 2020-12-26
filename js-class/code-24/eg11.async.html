@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        // ES2017 新增async 函数  用于异步操作的处理
+        // async是Generator的语法糖
+        // async/await
+
+        // 在函数定义前添加 async关键字
+        // 含义是在函数内有异步操作
+        // async 关键字 是替换了 Generator中的 *
+
+        // await 关键字 是替换 Generator中的 yield
+
+        // 如果await后的表达式 不是promise 则会自动调用promise.resolve将其转成promise对象
+
+
+
+
+        (async() => {
+            let data1 = await $.get('./interface/helloworld.txt');
+            let data2 = await $.get('./interface/hasuser.php', {
+                username: 'zhangsan'
+            });
+            console.log(data1);
+            console.log(data2);
+            return [data1, data2];
+        })().then(function(val) {
+            console.log(val);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

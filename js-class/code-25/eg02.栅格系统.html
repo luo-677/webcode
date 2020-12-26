@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- container 是栅格布局的基础容器 container-fluid 流式容器 -->
+    <!-- container 宽度是固定的         container-fluid 宽度是100% -->
+    <!-- container 宽度 -->
+    <!-- 当浏览器宽度 >= 1200px       1170px lg -->
+    <!-- 当浏览器宽度 >= 992px        970px  md -->
+    <!-- 当浏览器宽度 >= 768px        750px  sm -->
+    <!-- 当浏览器宽度 < 768px         auto(100%)  xs -->
+
+    <!-- 栅格系统是使用div模拟表格的形式创建的一套布局系统 -->
+    <!-- 栅格中行使用 .row 必须放在容器中 -->
+
+    <div class="container">
+        <!-- 每一行会最多被12等分 -->
+        <div class="row">
+            <!-- 单元格 .col-屏幕尺寸-份数 -->
+            <div class="col-lg-6 col-md-2 col-xs-12" style="background-color: red;">111</div>
+            <div class="col-lg-3 col-md-2 hidden-xs" style="background-color:yellow">2222</div>
+            <div class="col-lg-3 col-md-8 col-xs-12" style="background-color:blue">3333</div>
+        </div>
+        <!-- <div class="row"></div> -->
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
