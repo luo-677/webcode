@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        // jQuery 中 的工厂函数 叫做  jQuery
+        // 工厂函数 拥有一个别名 $
+
+        // console.log(jQuery);
+        // console.log($);
+        // console.log(jQuery === $);
+
+        // jQuery的就绪事件使用的是HTML5标准的  DOMContentLoaded
+        // DOMContentLoaded DOM元素加载完毕
+        // $(document).ready(function() {
+        //     let box = document.getElementById('box');
+        //     console.log(box);
+        // });
+
+        // $(function() {
+        //     // 就绪事件 简写
+        // });
+
+        $(function() {
+            // jQuery 工厂函数 拥有非常强大的对象创建能力
+            // 使用jQuery工厂函数创建的对象  都叫做 jQuery 对象
+
+            // jQuery的基本语法是 
+            // $(selector).action()
+            // $(选择器).动作()
+
+            // 使用jQuery选择器选择到的所有元素都是类数组对象
+            console.log($('#box'));
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">123</div>
+</body>
+
+</html>

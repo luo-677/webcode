@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $(selector).attr()
+
+
+            // $('#btn').on('click', function() {
+            // 获得第一个被选元素的属性值
+            // $(selector).attr(attrName);
+            // console.log($('.box').attr('id'));
+
+            // 为所有被选择的元素设置属性值 (添加/修改)
+            // $(selector).attr(attrName,value);
+            // $('.box').attr('style', 'color:red');
+
+            // 为被选元的所有元素设置属性值
+            // $(selector).attr(attrName,fn);
+            // $('.box').attr('title', (index, oldValue) => {
+            //     // 会遍历所有被选元素
+            //     // 为每一个被选元素执行一次回调函数
+            //     // 回调函数的结果为attr属性值的结果
+
+            //     return oldValue + 'abc' + index;
+            // });
+
+            // $(selector).attr(properties);
+            // $('.box').attr({
+            //     'class': (index, value) => value + ' test',
+            //     'title': 'abc'
+            // });
+
+            // --------------------------------------------------------
+            // $(selector).removeAttr(attrName);
+            // 为每一个被选元素删除一个属性
+            // $('div:eq(1)').removeAttr('title');
+            // })
+            // ---------------------------------------------------------
+
+            // attr()函数只能设置和获取可见属性
+
+            $('input:checkbox:first').on('click', function() {
+                // DOM元素(对象) 不具备jQuery(对象)的函数 
+                // 将DOM对象转成jQuery对象
+                // 转换的语法:
+                // $(DOMElement)
+
+                // 使用prop() 可以获得不可见属性
+                // console.log($(this).prop('checked'));
+                $('input:checkbox:not(:first)').prop('checked', $(this).prop('checked'));
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <br>
+
+
+
+
+    <button id="btn">按钮</button>
+    <div class="box" id="box1" title="HTML DIV ELEMENT1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quasi iure non ducimus dolorem modi nam eveniet numquam, illum odio ea, sit eligendi quia vel sapiente tenetur, ipsam reiciendis explicabo?
+    </div>
+    <div class="box" id="box2" title="HTML DIV ELEMENT2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quasi iure non ducimus dolorem modi nam eveniet numquam, illum odio ea, sit eligendi quia vel sapiente tenetur, ipsam reiciendis explicabo?
+    </div>
+    <div class="box" id="box3" title="HTML DIV ELEMENT3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quasi iure non ducimus dolorem modi nam eveniet numquam, illum odio ea, sit eligendi quia vel sapiente tenetur, ipsam reiciendis explicabo?
+    </div>
+</body>
+
+</html>

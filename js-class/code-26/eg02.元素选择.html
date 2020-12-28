@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // 基本语法 $(selector).action()
+
+            // jQuery的选择器 主要依赖于css选择器
+
+
+            // $('.en').on('click', function() {
+            //     $('div:lang("zh-cn")').hide();
+            //     $('div:lang("en-us")').show();
+            // });
+
+            // $('.cn').on('click', function() {
+            //     $('div:lang("zh-cn")').show();
+            //     $('div:lang("en-us")').hide();
+            // });
+
+            // console.log($('ul>li:first'));
+
+            // console.log($('ul>li:not(:first)'));
+
+            // console.log($('li:even'));
+
+            // console.log($('li:odd'));
+
+            // console.log($('li:eq(3)'));  // 等于
+
+            // console.log($('li:lt(3)'));  // 小于
+
+            // console.log($('li:gt(3)')); // 大于
+
+            // console.log($('p:contains("hello")'));  // 通过内容字符串筛选元素
+
+            // console.log($('p:hidden'));
+
+            // console.log($('input:text'));
+            // console.log($('input:checkbox'));
+
+            // console.log($('input:checkbox:not(:checked)'));
+        });
+    </script>
+</head>
+
+<body>
+
+    <input type="text">
+    <input type="text">
+    <input type="checkbox">
+    <input type="checkbox" checked>
+    <input type="checkbox" checked>
+    <input type="radio">
+    <input type="radio" checked>
+
+
+
+    <p style="display: none;">你好世界</p>
+    <p style="display: none;">hello world</p>
+    <p>hello zhangsan</p>
+
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+        <li>list item 6</li>
+        <li>list item 7</li>
+        <li>list item 8</li>
+        <li>list item 9</li>
+        <li>list item 10</li>
+    </ul>
+
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+        <li>list item 6</li>
+        <li>list item 7</li>
+        <li>list item 8</li>
+        <li>list item 9</li>
+        <li>list item 10</li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+    <button class="btn en">英文</button>
+    <button class="btn cn">中文</button>
+
+    <div lang="zh-cn">中文</div>
+    <div lang="zh-cn">中文</div>
+    <div lang="zh-cn">中文</div>
+    <div lang="en-us">English</div>
+    <div lang="en-us">English</div>
+    <div lang="en-us">English</div>
+    <div lang="en-us">English</div>
+    <div lang="en-us">English</div>
+</body>
+
+</html>

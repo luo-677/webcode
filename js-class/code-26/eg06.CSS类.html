@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 5px;
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .yellow {
+            background-color: yellow;
+        }
+        
+        .blue {
+            background-color: blue;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                // $(selector).addClass(className);
+                // 为所有被选元素添加类名
+                // $('div').addClass('red blue');
+
+                // $(selector).addClass(fn);
+
+                // $('div').addClass((index, className) => {
+                //     return className + ' item-' + index;
+                // })
+
+
+                // $(selector).removeClass(className);  给被选元素删除指定类名
+                // $('.a1').removeClass('a2');
+
+                // $(selector).removeClass() 给所有被选元素删除所有类名
+                // $('div').removeClass();
+
+                // $(selector).toggleClass(className); 有则删除类名 没有则添加类名
+                $('div').toggleClass('red');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div id="box1" class="box1"></div>
+    <div id="box2" class="a1 a2 red"></div>
+    <div id="box3"></div>
+</body>
+
+</html>

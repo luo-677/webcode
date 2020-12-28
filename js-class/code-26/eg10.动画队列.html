@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // jQuery 所有的动画效果(show/hide/toggle/slideDown/slideUp/fadeIn/fadeOut.../animate) 
+            // 都会每一个元素添加动画队列
+
+            // 队列是一种数据结构 它的表现特点是 先进先出
+            // jQuery会为每一个有动画的元素创建出一个队列 
+            // 将所有的动画效果推入队列
+            // 按队列顺序依次执行
+
+            // jQuery的动画 返回的是当前jQuery对象 
+            // 动画支持链式调用
+            $('.box').animate({
+                height: 200
+            }, 1000).delay(2000).animate({
+                width: 200
+            }, 1000).animate({
+                width: 100
+            }, 1000).delay(2000).animate({
+                height: 100
+            }, 1000);
+
+            // 队列 ['动画1 高200','动画2 宽200','动画3 高100','动画4 宽100']
+            // 数组的 shift和push方法 可以组成队列的行为
+
+            // 为什么使用链式调用？
+            // 减少DOM的查找次数
+
+            // 可以在动画的执行队列任意位置 为元素添加动画的延迟
+            // $(selector).delay(timer);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

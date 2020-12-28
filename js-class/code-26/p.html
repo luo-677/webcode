@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        // console.log(jQuery);
+        // console.log($);
+        // $(document).ready(function() {
+        //     console.log($('#box').html());
+        // });
+        // 就绪函数简写
+        // $(function() {
+        //     $("#box").on('click', () => alert(1));
+        // });
+        // $(selector).action();
+        // 增加事件监听函数
+        // $("#box").on('click', () => alert(1));
+        $(function() {
+            // $('body').on('click', '#box', function() {
+            //     alert(1);
+            // });
+            // $('#box').hover(function() {
+            //     $(this).css('backgroundColor', 'red');
+            // }, function() {
+            //     $(this).css('backgroundColor', 'white');
+            // })
+            // $('#box1').on('click', () => alert(1));
+            // $('#box').on('click', () => {
+            //     $('#box1').trigger('click');
+            // })
+            // $('#box').on('click', function() {
+            //     console.log($('#box1').attr('class'));
+            // });
+            // attr 获取第一个元素的属性值
+            // console.log($('#box').attr('id'));
+            $('#box').on('click', () => {
+                console.log($('#box1').attr('class'));
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box" class="lalala">啦啦啦</div>
+    <div id="box1" class="lalala"></div>
+</body>
+
+</html>

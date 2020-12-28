@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+        }
+        
+        #btn {
+            position: absolute;
+            right: 0;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // jQuery提供了一个自定义动画函数 animate()
+            // 语法:
+            // $(selector).animate(动画属性, 动画时长, 回调)
+            // 当属性单位为像素时可以忽略单位
+
+            // 宽，高，透明度 可以设置成 hide show toggle
+
+            $('#btn').on('click', function() {
+                $('.box').animate({
+                    // top: '+=200',
+                    // left: '+=200'
+                    // width: 300,
+                    // height: 300,
+                    opacity: 'hide',
+                    // 'border-radius': '50%'
+
+
+                    // width: 'hide'
+                }, 1000, function() {
+                    alert(123);
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div class="box"></div>
+</body>
+
+</html>

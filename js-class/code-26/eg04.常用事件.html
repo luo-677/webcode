@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $('.list>li').hover(function(ev) {
+            //     // mouseenter
+            //     $(this).css('background', 'red');
+            //     console.log(ev.type);
+            // }, function(ev) {
+            //     // mouseleave
+            //     $(this).css('background', '#fff');
+            //     console.log(ev.type);
+            // });
+
+            // 一次性事件
+            // $('.list>li:first').one('click', function() {
+            //     alert(1);
+            // });
+
+            $('#box').on('click', function() {
+                alert('box被点击了');
+            });
+
+            $('button').on('click', function() {
+                // trigger 触发其他元素的事件
+                $('#box').trigger('click');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div id="box"></div>
+    <ul class="list">
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+    </ul>
+</body>
+
+</html>

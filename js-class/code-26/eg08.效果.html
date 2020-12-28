@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /* display: none; */
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                // jQuery预设了三组动画效果  分别是 隐藏/显示 滑动 淡入/淡出
+                // 可以为效果 添加动画时间
+                // 时间有三个预设值
+                // 'slow'    600ms
+                // 'normal'  400ms
+                // 'fast'    200ms
+
+                // ---------------------------------------------------
+                // $(selector).hide([timer,callback])
+                // callback 会在动画完成后执行
+                // $('.box').hide(2000, function() {
+                //     alert('动画执行完毕');
+                // });
+                // -------------------------------------------------
+                // $(selector).show([timer,callback]);
+                // $('.box').show(2000, function() {
+                //     alert(1);
+                // });
+                // -------------------------------------------------
+                // $(selector).toggle([timer,callback]);
+                // hide  /  show  切换
+                // $('.box').toggle(2000);
+                // -------------------------------------------------
+                // $(selector).slideDown([timer,callback]);
+                // $('.box').slideDown(2000);
+                // -------------------------------------------------
+                // $(selector).slideUp([timer,callback]);
+                // $('.box').slideUp(2000);
+                // -------------------------------------------------
+                // $(selector).slideToggle([timer,callback]);
+                // slideDown / slideUp  切换
+                // $('.box').slideToggle(2000);
+                // -------------------------------------------------
+                // $(selector).fadeOut([timer,callback]);
+                // $('.box').fadeOut(1000);
+                // -------------------------------------------------
+                // $(selector).fadeIn([timer,callback]);
+                // $('.box').fadeIn(1000);
+                // -------------------------------------------------
+                // $(selector).fadeToggle([timer,callback]);
+                // fadeIn / fadeOut 切换
+                // $('.box').fadeToggle(2000);
+                // -------------------------------------------------
+                // $(selector).fadeTo([timer,opacity,callback]);
+                // $('.box').fadeTo(1000, 0.5);
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div class="box"></div>
+
+</body>
+
+</html>

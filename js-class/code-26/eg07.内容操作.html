@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $(selector).html()
+            // 获得第一个被选元素的html文本
+            // console.log($('div').html());
+
+            // $(selector).html(content)
+            // 为所有被选择的元素 设置html内容
+            // $('div').html('<h1>hahaha</h1>');
+
+            // $(selector).html(callback);  
+            // 为所有被选元素 执行一个回调函数
+            // 回调参数 
+            // index    每一个元素所对应的索引
+            // oldhtml  每一个元素内的html文本
+            // 回调的返回值会成为每一个元素的html内容
+
+            // $('div').html((i, v) => {
+            //     return `${v} <span style="color:red">新增的内容${i+1}</span>`;
+            // });
+
+            // -----------------------------------------------
+            // $(selector).text();  
+            // 返回所有被选元素的文本内容(不包含标签)
+            // console.log($('div').text());
+
+            // $(selector).text(content);
+            // $('div').text('<h1>你好世界</h1>');
+
+            // $(selector).text(callback);
+
+            // $('div').text((i, v) => {
+            //     // console.log(i, v);
+            //     return v + ' haha';
+            // });
+
+            // ---------------------------------------------
+
+            // $(selector).val();
+            // 获得第一个被选元素的value值
+            // console.log($('input').val());
+
+            // $('input').on('input', function() {
+            //     console.log($(this).val());
+            // });
+
+            // $('input').val('123');
+
+            // $('input').val((i, v) => {
+            //     console.log(i, v)
+            //     return v + 'abc';
+            // });
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" value="你好世界1">
+    <input type="text" value="你好世界2">
+    <input type="text" value="你好世界3">
+    <input type="text" value="你好世界4">
+    <div><span>你好世界1</span>！</div>
+    <div><span>你好世界2</span>！</div>
+    <div><span>你好世界3</span>！</div>
+
+</body>
+
+</html>

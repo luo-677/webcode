@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // 事件委派(事件委托)
+
+            // 将事件绑定给父级或祖先级元素 
+            // 通过事件冒泡的原理 判断事件触发的目标
+
+            // 可以为未来元素添加事件
+            // 减少DOM查询次数
+            // 减少事件绑定次数
+
+            // jQuery对事件委托进行了封装 让事件委托更简单易用
+
+            // jQuery 1.x 事件委托
+            // $('#box').delegate('.btn', 'click', function() {
+            //     alert(123);
+            // });
+
+            // 高版本的jQuery将事件委托封装进了方法 on
+
+            // 普通事件绑定
+            // $('.btn').on('mouseover mouseout', function(ev) {
+            //     console.log(ev.type);
+            // });
+
+            // $('.btn').on({
+            //     mouseover: function() {
+            //         console.log(1);
+            //     },
+            //     mouseout: function() {
+            //         console.log(2);
+            //     }
+            // })
+
+            // ------------------------------------------------------------
+
+            // 使用on 进行事件委托
+            // $('#box').on('click', '.btn', function() {
+            //     console.log(1);
+            // });
+
+            // $('ul').on({
+            //     mouseover: function() {
+            //         $(this).css('background', 'red');
+            //     },
+            //     mouseout: function() {
+            //         $(this).css('background', '#fff');
+            //     }
+            // }, 'li');
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+        <li>list item 6</li>
+        <li>list item 7</li>
+        <li>list item 8</li>
+        <li>list item 9</li>
+        <li>list item 10</li>
+    </ul>
+
+
+
+
+    <div id="box">
+        <button class="btn">按钮</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+
+
+    </div>
+</body>
+
+</html>
