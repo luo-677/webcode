@@ -98,3 +98,56 @@ $('button').on('click',function(){
     $('#box').trigger('click');
 });
 ```
+## 7. jQuery中的属性操作
+```javascript
+// 获得第一个被选元素的属性值
+$(selector).attr(attrName);
+// 为所有被选的元素设置属性值(添加/修改)
+$(selector).attr(attrName,value);
+// 为被选的所有元素设置属性值，使用回调函数
+$(selector).attr(attrName,fn);
+$('.box').attr('title',(index,value)=>value+'abc'+index);
+// 对象方式进行书写
+$('.box').attr({
+    'class': (index,value)=>value+'test',
+    'title': 'abc'
+});
+// 为每一个被选元素删除一个属性
+$(selector).removeAttr(attrName);
+$('div:eq(1)').removeAttr('title');
+// attr()函数只能设置和获取可见属性
+```
+## 7. jQuery中的CSS类操作
+```javascript
+// 为所有被选元素添加类名
+// 直接添加类名
+$(selector).addClass(className);
+$('div').addClass('red blue');
+// 使用回调函数的方式进行属性添加
+$(selector).addClass(fn)
+$('div').addClass((index,className)=>{
+    return className + 'item-' + index;
+});
+// 删除类名
+// 删除指定类名
+$(selector).removeClass(className);
+// 清空类名
+$(selector).removeClass();
+// 添加 / 删除类名
+// 有指定的类名则删除，没有则添加
+$(selector).toggleClass(className);
+```
+## 8. jQuery中的内容操作
+```javascript
+// 获得第一个被选元素的html文本
+$(selector).html();
+// 为所有的被选择元素设置html内容
+$(selector).html(content);
+// html可以解析标签
+$('div').html('<h1>hahaha</h1>');
+// 为所有被选元素执行一个回调函数
+$(selector).html(callback);
+$(selector).html((i,v)=>{
+    return `${v} <span style="color:red">新增的内容${i+1}</span>`;
+});
+```

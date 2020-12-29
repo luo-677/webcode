@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(function() {
+            // $(selector).append()
+            // 给每一个被选元素的结尾处添加内容
+            // 参数: string number element jQuery elmstring
+            // $('.box').append('hello world');
+            // $('.box').append(123);
+            // let span = document.createElement('span');
+            // span.innerText = 'test';
+            // $('.box').append(span);
+            // $('.box').append($('p'));
+            // $('.box').append('<h2>new elm</h2>');
+
+            // jQuery创建元素
+            // let divElm = $('<div>你好世界</div>'); //jQuery对象
+            // $('.box:last').append(divElm);
+
+            // $('.box').append(function(i, v) {
+            //     // console.log(i, v);
+            //     return '123';
+            // });
+
+            // ---------------------------------------------
+
+            // $('p').appendTo('.box');
+
+            // $('.box').prepend('123');
+
+            // $('.box').after('hello');
+
+            // $('.box').before('hello');
+
+            // ----------------------------------------------
+
+            // $('.box').wrap('<div class="outer"></div>');
+            // $('.box').wrap($('.outer'));
+
+            // $('h1').unwrap();  // 删除父元素
+
+            // $('.box').wrapAll('<div class="outer"></div>');
+
+            // $('.box').wrapInner('<b></b>');
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="outer"></div>
+
+
+    <div class="box">
+        <h1>你好世界</h1>
+    </div>
+    <div class="box">
+        <h1>hello world</h1>
+    </div>
+</body>
+
+</html>

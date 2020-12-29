@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $('.list>li').css('color', 'red').eq(2).css('color', 'yellow');
+            // eq() 参数如果是负数表示从后往前计算元素的数量
+            // console.log($('.list>li').eq(-2));
+
+            // $('.list>li').first().css('color', 'red');
+            // $('.list>li').last().css('color', 'blue');
+
+            // $('.list>li').on('click', function() {
+            //     console.log(1);
+            //     if ($(this).hasClass('test')) { // hasClass返回一个布尔值 检测元素是否拥有指定的类名
+            //         $(this).css('color', 'green');
+            //     }
+            // });
+
+            // console.log($('.list>li').filter(':even'));
+
+            // console.log($('li.test').parent().is('.list'));
+
+
+            // let result = $('.list>li').map(function(i, elm) {
+            //     // console.log(i, elm);
+            //     return $(elm).text();
+            // });
+
+            // get函数可以将jQuery对象转成数组
+            // 可以从jQuery对象中获得某一个元素(通过索引)
+            // 如果index是负数则从后往前获取
+            // let arr = [1,2,3,4,5];
+
+            // console.log(result.get().join());
+
+            // console.log($('.list>li').get(1)); // DOM元素  将jQuery对象转DOM对象
+
+            // $(DOMElement) 将DOM对象转jQuery对象
+
+            // 数组也能转jQuery对象
+            // console.log($([1, 2, 3, 4, 5]));
+
+
+            // console.log($('li').not('.test'));
+
+
+            // console.log($('.list').children('.test'));
+
+            // console.log($('li').closest('div'));
+
+            // console.log($('.list').find('li'));
+
+            // console.log($('.list>li:first').next().next('.test'));
+
+            // console.log($('.list>li:first').next().nextAll('.test'));
+
+            // console.log($('.list>li:first').nextUntil('.test'));
+
+            // console.log($('li:first').parents('.outer'));
+            // console.log($('li:first').parentsUntil('.outer'));
+
+
+            // console.log($('.list>li:last').prev());
+
+            // console.log($('.list>li:first').siblings('.test'));
+        });
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <ul class="list">
+            <div>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+            <li>list item 1</li>
+            <li>list item 2</li>
+            <li class="test">list item 3</li>
+            <li>list item 4</li>
+            <li class="test">list item 5</li>
+            <li>list item 6</li>
+            <li>list item 7</li>
+            <li>list item 8</li>
+            <li>list item 9</li>
+            <li>list item 10</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
