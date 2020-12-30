@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        // 任何优秀的库和框架 都有一个共同点 可扩展
+        // 可扩展也符合面向对象的原则 开闭原则(面向扩展开放 面向修改关闭)
+
+        // $ 是什么？
+        // 它是jQuery的工厂函数 用于创建对象
+
+        // $.fn 是什么?
+        // jQuery的原型对象
+
+        // jQuery的插件机制提供了
+        // $.extend();
+        // $.fn.extend();
+        // 同一个函数
+        // console.log($.extend === $.fn.extend);
+
+        // 对象合并深拷贝
+
+        // ------------------------------------
+
+        // $.extend()  为jQuery扩展工具
+        // console.log($.isArray([1, 2, 3]));
+        // console.log($.parseJSON('{"user":"zhangsan","age":20}'));
+
+        // $.extend({
+        //     abc: function() {
+        //         console.log('abc');
+        //     },
+        //     max: function() {
+        //         return Math.max(...arguments);
+        //     }
+        // });
+
+        // $.abc();
+
+        // console.log($.max(623, 654, 4543, 6754, 11231, 22));
+
+        // ----------------------------------------
+
+        // 合并对象
+        // 合并对象的属性时，默认使用浅拷贝
+        // 当第一个参数为true 表示使用深拷贝
+
+        let o = {
+            username: 'zhangsan'
+        }
+
+        let o2 = {
+            age: 18
+        }
+
+        let o3 = {
+            data: [1, 2, 3, 4, 5],
+            age: 20
+        }
+
+        $.extend(true, o, o2, o3);
+
+        o3.data[0] = 0;
+
+        console.log(o);
+        console.log(o3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

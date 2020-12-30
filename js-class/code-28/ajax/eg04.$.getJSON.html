@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // $.getJSON(url, [data], [callback])
+
+            // 使用$.getJSON() 可以直接获取JSON文件
+            // 使用get请求方式
+
+            // $.getJSON('./interface/city.json', function(data) {
+            //     console.log(data);
+            // });
+
+
+            // $.getJSON可用于JSONP请求
+            $('#search').on('input', function() {
+                let url = `https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1462,33421,33306,31660,32971,33286,33351,33313,33312,33311,33310,33231,33309,26350,33308,33307,22160,33389,33370&wd=${$(this).val()}&req=2&csor=3&pwd=12&cb=?&_=${Date.now()}`;
+                $.getJSON(url, function(data) {
+                    let li = '';
+                    data.g.forEach(el => {
+                        li += `<li>${el.q}</li>`;
+                    });
+
+                    $('#list').html(li);
+                });
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="search">
+    <ul id="list"></ul>
+</body>
+
+</html>

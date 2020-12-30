@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 发送get请求
+
+        // 1. 创建ajax对象
+        // 2. 使用open创建请求
+        // 3. 使用send发送请求
+        // 4. 使用onreadystatechange设置回调
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', './test.txt?_=' + Date.now());
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.status == 200 && xhr.readyState == 4) {
+                console.log(xhr.responseText);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

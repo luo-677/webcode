@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('#username').on('input', function() {
+                // $.ajax({
+                //     url: '', // 请求地址
+                //     type: '', // 请求方式
+                //     data: {}, // 发送的数据
+                //     dataType: '', // 数据类型
+                //     success: function() {}, // 成功后回调
+                //     error: function() {} // 失败后回调
+                // });
+
+                // $.ajax({
+                //     type: "post",
+                //     url: "./interface/hasuser1.php",
+                //     data: {
+                //         "username": $(this).val()
+                //     },
+                //     dataType: "json",
+                //     beforeSend: function(xhr) {
+                //         console.log(xhr);
+                //         console.log('beforeSend');
+                //     },
+                //     dataFilter: function(data) {
+                //         console.log(data);
+                //         console.log('dataFilter');
+                //         return data;
+                //     },
+                //     success: function(res) {
+                //         // let d = JSON.parse(res);
+                //         // console.log(d);
+                //         console.log(res);
+                //         console.log('success');
+                //     },
+                //     error: function(xhr) {
+                //         console.log(xhr.status);
+                //         console.log('error')
+                //     },
+                //     complete: function(xhr) {
+                //         console.log(xhr);
+                //         console.log('complete');
+                //     }
+                // });
+
+
+                $.ajax({
+                    type: "post",
+                    url: "./interface/hasuser.php",
+                    data: {
+                        'username': $(this).val()
+                    },
+                    dataType: "json",
+                }).done(function(data) {
+                    $('#msg').html(data.msg);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <span id="msg"></span>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('#search').on('input', function() {
+                $.ajax({
+                    type: "get",
+                    url: `https://sug.so.360.cn/suggest?callback=?&encodein=utf-8&encodeout=utf-8&format=json&src=so_home&fields=word&word=${$(this).val()}&huid=11VxoU2xGOskQp8IBP1Owv4K3jqVZn%2FXN0ctxsCc0MOM0%3D&llbq=A5%2CB5%2CC5%2CD5&cache=&id=`,
+                    dataType: "jsonp",
+                    success: function(response) {
+                        console.log(response);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="search">
+</body>
+
+</html>
