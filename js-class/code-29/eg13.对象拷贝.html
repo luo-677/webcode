@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 拷贝 copy 复制
+
+        let o = {
+            x: 1,
+            y: [1, 2, 3]
+        };
+
+        // 引用类型的属性赋值操作 赋值的是地址(引用)
+
+        let o2 = {};
+
+        // 通过遍历赋值属性
+
+        // 使用for-in 遍历对象中的一层数据 进行数据的赋值
+        // 内部没有对引用类和值类型进行区分处理 
+        // 导致引用类型的地址 原样赋值  引用类型的值 没有成功拷贝
+        // 只拷贝了第一层的值类型
+        // 浅拷贝
+        for (let key in o) {
+            o2[key] = o[key];
+        }
+
+        // console.log(o2);
+        // console.log(o === o2);
+        o.y[0] = 3;
+        console.log(o2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // this 是一个动态的指针
+        // 它的指向 不是由定义决定的 而是由执行决定的
+
+
+        // 在浏览器环境中
+
+        // this 在普通函数中 指向调用该函数的对象
+        // this 在构造函数中 指向新的实例对象
+        // this 在全局函数中 指向window
+        // this 在事件函数中 指向事件绑定的对象
+        // this 在原型函数中 指向调用该函数的对象
+        // this 在自执行函数 指向window
+        // this 在计时器中   指向window
+        // this 在箭头函数中 指向父级对象
+        // this 在严格模式中 不指向window
+
+        // 可以使用 call apply bind  修改this的指向
+
+        // 箭头函数 不能作为构造函数
+        // 箭头函数 不推荐作为事件处理函数
+        // 箭头函数 不能使用arguments
+        // 箭头函数 不能作为Generator函数
+
+
+
+        // let fn = function() {
+        //     console.log(this);
+        // }.bind(null);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

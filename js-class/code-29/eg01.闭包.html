@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 闭包是JavaScript特有的一种函数嵌套结构
+
+        // 表现的是在一个外部作用域中可以访问不属于它作用域的变量
+
+        // 构成一个闭包需要符合三个基本条件
+        // 1. 函数嵌套
+        // 2. 在内层函数中使用外层函数的变量(参数)
+        // 3. 内层函数作为返回值使用
+
+        // 闭包的作用
+        // 1. 保护具有共享意义 的变量 为其提供访问接口 ( 模块化 )
+        // 2. 隔离作用域 避免全局(作用域)污染  ( 自执行函数 )
+
+        // 闭包的缺点
+        // 1. 概念复杂 不易理解
+        // 2. 占用资源(栈内存)过多 大量使用闭包容易造成栈溢出
+
+
+        // function fn() {
+        //     // 由于内存函数引用了外层函数的变量或参数 
+        //     // 导致作用域链中的活动对象 没有被销毁 所以变量或参数未被销毁 
+        //     // 有一个活动对象的作用域 （Closure 闭包作用域） 被挂起放在栈内存中
+        //     let num = 10;
+
+        //     return function() {
+        //         return num;
+        //     }
+
+        //     // function fn2() {
+        //     //     return num;
+        //     // }
+
+        //     // return fn2;
+        // }
+
+        // let fn2 = fn();
+
+        // console.log(fn2());
+
+        //----------------------------------------------------------
+        function fn(num) {
+            return function(num2) {
+                return num + num2;
+            }
+        }
+
+        // let fn2 = fn(5);
+        // let result = fn2(6);
+        // let result2 = fn2(3);
+        // console.log(result);
+        // console.log(result2);
+
+        // console.log(fn(3)(5));
+
+        // function fn(num) {
+        //     // coding here ...
+        // }
+        // fn(3)(5);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

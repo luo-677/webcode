@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        // 触发频率高的事件
+        // mousemove scroll input keydown keyup ...
+
+        // 给高频事件降频
+        // 两种手段
+        // 1. 函数防抖
+        // 2. 函数节流
+
+        window.onload = function() {
+            let box = document.querySelector('.box');
+            box.addEventListener('mousemove', function() {
+                console.log(1);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
