@@ -11,5 +11,6 @@ function isOdd(num, callback) {
 }
 
 isOdd(5, function(err, msg) {
+    if (err) throw err;
     console.log(msg);
 })
