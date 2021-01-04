@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function A() {
+            this.f = 'fffff';
+            this.fn = function() {
+                console.log(this.f);
+            }
+        }
+
+        function B() {
+            this.f = 'ccccccccc';
+        }
+
+        // 让B的实例 拥有A的私有函数
+
+        // 从其他对象中获得属性或方法
+
+        // 将A的实例设置成B的原型
+
+        // 通过原型继承私有属性
+
+        // A的私有属性变成了B的公有属性
+
+        B.prototype = new A();
+
+        let b = new B();
+        b.fn();
+        console.log(b);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

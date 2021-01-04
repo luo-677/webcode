@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class A {
+            constructor(name) {
+                this.name = name;
+            }
+
+            // 公有函数
+            sayName() {
+
+                console.log(this.name)
+            }
+        }
+
+        class B extends A { // extends 让B的原型等于A的实例
+            constructor(name) {
+                super(name); // 调用父类构造函数 继承私有属性  相当于 A.call(this,name)
+            }
+        }
+
+        let b = new B('zhangsan');
+
+        b.sayName();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

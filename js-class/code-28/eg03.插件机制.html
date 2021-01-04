@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $.fn.extend() 
+            // 为jQuery原型添加属性
+            // jQuery原型中的属性所有的jQuery对象可以访问
+
+            $.fn.extend({
+                plus: function() {
+                    let val = parseFloat($(this).val());
+                    console.log(val + 1);
+                }
+            });
+
+            $('#userinput').on('input', function() {
+                $('#userinput').plus();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="userinput">
+</body>
+
+</html>

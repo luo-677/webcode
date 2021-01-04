@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let o = {
+            name: 'zhangsan',
+            fn: function() {
+                console.log(this.name);
+            },
+            fn2: function(num1, num2) {
+                console.log(num1 + num2);
+            }
+        }
+
+        let o2 = {
+            name: 'lisi'
+        };
+
+
+        // Function.prototype.bind()
+        // 语法:
+        // fn.bind( thisObj,[...bindArgs] );
+        // 参数:
+        // thisObj 函数fn中 this指向的对象
+        // bindArgs 函数中的实参
+        // 返回值:
+        // 返回一个新函数 新函数中的this指向thisObj 新函数中的实参为bindArgs所传参数
+        // 不会立即执行
+        // let fn = o.fn.bind(o2);
+        // fn();
+
+        // let fn2 = o.fn2.bind(null, 3, 3);
+        // fn2(1, 3);
+
+
+        // Function.prototype.call()
+        // 语法:
+        // fn.call(thisObj,[arg1,...argN])
+        // 参数:
+        // thisObj 函数fn中this需要指向的对象
+        // arg    函数fn中的实参
+        // 立即调用函数
+        // o.fn.call(o2);
+
+        // o.fn2.call(null, 3, 5);
+
+        // Function.prototype.apply()
+        // 语法:
+        // fn.apply(thisObj,[arrayLike]);
+        // 参数:
+        // thisObj 函数fn中this需要指向的对象
+        // arrayLike  数组或类数组对象 会自动展开成为fn的每一个实参
+        // o.fn2.apply(null, [3, 5]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

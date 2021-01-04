@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 深拷贝
+        // 对象中每一层的引用类型  都不相同
+
+        let o = {
+            x: 1,
+            y: [1, 2, 3],
+            z: {
+                x: 2,
+                y: [4, 5, 6, [7, 8]]
+            }
+        }
+
+        let o2 = deepCopy(o);
+        o2.z.y[0] = 0;
+        console.log(o2);
+        console.log(o);
+
+        // 树结构 遍历 递归
+        // 递归算法
+
+        function getClass(o) {
+            return Object.prototype.toString.call(o).slice(8, -1);
+        }
+
+
+        function deepCopy(o) {
+            let result, oClass = getClass(o);
+
+            // 判断数据类型 数组和对象是需要深度遍历
+            if (oClass === 'Object') {
+                result = {};
+            } else if (oClass === 'Array') {
+                result = [];
+            } else {
+                return o;
+            }
+
+            // 遍历对象
+            for (let key in o) {
+                let copy = o[key];
+                if (getClass(copy) === 'Object' || getClass(copy) === 'Array') {
+                    result[key] = deepCopy(copy);
+                } else {
+                    result[key] = copy;
+                }
+            }
+
+            return result;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

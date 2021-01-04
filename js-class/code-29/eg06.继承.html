@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 继承
+        // 从其他对象上获得属性或方法
+
+        // JavaScript是没有类的
+        // class 是构造函数的语法糖
+        // JS的语言特性可以实现面向对象语言特点的 
+        // 面向对象编程思想
+        // 封装 继承 多态
+
+        function Father(name, age, sex) { // JS中的构造函数可以被当作是 面向对象语言中的类 作用是创建对象
+            // 使用this关键字 为新对象添加属性
+            // 在构造函数中 this指向的是新的实例对象
+            // 在this上绑定的属性叫做 私有属性
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        // let fat = new Father('zhangsan', 50, 'nan');
+        // console.log(fat);
+
+        function Son(name, age, sex) {
+            // 让子类的实例继承父类的私有属性
+            // 在子类中调用父类的构造函数
+
+            // this.father = Father;
+            // this.father(name, age, sex)
+            // delete this.father;
+
+            // Father.call(this, name, age, sex);
+            Father.call(this, ...arguments);
+            // Father.apply(this, arguments);
+        }
+
+        let son = new Son('xiaoming', 20, 'nan');
+        console.log(son);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

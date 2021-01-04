@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="./cookie.js"></script> -->
+
+    <script>
+        $(function() {
+            // 懒加载(延迟加载 按需加载)
+            $('#login').on('click', async function() {
+                // $.getScript(url, [callback])
+
+                // $.getScript('./cookie.js', function() {
+                //     // 回调函数在ajax成功后执行
+                //     console.log(cookie);
+                // });
+
+                await $.getScript('./cookie.js');
+                console.log(cookie);
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="login">登陆</button>
+</body>
+
+</html>

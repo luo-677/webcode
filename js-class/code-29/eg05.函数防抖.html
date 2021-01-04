@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // https://www.rootbk.cn/?p=134
+        // 联想查询
+        // 函数防抖
+        // 函数核心思路
+        // 在n秒内 只执行一次事件处理函数
+        // 如果在n秒内又触发了该事件 重新计时
+
+        function debounce(callback, wait) {
+            let timer = null; // 计时器
+            return function() {
+                let arg = arguments;
+                if (timer) clearTimeout(timer); // 如果之前有计时器就清空计时器
+                timer = setTimeout(function() {
+                    callback.apply(this, arg);
+                }.bind(this), wait);
+            }
+        }
+
+        window.onload = function() {
+            let search = document.querySelector('#search');
+
+            search.addEventListener('input', debounce(function() {
+                let url = `https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1462,33421,33306,31660,32971,33286,33351,33313,33312,33311,33310,33231,33309,26350,33308,33307,22160,33389,33370&wd=${this.value}&req=2&csor=3&pwd=12&cb=callback&_=${Date.now()}`;
+                let script = document.createElement('script');
+                script.src = url;
+                document.body.appendChild(script);
+                document.body.removeChild(script);
+            }, 1000));
+        }
+
+        function callback(data) {
+            console.log(data);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="search">
+</body>
+
+</html>
