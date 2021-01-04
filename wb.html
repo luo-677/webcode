@@ -29,10 +29,20 @@
     </div>
 </body>
 <script>
-    $(function() {
-        console.log($('.li').closest('.div3', document.body));
-        $('.li').html('<h1>hahaha</h1>');
-    })
+    let obj = {
+        name: "luoqiqi",
+        age: 20
+    };
+
+    function query(obj) {
+        let str = "";
+        for (let attr in obj) {
+            str += `${attr}=${obj[attr]}&`;
+            // attr + "=" + obj[attr] + "&";
+        }
+        return str.substring(0, str.length - 1);
+    }
+    console.log(query(obj));
 </script>
 
 </html>
