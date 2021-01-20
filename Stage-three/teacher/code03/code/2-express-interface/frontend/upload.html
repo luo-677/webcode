@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+          <label for=""></label>
+          <input type="file" class="form-control-file" name="" id="" placeholder="" aria-describedby="fileHelpId">
+          <small id="fileHelpId" class="form-text text-muted">Help text</small>
+        </div>
+    </div>
+</body>
+<script>
+    $('input').on('change',function (e) {
+        //？问题：文件是要以二进制传输的，但是
+        //? 图片信息： e.target.files[0]  // {}
+        const params = new FormData() // params  参数实例
+        // params.append(key,value)  // 将图像信息添加到params参数实例 key就是后端接口字段，value就是图像信息
+        params.append('files',e.target.files[0])
+        $.ajax({
+            url: 'http://localhost:3000/api/upload',
+            data: params,
+            method: 'POST',
+            contentType: false, // 禁用jq默认数据内容类型，让FormData来做内容类型处理
+            processData: false, // 
+            success: function (res) {
+                console.log(res)
+            },
+            fail (error) {
+                console.log(error)
+            },
+            done () {}
+        })
+    })
+</script>
+</html>

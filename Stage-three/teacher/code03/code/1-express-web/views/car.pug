@@ -1,0 +1,39 @@
+extends layout 
+
+block content 
+    div(class="container")
+        div(
+            class="floor"
+        )
+        //- 列表渲染
+        ul(class='list')
+            each v in list 
+                li  
+                    img(src = v.pic )
+                    span #{ v.d_title }
+
+        //- 你的代码
+        h1 购物车
+        img(src="/images/0.jpg")
+        div(class='car')
+            //- 缩进代表了父子级的结构     键盘tab键来做缩进
+            p 子元素
+        hr 
+        h3  数据展示
+        p #{title}
+        p #{person.name}
+        p #{str.split('').reverse().join('')}
+
+        hr 
+        h3 条件展示
+        if flag 
+            p  成立的一面
+        else 
+            p  不成立一面
+
+        hr 
+        h3  列表渲染
+        ul 
+            each v in todos 
+                li #{v.task}
+        script(src="/javascripts/car.js")
