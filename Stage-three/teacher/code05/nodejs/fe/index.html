@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script src="./api/index.js"></script>
+<script src="./utils/cookie.js"></script>
+<script>
+
+    window.onload = function () {
+       // 调用一个接口来验证token是否存在
+       $.ajax({
+           url: `${baseURL}checktoken`,
+           method: 'POST',
+           headers: {
+               'AuthToken': getCookie('token')?getCookie('token'): ''
+           },
+           success (res) {
+                console.log(res)
+                if (res.status !=1 ) {
+                    if (confirm(res.msg)) {
+                        location.href = './login.html'
+                    }
+                } else {
+                    // 验证通过
+                    console.log('res', res)   
+                }
+           },
+           fail (error) {
+               console.log(error)
+           }
+       })
+    }
+
+    function getCookieData () {
+        const username = getCookie('username')
+        const phone = getCookie('phone')
+        const email = getCookie('email')
+        document.body.append(username,phone,email)
+    } 
+    getCookieData()
+</script>
+</html>

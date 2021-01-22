@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 注册 </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #helpId{
+            color: red!important;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+          <label for="">用户名:</label>
+          <input type="text" name="" id="username" class="form-control" placeholder="请输入用户名" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">
+            4到16位（字母，数字，下划线，减号）
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="">手机号:</label>
+          <input type="text" name="" id="phone" class="form-control" placeholder="请输入手机号" aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+          <label for="">邮箱:</label>
+          <input type="email" name="" id="email" class="form-control" placeholder="请输入邮箱" aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+          <label for="">头像:</label>
+          <input type="file" name="" id="avatar" class="form-control" placeholder="请输入邮箱" aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+          <label for="">密码:</label>
+          <input type="password" name="" id="pass" class="form-control" placeholder="请输入密码" aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary"> 注册 </button>
+        </div>
+    </div>
+</body>
+<script src="./lib/jquery.md5.js"></script>
+<script src="./api/index.js"></script>
+<script>
+    /* 
+        * 1. 先处理头像问题   文件上传
+        * 2. 注册
+        * 3. 正则
+    */
+    let picSuffix = 'https://elm.cangdu.org/img/'
+    let avatar = '' // 用于存储头像的
+    $('#avatar').on('change',function (e) {
+        //转换参数
+        const params = new FormData()
+        params.append('file',e.target.files[0])
+        $.ajax({
+            url: 'https://elm.cangdu.org/v1/addimg/shop',
+            contentType: false,
+            processData: false,
+            data: params,
+            method: 'POST',
+            success ( res ) {
+                // console.log('res',res)
+                avatar = picSuffix + res.image_path
+            },
+            fail (error) {
+                if (error) {
+                    console.log(error.message)
+                }
+                // console.log(error?.message)
+            }
+        })
+    })
+
+    $('.btn').on('click',function () {
+        $.ajax({
+            url: `${baseURL}register`,
+            method: 'POST',
+            data: {
+                username: $('#username').val(),
+                phone: $('#phone').val(),
+                email: $('#email').val(),
+                pass: $.md5($('#pass').val()),
+                avatar
+            },
+            success (res) {
+                //得到的是后端返回的结果
+                // console.log(res)
+                if (res.status == 1) {
+                    alert(res.msg)
+                }
+                setTimeout(function () {
+                    location.href = './login.html'
+                },3000)
+            },
+            fail ( error ) {
+                if ( error ) {
+                    console.log(error)
+                }
+            }
+        })
+    })
+
+    // 用户名正则校验
+    $('#username').on('focus',function () {
+        $('small').show()
+    })
+    $('#username').on('input',function () {
+        const reg = /^[a-zA-Z0-9_-]{4,16}$/ 
+        const val = $(this).val()
+        if (reg.test(val)) {
+            $('small').hide()
+        }
+    })
+</script>
+</html>
