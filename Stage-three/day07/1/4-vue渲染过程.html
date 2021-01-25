@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        app内: {{ msg }}
+    </div>
+
+    #app的div中的内容全部都是假的dom元素，我们将他称之为： 虚拟DOM节点
+
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+        new Vue({
+            el: '#app',//挂载 把vue挂载到了#app的div身上，来确定他的作用范围
+            data: {
+                msg: 'Hello Vue'
+            }
+        })
+</script>
+</html>

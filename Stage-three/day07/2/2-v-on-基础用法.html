@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="fn"> 点击 </button>  <br>
+        简写  @   <hr>
+        <button @click="fn"> 简写-点击 </button>  <br>
+        事件对象   e    <hr>
+        <button @click="getEvent"> e </button>    <br>
+        
+        事件传参  <hr>
+        <ul>
+            <li v-for = "item in movies" @click = "getName(item.name)">
+                {{ item.name }}
+            </li>
+        </ul>
+
+        特殊情况： 如果我们传参既需要e也需要其他参数呢  <hr>
+        如何解决： 使用$event <br>
+        <ul>
+            <li v-for = "item in movies" @click = "eventHandler($event,item.name)">
+                {{ item.name }}
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script src="../../../lib/vue.js"></script>
+<script>
+    /* 
+        事件如何添加？ 
+            DOM 0  box.onclick=function () {}
+                   <div onclick=""></div>
+            DOM 2  addEventListener
+    */
+    new Vue({
+        el: '#app',
+        // 事件处理程序写在这里，用一个叫做methods 存放
+        data: {
+            movies: [{
+                id: 1,
+                name: '大红包'
+            },{
+                id: 2,
+                name: '送你一朵小红花'
+            }]
+        },
+        methods: {
+            fn () {
+                alert('事件')
+            },
+            getEvent (e) {
+                console.log(e)
+            },
+            getName (name) {
+                alert(name)
+            },
+            eventHandler (e,name) {
+                console.log('e',e)
+                console.log('name',name)
+            }
+        }
+    })
+</script>
+</html>

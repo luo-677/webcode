@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        数据展示指令  <hr>
+            <p v-text="msg"></p>
+            <p v-html="msg"></p>
+            区别: v-html识别标签类型数据  <br>
+            <div v-text = "xml"></div>
+            <div v-html = "xml"></div>
+
+        条件渲染型指令  <hr> 
+            v-show 控制 display属性 true---》block  false--》 none  <br>
+            <p v-show="flag"> 内容 </p> 
+            v-if  v-else-if  v-else -- 控制原生的创建和销毁<br>
+            <!-- <p v-if="f"> 单路分支 </p> -->
+            <!-- <p v-if="f"> 双路真 </p>
+            <p v-else> 双路假 </p> -->
+            
+            <!-- <p v-if="grade>=0&&grade<60"> 不及格 </p>
+            <p v-else-if = "grade>=60&&grade<80"> 良好 </p>
+            <p v-else> 优秀 </p> -->
+
+            单路：如何选择使用v-show/v-if  <br>
+            频繁切换选择： v-show  <br>
+
+        列表渲染型指令  <hr>
+            <ul>
+                <!-- item这个词是自定义 -->
+                <!-- <li v-for="(item,index) in arr">
+                    <span>元素为： {{item}},索引为：{{ index }} </span>
+                </li> -->
+                <li v-for="(item,index) of arr">
+                    <span> in可以of也可以，元素为： {{item}},索引为：{{ index }} </span>
+                </li>
+            </ul>
+
+            <ul>
+                <li v-for = "(val,key,index) in obj">
+                    <span> 值val为:{{val}},属性key为：{{key}} ,索引为:{{index}}</span>
+                </li>
+            </ul>
+
+            <ul>
+                <li v-for = "item in lists">
+                    <h3> {{ item.type }} </h3>
+                    <ol>
+                        <li v-for = "name in item.brands">
+                            {{ name }}
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello',
+            xml: '<h3> xml类型数据 </h3>',
+            flag: false,
+            f: true,
+            grade: 40,
+            arr: [1,2,3,4],
+            obj: {
+                name: 'lakers',
+                sex: 'man',
+                age: 18
+            },
+            lists: [
+                {
+                    id: 1,
+                    type: '苹果手机',
+                    brands: ['苹果12','苹果SE','苹果12Pro']
+                },
+                {
+                    id: 2,
+                    type: '华为手机',
+                    brands: ['华为p40','华为p40pro','华为meta40']
+                }
+            ]
+        }
+    })
+</script>
+</html>

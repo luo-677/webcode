@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for = "(item,i) in todos" :key="item.id">
+                <p> {{ item.task }} </p>
+                <button @click="changeBgColor"> 将li变成红色 </button>
+                <button @click="remove(i)"> 删除当前li </button>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            todos: [{
+                id: 1,
+                task: '撸猫'
+            },{
+                id: 2,
+                task: '敲代码'
+            }]
+        },
+        methods: {
+            changeBgColor (e) {
+                e.target.parentNode.style.background = 'red'
+            },
+            remove (i) {
+                // 数组删除  splice  
+                this.todos.splice(i,1)
+            }
+        }
+    })
+</script>
+</html>

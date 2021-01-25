@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="changeFirst"> 修改第一个数据 </button>
+        <button @click="clear"> 清空界面 </button>
+        <ul>
+            <li v-for = "(item,i) in arr" :key="i">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            arr: [1,2,3,4] , //简单数据[基本数据类型]
+        },
+        methods: {
+            clear () {
+                // 数组length不响应
+                // this.arr.length = 0
+                this.arr.splice(0)
+            },
+            changeFirst () {
+                // 下标不响应 
+                // this.arr[0] = 'a'
+                // 解决方式如下：
+                // Vue.set(this.arr,'0','a')
+                this.$set(this.arr,'0','a')
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size{
+            width: 100px;
+            height: 100px;
+        }
+        .red{
+            background: red;
+        }
+        .blue{
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        问题: 数据绑定类型指令有两个  <hr>
+        * 单向数据绑定： 将数据绑定给属性   <br>
+        * 双向数据绑定： 专用于表单，默认绑定value属性， 数据改变，value就会变，value值变，数据也跟着变 <br>
+        <br>
+        单向数据绑定   <hr>
+        <img v-bind:src="pic" alt="">  <br>
+        简写 :属性='数据名' <br>
+        <img :src="pic" alt="">  <br>
+        
+        
+        类名绑定写法： 有2种<hr>
+        <!-- <p class="size red"></p> -->
+        <button @click="changeFlag"> 修改flag </button>
+        <p :class="{size:true,red:flag,blue:!flag}"> 对象形式 </p>
+        <p :class="[size,flag?'red':'blue']"> 数组形式 </p>
+        <p class="size red"  :class="{blue:true}"></p>
+
+        行内样式写法： 有2种   <hr>
+        <p :style="{width: '100px',height:'100px',background: color}"></p>
+        <p :style="[{width:'100px',height:'100px'},{background: color}]"></p>
+    </div>
+</body>
+<script src="../../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            size: 'size',
+            color: 'yellow',
+            flag: true,
+            pic: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2495231377,894636941&fm=11&gp=0.jpg'
+        },
+        methods: {
+            changeFlag () {
+                this.flag = !this.flag
+            }
+        }
+    })
+</script>
+</html>
