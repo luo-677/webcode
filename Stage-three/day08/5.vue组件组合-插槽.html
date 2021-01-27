@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <todo-list>
+            <!-- 此处不会显示任何东西 -->
+            <!-- 不能使用已存在的标签 -->
+            <Tab></Tab>
+            <my-content></my-content>
+            <tab-bar></tab-bar>
+        </todo-list>
+    </div>
+    <template id="todolist">
+        <div>
+            这是容器
+            <slot></slot>
+        </div>
+    </template>
+    <template id="header">
+        <div>
+            这是文头
+        </div>
+    </template>
+    <template id="main">
+        <div>
+            这是身体
+        </div>
+    </template>
+    <template id="footer">
+        <div>
+            这是页脚
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component('TodoList', {
+        template: '#todolist',
+    });
+    Vue.component('Tab', {
+        template: '#header',
+    });
+    Vue.component('MyContent', {
+        template: '#main',
+    });
+    Vue.component('TabBar', {
+        template: '#footer',
+    });
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        }
+    })
+</script>

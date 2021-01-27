@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        问题： watch是否可以监听多层数据  <hr>
+        验证： <br>
+        <button @click="changeName"> modify </button>
+        <p> {{person.name}} </p>
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            person: { // 第二层数据
+                name: 'lakers'
+            }
+        },
+        watch: {
+            //多层数据这么写监听不到 
+                // person () {
+                //     console.log('watch触发')
+                // }
+            // 下面写法可以
+                // 'person.name' () {
+                //     console.log('触发')
+                // }
+            person: {
+                deep: true, // 开启深度监听【递归】
+                handler () { // handler是不要改的
+                    console.log('触发')
+                }
+            }
+        },
+        methods: {
+            changeName () {
+                this.person.name = 'yanyabing'
+            }
+        }
+    })
+</script>
+</html>

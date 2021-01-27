@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        题： 将给定字符串反向输出  <hr>
+        分析： <br>
+            1. 符合MVVM  <br>
+            2. 逻辑操作放vm中去  <br>
+            3. 放置的选项我们叫做 计算属性 computed  <br>
+            4. 特点： 就是对已有的数据做格式化操作  <br>
+        <p> {{ msg.split('').reverse().join('') }} </p>
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    // Vue 它是一个MVVM框架 
+    // M  model   数据
+    // V  View    视图
+    // VM  C --> P --> VM  视图模型
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'I am 2011'
+        }
+    })
+</script>
+</html>

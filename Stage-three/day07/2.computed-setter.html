@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="row">
+            <label for=""> 姓 </label>
+            <input type="text" v-model="firstName">
+        </div>
+        <div class="row">
+            <label for=""> 名 </label>
+            <input type="text" v-model="lastName">
+        </div>
+        <div class="row">
+            <label for=""> 全名 </label>
+            <input type="text" v-model="fullName">
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="../day06/vue-P/node_modules/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            firstName: "",
+            lastName: "",
+        },
+        // 使用 setter 可以通过计算后结果反向得到计算值
+        computed: {
+            fullName: {
+                // 正向
+                get() {
+                    return this.firstName + this.lastName;
+                },
+                // 反向
+                set(val) {
+                    this.firstName = val.slice(0, 1);
+                    this.lastName = val.slice(1);
+                }
+            }
+        }
+    })
+</script>

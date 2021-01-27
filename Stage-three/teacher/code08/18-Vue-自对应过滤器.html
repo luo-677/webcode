@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ d | dateFilter }}  <hr>
+        {{ d | dateFilter('-') }}
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        过滤器  
+            1. 分类
+                * 全局过滤器 Vue.fliter
+                * 局部过滤器 filters
+            2. 作用
+                * 过滤 数据格式化
+                    * 日期
+                    * 货币
+                    * 小数位数保留
+                    * 。。。
+            3. 使用  
+                数据 | 过滤器名称
+                数据 | 过滤器名称(参数1?，参数2?)
+                |  管道符
+    */
+   Vue.filter('dateFilter',function (val,type) {
+       // val就是你要格式化的数据
+       // 必须要有返回值，返回值是什么，将来就展示什么
+       var d = new Date(val)
+       const arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+       if (type) {
+           return d.getFullYear() +type+ (d.getMonth() + 1) +type+ d.getDate() + type + arr[d.getDay()]
+       }
+       return d.getFullYear() +'年'+ (d.getMonth() + 1) +'月'+ d.getDate() + '日' + arr[d.getDay()]
+   })
+    new Vue({
+        el: '#app',
+        data: {
+            d: Date.now()
+        },
+        // filters: {
+        //     dateFilter (val) {
+        //         return xxx
+        //     }
+        // }
+    })
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 3使用  标签化  单标签也可以双标签 -->
+        <Hello/>
+    </div>
+    <template id="hello">
+        <div>
+            马上放假了
+            <Wrapper/>
+        </div>
+    </template>
+    <template id="wrapper">
+        <div>
+            孙子=
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    // 下面这么写是错误的
+    new Vue({
+        el: '#app',
+    })
+    //1. 定义
+    const wrapperOptions = Vue.extend({
+        template: '#wrapper'
+    })
+    const helloOptions = Vue.extend({
+        template: '#hello',
+    })
+    Vue.component('Hello',helloOptions)
+    Vue.component('Wrapper',wrapperOptions)
+</script>
+</html>

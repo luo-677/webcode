@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- html文件中尽量写双标签 -->
+        <Hello/>
+        <Hello/>
+    </div>
+    <template id="hello">
+        <div>你好</div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    // const helloOptions = Vue.extend({
+    //     template: '#hello',
+    // })
+    // Vue.component('Hello',helloOptions)
+
+    // 简写形式
+    Vue.component('Hello',{
+        template: '#hello'
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- include 包含 只有匹配项 -->
+        <!-- exclude 除去 除了匹配项之外的 -->
+        <!-- 如果两个属性都不加，匹配全部 -->
+        <keep-alive>
+            <div :is="changeflag"></div>
+        </keep-alive>
+        <button @click="change">切换</button>
+    </div>
+</body>
+<template id="user-login">
+    <div>
+        账号密码注册
+    </div>
+</template>
+<template id="phone-login">
+    <div>
+        手机验证码注册
+    </div>
+</template>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component('UserLogin', {
+        template: '#user-login',
+    });
+    Vue.component('PhoneLogin', {
+        template: '#phone-login',
+    });
+    let app = new Vue({
+        el: '#app',
+        data: {
+            changeflag: 'user-login',
+        },
+        methods: {
+            change() {
+                if (this.changeflag == 'user-login') {
+                    this.changeflag = 'phone-login';
+                } else {
+                    this.changeflag = 'user-login';
+                }
+            }
+        },
+    })
+</script>

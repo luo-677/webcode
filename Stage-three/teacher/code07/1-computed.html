@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        问题： <hr>
+        1. computed是做什么的？  <br>
+        2. computed有哪些用法？  <br>
+        
+        computed 中的key名作为变量名直接使用  <hr>
+        {{ reverseMsg }}
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'I love 2011'
+        },
+        computed: {
+            //写法一、放一个方法
+            reverseMsg () {
+                return this.msg.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Hello>
+            <!-- msg是hello中的参数，p即便是写在hello内部，也无法进行调用 -->
+            <!-- <p>{{msg}}</p> -->
+            <!-- 这里一定要添加template，使用 v-slot:default 绑定一个对象名 -->
+            <template v-slot:default="obj">
+                <!-- 使用对象名调用参数 -->
+                <p>{{obj.msg}}</p>
+            </template>
+        </Hello>
+    </div>
+    <template id="hello">
+        <div>
+            这是hello
+            <!-- 在作用域中进行插槽参数绑定 -->
+            <slot :msg="msg"></slot>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component('Hello', {
+        template: '#hello',
+        data() {
+            return {
+                msg: "这是hello中的msg",
+            }
+        }
+    })
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        }
+    });
+</script>

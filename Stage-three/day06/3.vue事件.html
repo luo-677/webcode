@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="item in movies">
+                <h3 @click="fn">{{item.name}}</h3>
+                <!-- <h3 v-on:click="fn">{{item.name}}</h3> -->
+                <p @click="getname(item.name)">{{item.name}}</p>
+                <!-- <p @click="eventHandler(e,item.name)">{{item.name}}</p> -->
+                <!-- Property or method "e" is not defined on the instance but referenced during render. Make sure that this property is reactive, either in the data option, or for class-based components, by initializing the property. -->
+                <!-- 当函数中需要传入多个参数又同时需要取到事件e的值，第一个参数使用 $event -->
+                <p @click="eventHandler($event,item.name)">{{item.name}}</p>
+                <p @click="getevent($event)">{{item.name}}</p>
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>
+<script src="./vue-P/node_modules/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            movies: [{
+                id: 1,
+                name: "大红袍"
+            }, {
+                id: 2,
+                name: "送你一朵小红花"
+            }]
+        },
+        methods: {
+            fn() {
+                alert("事件");
+            },
+            getname(name) {
+                alert(name);
+            },
+            getevent(e) {
+                console.log(e);
+            },
+            eventHandler(e, name) {
+                console.log("e", e);
+                console.log("name", name);
+            }
+        },
+    })
+</script>

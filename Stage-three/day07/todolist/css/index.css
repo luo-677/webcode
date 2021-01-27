@@ -1,0 +1,94 @@
+* {
+    outline: none;
+}
+
+.footer {
+    height: 5rem;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #eee;
+}
+
+.circle {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 4rem;
+    font-size: .7rem;
+}
+
+.circle.all {
+    border-color: orangered;
+    color: orangered;
+}
+
+.circle.undo {
+    border-color: red;
+    color: red;
+}
+
+.circle.success {
+    border-color: green;
+    color: green;
+}
+
+.main {
+    margin-bottom: 5rem;
+}
+
+.card-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-right .button {
+    margin-left: .75rem;
+}
+
+.button-fill {
+    border: 1px solid currentColor !important;
+}
+
+.mask {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.mask-box {
+    width: 80%;
+    height: 30%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-text {
+    line-height: 1.4rem;
+    width: 80%;
+    padding-left: .5rem;
+}
+
+.button-box {
+    width: 80%;
+    display: flex;
+    height: 2rem;
+    align-items: center;
+    margin-top: 1.2rem;
+    justify-content: space-around;
+}

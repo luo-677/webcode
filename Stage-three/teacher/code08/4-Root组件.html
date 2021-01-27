@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="root"></div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        Root组件
+            1. 根实例组件  
+            2. Vue的组件结构设计是： 树形结构
+            3. 其他组件必须放到Root组件中
+    */
+    new Vue({
+        el: '#app'
+    })
+    new Vue({
+        el: '#root'
+    })
+</script>
+</html>

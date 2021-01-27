@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Hello/>
+    </div>
+    <template id="hello">
+        <div>
+            问题1： 除了Root组件以外的其他组件的data是一个函数  <hr>
+            理由： 因为组件具有独立作用空间，而函数可以提供 <hr>
+            问题2： data的返回值是一个对象？ <hr>
+            理由： 因为data选项是要求使用Object.defineProperty(object,attr,描述符)来实现数据响应(数据改变，视图也随之改变)的
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    Vue.component('Hello',{
+        template: '#hello',
+        data () {
+            return {}
+        }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

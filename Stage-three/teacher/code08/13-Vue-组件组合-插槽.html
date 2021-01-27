@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        问题： 这么写的话todolist组件的template会直接覆盖内容  <hr>
+        分析： template中有内容，那么内容才会出现  <br>
+        解决： 插槽  <br>
+        <todo-list>
+            <Tab></Tab>
+            <my-content></my-content>
+            <tab-bar></tab-bar>
+            <my-mask></my-mask>
+        </todo-list>
+    </div>
+    <template id="todo-list">
+        <div>
+            插槽使用slot来表示  <hr>
+            <slot></slot>
+        </div>
+    </template>
+    <template id="tab">
+        <div> 头部 </div>
+    </template>
+    <template id="content">
+        <div> 内容 </div>
+    </template>
+    <template id="tab-bar">
+        <div> 底部栏 </div>
+    </template>
+    <template id="my-mask">
+        <div> 遮罩 </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        业务: 做出这样的组件
+        <TodoList>
+            <Tab></Tab/>
+            <Content></Content/>
+            <TabBar></TabBar/>
+            <MyMask></MyMask>    
+        </TodoList>
+    */
+   Vue.component('TodoList',{
+       template: '#todo-list'
+   })
+   Vue.component('Tab',{
+       template: '#tab'
+   })
+   Vue.component('MyContent',{
+       template: '#content'
+   })
+   Vue.component('TabBar',{
+       template: '#tab-bar'
+   })
+   Vue.component('MyMask',{
+       template: '#my-mask'
+   })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

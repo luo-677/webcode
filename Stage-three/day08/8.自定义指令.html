@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        业务：页面加载自动获取input焦点<br>
+        <input type="text" v-focus="flag">
+    </div>
+    <div id="apps">
+        <input type="text" v-focus="flags">
+    </div>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    // 全局方式自定义指令
+    Vue.directive('focus', {
+        bind() {
+
+        },
+        inserted(el, binding) {
+            // el 表示当前指令绑定的元素
+            // binding 表示指令信息
+            // console.log("el", el);
+            // console.log("binding", binding);
+            el.focus();
+        }
+    })
+    let app = new Vue({
+        el: "#app",
+        data: {
+            flag: true
+        },
+        // 自定义局部指令写法
+        directives: {
+            focus: {
+                inserted(el) {
+                    el.focus();
+                }
+            }
+        }
+    });
+    let apps = new Vue({
+        el: "#apps",
+        data: {
+            flags: true
+        }
+    });
+</script>

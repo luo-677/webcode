@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        案例： 长 * 宽 = 面积  <hr>
+        <input type="text" v-model="len"> x <input type="text" v-model="wid"> = <input type="text" v-model='area'>
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            len: 1,
+            wid: 1
+        },
+        computed: {
+            //写法一、放一个方法
+            area () {
+                return this.len * this.wid 
+            }
+        }
+    })
+</script>
+</html>

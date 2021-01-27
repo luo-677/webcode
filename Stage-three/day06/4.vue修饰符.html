@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big {
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+        
+        .middle {
+            width: 200px;
+            height: 200px;
+            background: blueviolet;
+        }
+        
+        .small {
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 事件修饰符 -->
+        <!-- 使用 .stop / .self 进行阻止事件冒泡 -->
+        <div class="big" @click.stop="bigHandler">
+            <!-- <div class="big" @click.self="bigHandler"> -->
+            <div class="middle" @click.stop="middleHandler">
+                <div class="small" @click.stop="smallHandler"></div>
+            </div>
+        </div>
+        <!-- 使用 .prevent 进行阻止默认事件触发 -->
+        <a href="#" @click.prevent="aHandler">点击</a>
+        <button @click.once="onceHandler">表单提交</button>
+        <!-- 键盘修饰符 -->
+        <input type="text" @keyup.13="getInputVal">
+        <input type="text" @keyup.enter="getInputVal">
+        <!-- 系统修饰符 -- 组合键 -->
+        <!-- 支持链式调用 -->
+        <button @click.ctrl="fn">组合键</button>
+        <button @click.ctrl.alt="fn">组合键</button>
+    </div>
+</body>
+
+</html>
+<script src="./vue-P/node_modules/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        methods: {
+            bigHandler(e) {
+                // e.stopPropagation()
+                alert('big')
+            },
+            middleHandler(e) {
+                // e.stopPropagation()
+                alert('middle')
+            },
+            smallHandler(e) {
+                // e.stopPropagation()
+                alert('small')
+            },
+            fn() {
+                alert('点击')
+            },
+            getInputVal(e) {
+                //回车获取
+                alert(e.target.value)
+            },
+            onceHandler() {
+                alert('once')
+            },
+            aHandler() {
+                alert('阻止浏览器默认行为')
+            },
+        }
+    })
+</script>

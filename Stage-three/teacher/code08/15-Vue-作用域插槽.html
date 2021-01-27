@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- {{ money }}  超范围了会报错 -->
+        思考： money这个hello组件的数据是否可以在p标签中使用？ <hr>
+        结论： 是不可以直接使用的  <br>
+        解决： 作用域插槽(v-slot) <br>
+        <Hello>
+            <!-- template是必须写的 -->
+            <template v-slot:default="obj">
+                <p> 插槽  {{ obj.money }} </p>
+            </template>
+        </Hello>
+    </div>
+    <template id="hello">
+        <div>
+            <slot :money="money"></slot>
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        注意： 
+            1. 组件是具有作用空间的，也就是以为着组件自己的数据必须在自己范围内使用
+    */
+    Vue.component('Hello',{
+        template: '#hello',
+        data () {
+            return {
+                money: '人人18K'
+            }
+        }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

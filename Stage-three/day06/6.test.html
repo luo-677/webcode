@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            display: flex;
+            list-style: none;
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+            border-left: 0;
+            width: 510px;
+        }
+        
+        ul li {
+            width: 50px;
+            height: 50px;
+            color: black;
+            border-left: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+        .active {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in total" @click="changeCount(item)" :class="{active: count == item}">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="./vue-P/node_modules/vue/dist/vue.js"></script>
+<script>
+    // function handler1() {
+    //     console.log('handler1')
+    // }
+    new Vue({
+        el: '#app',
+        data: {
+            total: 10,
+            count: 1
+        },
+        watch: {
+            // 方法 -- 方法名同数据名
+            count: [
+                "handler1",
+                "handler2",
+                "handler3",
+                // function handler2() {
+                //     console.log('handler2')
+                // },
+                // function handler3() {
+                //     console.log('handler3')
+                // }
+            ]
+        },
+        methods: {
+            changeCount(n) {
+                this.count = n
+            },
+            handler1() {
+                console.log('handler1')
+            },
+            handler2() {
+                console.log('handler2')
+            },
+            handler3() {
+                console.log('handler3')
+            },
+        }
+    })
+</script>
+
+</html>
