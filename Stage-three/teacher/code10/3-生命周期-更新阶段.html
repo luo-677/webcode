@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Hello/>
+    </div>
+    <template id="hello">
+        <div>
+            <button @click = "increment"> + </button>
+            <p> {{ count }} </p>
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        更新阶段： 数据（使用）改变，才触发，可以触发多次
+
+        2个钩子函数我们使用updated
+
+    */
+    Vue.component('Hello',{
+        template: '#hello',
+        data () {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            increment () {
+                this.count++
+            }
+         },
+         beforeUpdate () {
+             // 1. 表示组件更新前触发的钩子函数
+             // 2. 监控数据变化
+             // 3. 开发者： 不干预
+            console.log('beforeUpdate')
+         },
+         updated () {
+             // 1. 表示组件更新结束时触发的钩子函数
+             // 2. 任务： 
+                // a: 再次生成vdom 
+                // b: diff算法比对新旧vdom得到patch补丁对象 
+                // c: 拿着patch补丁对象再次渲染成真实DOM然后插入页面
+            // 3. 开发者： 再次得到了真实dom
+                // 数据请求
+                // 真实do操作
+             console.log('updated')
+             document.querySelector('p').style.background = 'red'
+         }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

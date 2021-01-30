@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <keep-alive>
+
+            <component :is="flag"></component>
+        </keep-alive>
+        <button @click='changeFlag'>切换</button>
+    </div>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component("Hello", {
+        template: "<div>hello</div>",
+        activated() {
+            // 可用于切换广告
+            console.log("activated");
+        },
+        deactivated() {
+            console.log("deactivated");
+            // 可用于清空缓存
+            setTimeout(() => {
+                this.$destroy()
+            }, 2000);
+        },
+    });
+    Vue.component("World", {
+        template: "<div>world</div>",
+    });
+    let app = new Vue({
+        el: "#app",
+        data: {
+            flag: 'Hello',
+        },
+        methods: {
+            changeFlag() {
+                this.flag = this.flag == 'Hello' ? 'World' : 'Hello';
+            }
+        },
+    });
+</script>

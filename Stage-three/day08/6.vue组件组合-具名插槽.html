@@ -11,9 +11,12 @@
     <div id="app">
         <todo-list>
             <!-- 在容器中指定完成后，这里的顺序随便写也不会导致页面变得混乱 -->
-            <Tab slot="header"></Tab>
+            <!-- <Tab slot="header"></Tab>
             <tab-bar slot="footer"></tab-bar>
-            <my-content slot="main"></my-content>
+            <my-content slot="main"></my-content> -->
+            <template v-slot: header></template>
+            <template v-slot: footer></template>
+            <template v-slot: main></template>
         </todo-list>
     </div>
     <template id="todolist">

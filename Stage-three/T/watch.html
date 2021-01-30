@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ count.name }}</p>
+        <button @click="addCount">切换</button>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            count: {
+                name: 1,
+            }
+        },
+        methods: {
+            addCount() {
+                this.count.name++;
+            }
+        },
+        watch: {
+            // count: {
+            //     // 开启深度监听
+            //     deep: true,
+            //     // handler 固定写法
+            //     handler() {
+            //         console.log('草');
+            //     },
+            // }
+        },
+    })
+    app.$watch('count', function handler1() {
+        // let _this = this;
+        (function a() {
+            console.log(this);
+        }).call(app);
+
+        (function b() {
+            console.log(2);
+
+        })();
+    }, {
+        deep: true
+    })
+</script>

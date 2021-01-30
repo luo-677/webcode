@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Hello></Hello>
+    </div>
+    <template id="hello">
+        <div>
+            <p class="hello">{{ msg }}</p>
+            <button @click="changeFlag">按钮</button>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component("Hello", {
+        template: "#hello",
+        data() {
+            return {
+                msg: "World",
+            }
+        },
+        methods: {
+            changeFlag() {
+                this.msg = "Web";
+            }
+        },
+        beforeUpdate() {
+            console.log("beforeUpdate");
+        },
+        updated() {
+            // 组件更新结束时触发的钩子函数
+            // 1. 再次生成vdom
+            // 2. diff算法比对新旧vdom得到patch补丁对象
+            // 3. 拿着patch补丁对象再次渲染成真实DOM然后插入页面
+            // 开发者：再次得到真实的DOM节点，可进行数据请求和真实的DOM操作
+            document.querySelector(".hello").style.color = "red";
+        },
+    })
+    let app = new Vue({
+        el: "#app",
+    });
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Hello></Hello>
+    </div>
+
+    <template id="hello">
+        <div class="hello">
+            <button @click="remove">hello - 销毁 </button>
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        $destroy 可以卸载组件，但是组件之前的渲染出来的真实DOM结构还在的
+        得手动删除
+    */
+    Vue.component('Hello',{
+        template: '#hello',
+        methods: {
+            remove (e) {
+                this.$destroy()
+                e.target.parentNode.remove()
+            }
+        },
+        beforeDestroy () {
+            console.log('beforeDestroy')
+        },
+        destroyed () {
+            console.log('destroyed')
+        }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

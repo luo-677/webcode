@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Father></Father>
+    </div>
+    <template id="father">
+        <div>
+            <!-- 2.绑定数据 -->
+            <Son :movies="movies" :phone="phone"></Son>
+        </div>
+    </template>
+    <template id="son">
+        <div>
+            <ul>
+                <!-- 4.使用数据 -->
+                <li v-for="item in movies" :key="item.id">
+                    {{ item.name }}
+                </li>
+                <span>{{ phone }}</span>
+            </ul>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component('Father', {
+        template: "#father",
+        // 1.定义数据
+        data() {
+            return {
+                movies: [{
+                    id: 1,
+                    name: "大红包"
+                }, {
+                    id: 2,
+                    name: "送你一朵小红花"
+                }],
+                phone: "13588032502",
+            }
+        }
+    });
+    Vue.component('Son', {
+        template: "#son",
+        // 3.接收数据
+        // props: ['movies']
+        // 自定义数据校验规则
+        // 使用validator创建自定义校验
+        props: {
+            movies: Array,
+            phone: Number
+        }
+    })
+    let app = new Vue({
+        el: "#app",
+    });
+</script>
