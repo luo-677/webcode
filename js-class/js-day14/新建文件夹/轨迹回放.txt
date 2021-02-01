@@ -1,0 +1,72 @@
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // 获取拖拽对象
+            var box = document.getElementById("box");
+            // 创建鼠标按下事件
+            box.onmousedown = function(ev) {
+                var ev = ev || event;
+                // 获取鼠标在拖拽对象中的位置
+                var offsetX = ev.offsetX;
+                var offsetY = ev.offsetY;
+                var arr = [];
+                // 创建鼠标移动事件
+                document.onmousemove = function(ev) {
+                        var ev = ev || event;
+                        // 获取鼠标在页面中的位置
+                        var pageX = ev.pageX;
+                        var pageY = ev.pageY;
+                        console.log(pageX, pageY);
+                        // 计算获得拖拽对象在页面中的坐标
+                        var x = pageX - offsetX;
+                        var y = pageY - offsetY;
+                        box.style.top = y + "px";
+                        box.style.left = x + "px";
+                        // 创建空对象，将拖拽对象的坐标进行记录，添加到一个数组中
+                        var obj = {};
+                        obj["x"] = x;
+                        obj["y"] = y;
+                        arr.push(obj);
+                    }
+                // 创建鼠标抬起事件
+                document.onmouseup = function() {
+                    // 鼠标抬起时关闭鼠标移动事件
+                    document.onmousemove = null;
+                    // 创建定时器，进行坐标还原
+                    var timer = setInterval(function() {
+                        if (arr.length == 0) {
+                            // 移动结束后，总会出现偏移，进行校准
+                            box.style.top = 0;
+                            box.style.left = 0;
+                            // 关闭计时器
+                            clearInterval(timer);
+                            return;
+                        }
+                        // 移动结束后，将每次的坐标对象进行拆解，分别赋值
+                        var loc = arr.pop();
+                        box.style.top = loc["y"] + "px";
+                        box.style.left = loc["x"] + "px";
+                    }, 10);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>

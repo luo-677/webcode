@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 取第一个数与后面所有的数进行比较，相同进行去除
+        var arr = [12,134,12,34,12,345,34,134,3,4,4,3,2];
+        for(var i = 0; i<arr.length; i++){
+            for(var j = arr.length-1; j>i;j--){
+                if(arr[i] === arr[j]){
+                    arr.splice(j,1);
+                }
+            }
+        }
+        console.log(arr);
+
+        // 先进行排序，然后前后进行比较，相同的舍去，不同的留下
+        var arr2 = [12,134,12,34,12,345,34,134,3,4,4,3,2];
+        arr2.sort(function(a,b){
+            return a-b;
+        });
+        var arr3 = [];
+        for(var i = 0; i<arr2.length; i++){
+            if(arr2[i] !== arr2[i+1]){
+                arr3.push(arr2[i]); // 最后一位也能取到，因为最后一位+1是undefined
+            }
+        }
+        console.log(arr3);
+
+        // 使用空数组进行比较键入
+        var arr4 = [12,134,12,34,12,345,34,134,3,4,4,3,2];
+        var arr5 = [];
+        if(arr5.length == 0){
+            arr5.push(arr4[0]);
+        }
+        for(var i = 1; i< arr4.length; i++){
+            // console.log(arr4[i]);
+            var flag;
+            for(var j = 0; j< arr5.length; j++){
+                // console.log(arr5[j]);
+                if(arr4[i] !== arr5[j]){
+                    flag = true;
+                }else{
+                    flag = false;
+                    break;
+                }
+            }
+            // console.log(flag);
+            if(flag){
+                arr5.push(arr4[i]);
+            }
+        }
+        console.log(arr5);
+
+        // 使用sort方法进行排序(简便倒叙)
+        var arr6 = [12,134,12,34,12,345,34,134,3,4,4,3,2];
+        arr6.sort(function(){
+            return -1;
+        });
+        console.log(arr6);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

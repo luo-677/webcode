@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            text-align: center;
+        }
+        
+        h1 {
+            box-shadow: 6px 3px 8px #ccc, -3px 3px 8px #ccc;
+            margin: 30px auto;
+            width: 1330px;
+            padding: 10px;
+            border-radius: 8px;
+            user-select: none;
+            background-image: linear-gradient( to bottom, yellow, rgb(238, 253, 19), gold);
+        }
+        
+        .users {
+            width: 1366px;
+            margin: 0 auto;
+        }
+        
+        .users>ul {
+            overflow: hidden;
+            width: 1350px;
+            margin: 0 auto;
+        }
+        
+        .users>ul>li {
+            list-style: none;
+            width: 88px;
+            border: 1px solid #ddd;
+            margin: 7px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            border-radius: 5px;
+            user-select: none;
+            font-size: 20px;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+        
+        .users>ul>li:not(.mid) {
+            background: #ddd;
+        }
+        
+        .users>ul>li.mid {
+            border: none;
+            box-shadow: none;
+        }
+        
+        .users>ul>li.student {
+            background-color: aquamarine !important;
+        }
+        
+        .users>ul>li.active {
+            background-color: yellow !important;
+        }
+        
+        #start {
+            width: 150px;
+            height: 50px;
+            font-size: 26px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        var data = {
+            row5: ["王骏珷", "胡晗月", "", "韦延舜", "张书玮", "庞曰瑞", "", "", "张旭", "崔庆贺", "骆琪琪", "万能", ""],
+            row4: ["竺钶", "", "", "吴松峰", "", "包凯", "", "邓高伟", "张洋", "", "涂文文", "", "蔡鑫", ],
+            row3: ["", "韩奇杰", "", "何文凯", "林嘉妮", "谭春梅", "", "肖鹏", "李浩朋", "李晨", "陈文君", "李绍东", "", ],
+            row2: ["", "程振生", "方城洪", "焦昱筱", "刘鑫", "冯文强", "", "张冰倩", "周勋臣", "王鹏杰", "郭静", "", "胡永坤", ],
+            row1: ["孟慧敏", "沈旭阳", "王彬", "江鑫溢", "", "田家木", "", "王兴邦", "顾铖祥", "曹宽", "刘启亮", "", "", ]
+        };
+        window.onload = function() {
+            var randomNumber, timer, luckys;
+            var usersClass = document.querySelector(".users");
+            var oBtn = document.getElementById("start");
+            for (var key in data) {
+                var usersRow = document.createElement("UL");
+                for (var i = 0; i < data[key].length; i++) {
+                    var usersLi = document.createElement("LI");
+                    usersLi.innerHTML = data[key][i];
+                    usersRow.appendChild(usersLi);
+                    data[key][i] && usersLi.setAttribute("class", "student");
+                    i == 6 && usersLi.setAttribute("class", "mid");
+                }
+                usersClass.appendChild(usersRow);
+            }
+
+            function start() {
+                if (oBtn.dataset.flag === "start") {
+                    oBtn.setAttribute("data-flag", "stop");
+                    oBtn.innerHTML = "结束";
+                    timer = setInterval(function() {
+                        if (typeof randomNumber != "undefined") {
+                            luckys[randomNumber].classList.remove("active");
+                        }
+                        luckys = document.querySelectorAll(".student");
+                        randomNumber = Math.floor(Math.random() * luckys.length);
+                        luckys[randomNumber].classList.add("active");
+                    }, 100);
+                } else {
+                    oBtn.setAttribute("data-flag", "start");
+                    oBtn.innerHTML = "开始";
+                    clearInterval(timer);
+                }
+            }
+
+            oBtn.onclick = function() {
+                start();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>HZ-HTML5-2011 Super Lotto</h1>
+    <div class="users"></div>
+    <button id="start" data-flag="start">开始</button>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let text = document.querySelector("#text");
+            text.onchange = function() {
+                let script = document.createElement("script");
+                let weather = {
+                    app: "weather.future",
+                    weaid: this.value,
+                    appkey: "56372",
+                    sign: "928d43bf215b3759878a224cc7721def",
+                    format: "json",
+                    jsoncallback: "data"
+                }
+                let url = "http://api.k780.com?";
+                for (let key in weather) {
+                    url += `${key}=${weather[key]}&`;
+                }
+                url = url.slice(0, -1);
+                script.src = url;
+                document.body.appendChild(script);
+            };
+        }
+
+        function data(msg) {
+            let ul = document.getElementById("ul");
+            msg.result.forEach(elm => {
+                let li = document.createElement("li");
+                li.innerHTML = `
+                    城市：${elm.citynm}<br>
+                    日期：${elm.days}<br>
+                    温度：${elm.temperature}<br>
+                    天气：${elm.weather}<img src="${elm.weather_icon}"><img src="${elm.weather_icon1}"><br>
+                    风向：${elm.wind}<br>
+                `;
+                ul.appendChild(li);
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="text">
+    <ul id="ul"></ul>
+</body>
+
+</html>

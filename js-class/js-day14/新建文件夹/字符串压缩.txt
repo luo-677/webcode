@@ -1,0 +1,31 @@
+<script>
+    var str3 = 'aaaabbbbbccdddddeefggggg';
+    var res = "";
+    var count = 1;
+    for (var i = 0; i < str3.length; i++) {
+        if (str3[i] === str3[i + 1]) {
+            count++;
+        } else {
+            res += count + str3[i];
+            count = 1;
+        }
+    }
+    console.log(res);
+</script>
+
+用reduce进行字符串压缩：
+<script>
+    let str = 'aaaabbbbbccdddddeefggggg';
+    let arr = str.split("");
+    console.log(arr);
+    let res = arr.reduce(function(obj, elm) {
+        obj[elm] ? obj[elm]++ : obj[elm] = 1;
+        return obj;
+    }, {})
+    console.log(res);
+    let resStr = "";
+    for (let key in res) {
+        resStr += res[key] + key;
+    }
+    console.log(resStr);
+</script>

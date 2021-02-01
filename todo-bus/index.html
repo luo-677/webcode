@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>app</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="./img/fav.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href=" ./css/sm.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+
+    <div id="app">
+
+
+        <div class="page-group">
+            <div class="page page-current">
+
+                <head-top></head-top>
+                <main-cont></main-cont>
+                <foot-bottom></foot-bottom>
+                <Modal></Modal>
+
+            </div>
+        </div>
+
+    </div>
+
+    <template id="headTop">
+        <div class="bar bar-nav">
+            <a class="icon icon-friends pull-left"></a>
+            <a class="icon icon-edit pull-right" @click="open"></a>
+            <h1 class="title">标题</h1>
+        </div>
+    </template>
+
+    <template id="mainCont">
+        <div class="content">
+            <div class="card" v-for="item in newTasks" :key="item.id">
+                <div class="card-header">卡头</div>
+                <div class="card-content">
+                    <div class="card-content-inner">{{item.text}}</div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-footer-left">
+                        <a class="button button-success" :class="{'button-fill':item.finish}"
+                            @click="changeType(item.id)"><i class="icon icon-check"></i></a>
+                        <span class="cart-status" v-if="item.finish">已完成</span>
+                        <span class="cart-status" v-else>未完成</span>
+                    </div>
+                    <div class="card-footer-right">
+                        <button class="button button-fill"><span class="icon icon-edit"
+                                @click="update(item.id)"></span></button>
+                        <button class="button button-fill button-danger" @click="remove(item.id)"><span
+                                class="icon icon-remove"></span></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="footBottom">
+        <div class="footer">
+            <ul class="tabbars">
+                <li class="tab" v-for="item in tabbars" :class="['tab-'+ item.className,tabOn==item.name?'tab-fill':'']"
+                    :key="item.id" @click="changeType(item.name)">
+                    {{item.name}}
+                </li>
+
+            </ul>
+        </div>
+    </template>
+
+    <template id="modal">
+        <div class="modal_box_wrapper" v-show="modalFlag">
+            <div class="modal_box">
+                <input type="text" placeholder="请输入你的待办事项" class="modal_input" v-model="todo">
+                <div class="modal_footer">
+                    <a href="#" class="button button-big button-fill button-danger" @click="closeModal">取消</a>
+                    <a href="#" class="button button-big button-fill button-success" @click="comfirm">确定</a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</body>
+<script src="./lib/vue.js"></script>
+<script src="./js/index.js"></script>
+
+</html>

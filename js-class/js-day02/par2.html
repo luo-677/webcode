@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var year = parseInt(prompt("请输入年份"));
+        if(!isNaN(year)){
+            var mon = parseInt(prompt("请输入月份"));
+            if(!isNaN(mon) && (mon >=1 &&mon <=12)){
+                if(mon == 2){
+                    if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+                        console.log(year + "年的2月份有29天");
+                    }else{
+                        console.log(year + "年的2月份有28天");
+                    }
+                }else if(mon == 4 || mon == 6 || mon == 9 || mon == 11){
+                    console.log(year + "年的" + mon + "月份有30天");
+                }else{
+                    console.log(year + "年的" + mon + "月份有31天");
+                }
+            }else{
+                alert("输入的月份不合法，请重新输入");
+            }
+        }else{
+            alert("输入的年份不合法，请重新输入");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

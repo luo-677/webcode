@@ -1,0 +1,25 @@
+<head>
+    <style>
+        #box {
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oBox = document.getElementById("box");
+
+            function getStyle(elm, style) {
+                if (typeof getComputedStyle === "function") {
+                    return getComputedStyle(elm)[style];
+                } else {
+                    return elm.currentStyle[style];
+                }
+            }
+            console.log(getStyle(oBox, "color"));
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>

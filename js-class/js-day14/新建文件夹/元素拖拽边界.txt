@@ -1,0 +1,28 @@
+window.onload = function() {
+    var box = document.getElementById('box');
+    box.onmousedown = function(ev) {
+        var offsetX = ev.offsetX,
+            offsetY = ev.offsetY;
+        document.onmousemove = function(ev) {
+            var pageX = ev.pageX,
+                pageY = ev.pageY,
+                x = pageX - offsetX,
+                y = pageY - offsetY;
+            if (x < 0) {
+                x = 0;
+            } else if (x > innerWidth - box.offsetWidth) {
+                x = innerWidth - box.offsetWidth;
+            }
+            if (y < 0) {
+                y = 0;
+            } else if (y > innerHeight - box.offsetHeight) {
+                y = innerHeight - box.offsetHeight;
+            }
+            box.style.top = y + 'px';
+            box.style.left = x + 'px';
+        }
+        document.onmouseup = function() {
+            document.onmousemove = null;
+        }
+    }
+}

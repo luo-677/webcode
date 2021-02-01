@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        window.onload = function(){
+            var oDiv = document.getElementById("div");
+            var oBtn = document.getElementById("btn");
+            function onClick(elm,type,callback){
+                if(elm.addEventListener){
+                    onClick = function(elm,type,callback){
+                        elm.addEventListener(type,callback);
+                    }
+                }else if(elm.attachEvent){
+                    onClick = function(elm,type,callback){
+                        elm.attachEvent('on' + type,callback);
+                    }
+                }
+                return onClick(elm,type,callback);
+            }
+            onClick(oDiv,"click",function(){
+                alert(2);
+            });
+            onClick(oBtn,"click",function(){
+                alert(1);
+            });
+        }
+    </script> -->
+    <script>
+        window.onload = function(){
+            var oDiv = document.getElementById("div");
+            var oBtn = document.getElementById("btn");
+            // 自执行函数，不能进行传参使用，因为还没有到传参那一步，会报错
+            // var onClick = (function(elm,type,callback){
+            //     if(elm.addEventListener){
+            //         return function(elm,type,callback){
+            //             elm.addEventListener(type,callback);
+            //         }
+            //     }else if(elm.attachEvent){
+            //         return function(elm,type,callback){
+            //             elm.attachEvent("on" + type,callback);
+            //         }
+            //     }
+            // })();
+            var onClick = (function(){
+                if(document.addEventListener){
+                    return function(elm,type,callback){
+                        elm.addEventListener(type,callback);
+                    }
+                }else if(document.attachEvent){
+                    return function(elm,type,callback){
+                        elm.attachEvent("on" + type,callback);
+                    }
+                }
+            })();
+            onClick(oBtn,"click",function(){
+                alert(1);
+            })
+            onClick(oDiv,"click",function(){
+                alert(2);
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="div">
+        <button id="btn">按钮</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+var num = 0; //计算闰年个数
+for (var year = 1000; year <= 2000; year++) {
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        document.write(year + ' ');
+        num++;
+        if (num % 4 == 0) { //如果num是4的倍数，输出一个换行
+            document.write(year + '<br>')
+        }
+    }
+}

@@ -1,0 +1,116 @@
+*{margin: 0;padding: 0;user-select: none;}
+.footer{
+    width: 100%;
+    height: 80px;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    border-top: solid 1px #e2e2e2;
+    background: #fff;
+}
+.footer > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    list-style: none;
+}
+.tab{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.tab.tab-primary{
+    border: solid 1px rgb(170, 3, 170);
+    color: rgb(170, 3, 170);
+}
+.tab.tab-primary.tab-fill{
+    background: rgb(170, 3, 170);
+    color: #fff;
+}
+.tab.tab-success{
+    border: solid 1px rgb(6, 158, 87);
+    color: rgb(6, 158, 87);
+}
+.tab.tab-success.tab-fill{
+    background: rgb(6, 158, 87);
+    color: #fff;
+}
+.tab.tab-danger{
+    border: solid 1px red;
+    color: red;
+}
+.tab.tab-danger.tab-fill{
+    background:red;
+    color: #fff;
+}
+.content{padding-bottom: 5rem;}
+.card-footer-left,.card-footer-right{
+   display: flex;
+   align-items: center;
+}
+.cart-status{
+    margin-left: .5rem;
+}
+.card-footer-right >.button-danger{
+    margin-left: 10px;
+}
+.modal_box_wrapper{
+    position: fixed;
+    top:0;
+    left:0;
+    
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(0,0,0,.5);
+}
+
+.modal_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+    height: 8rem; 
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    background: #fff;
+
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.modal_input{
+    width: 80%;
+    height: 2rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+
+    border: solid 1px rgb(124, 122, 122);
+}
+.modal_footer{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
