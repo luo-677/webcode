@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ToDoList—最简单的待办事项列表</title>
+    <script>
+        window.onload = function() {
+            var title = document.getElementById('title');
+            var ol = document.getElementById('todolist');
+            var input = todolist.querySelector('input');
+            var donelist = document.getElementById('donelist');
+            console.log(donelist)
+            title.addEventListener('keyup', function(ev) {
+
+                if (ev.keyCode == 13 && this.value.trim()) {
+                    var li = '<li> <input type = "checkbox" class=anniu><p>' + this.value + '</p> <a></a></li>';
+                    todolist.innerHTML += li;
+                    this.value = '';
+
+                }
+
+            })
+            input.onclick = function(ev) {
+                var li = document.createElement("li");
+                li.innerHTML = '<input type = "checkbox" class="anniu"><p>' + this.value + '</p><a>-</a>';
+                console.log(this.value)
+                donelist.appendChild(li);
+
+            }
+        }
+    </script>
+    <meta name="description" content="ToDoList无须注册即可使用，数据存储在用户浏览器的html5本地数据库里，是最简单最安全的待办事项列表应用！" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <section>
+
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+
+        </section>
+    </header>
+    <section>
+        <h2>正在进行 <span id="todocount"></span></h2>
+        <ol id="todolist" class="demo-box">
+            <li>
+                <input type="checkbox">
+                <p>1111</p>
+                <a>-</a>
+            </li>
+        </ol>
+        <h2>已经完成 <span id="donecount"></span></h2>
+        <ul id="donelist">
+        </ul>
+    </section>
+    <footer>
+        Copyright &copy; 2014 todolist.cn <a>clear</a>
+    </footer>
+</body>
+
+</html>

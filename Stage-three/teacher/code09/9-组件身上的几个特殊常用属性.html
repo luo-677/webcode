@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Father></Father>
+    </div>
+    <template id="father">
+        <div>
+            <Son name = "hello"></Son>
+        </div>
+    </template>
+    <template id="son">
+        <div></div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        1. this.$parent   可以找父组件
+        2. this.$root     可以找Root组件
+        2. this.$attr     获取当前组件身上的属性
+    */
+    Vue.component('Father',{
+        template: '#father',
+        methods: {
+            fatherFn () {
+                alert(1)
+            }
+        }
+    })
+    Vue.component('Son',{
+        template: '#son',
+        mounted () {
+            // console.log(this.$parent.fatherFn())
+            // console.log(this.$root.money)
+            console.log(this.$attrs) 
+        }
+    })
+    new Vue({
+        el: '#app',
+        data: {// 全局数据
+            money: 2000
+        }
+    })
+</script>
+</html>

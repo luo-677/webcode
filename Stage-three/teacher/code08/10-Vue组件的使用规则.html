@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        问题： 当我们遇到html中要去是直接父子级元素标签时，组件使用时会被踢出去  <hr>
+        解决： 使用is属性   <tr is="组件名"></tr> <br>
+        html中有哪些标签时这样的  <br>
+        table / ul>li / ol/li / dl>dt~dd / select>option  <br>
+        <table>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr is="Hello"></tr>
+        </table>
+    </div>
+    <template id="hello">
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    Vue.component('Hello',{
+        template: '#hello'
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

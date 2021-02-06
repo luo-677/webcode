@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" style="height: 2000px;">
+        <Hello v-if="flag"></Hello>
+        <button @click="changeFlag">切换</button>
+    </div>
+    <template id="hello">
+        <div>
+            Hello
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component("Hello", {
+        template: "#hello",
+        mounted() {
+            window.onscroll = function() {
+                console.log(111);
+            };
+            this.timer = setInterval(() => {
+                console.log(2222);
+            }, 2000)
+        },
+        beforeDestroy() {
+            console.log('beforeDestroy');
+        },
+        // 一般使用destroyed，在组件被销毁时生效
+        destroyed() {
+            clearInterval(this.timer);
+            window.onscroll = null;
+        },
+    })
+    let app = new Vue({
+        el: "#app",
+        data: {
+            flag: true,
+        },
+        methods: {
+            changeFlag() {
+                // 在组件被销毁时自动生效
+                this.flag = !this.flag;
+                console.log(this.flag)
+            }
+        },
+    })
+</script>

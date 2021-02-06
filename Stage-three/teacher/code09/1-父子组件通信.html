@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Home></Home>
+    </div>
+    <template id="home">
+        <div>
+            通过v-bind来绑定自定义属性  <hr>
+            <!-- 2.绑定数据 -->
+            <List :mv="movies"></List>
+        </div>
+    </template>
+    <template id="list">
+        <div>
+           <!-- 4. 使用数据 -->
+           <ul>
+               <li v-for="item in mv" :key="item.id">
+                    {{ item.nm }}
+               </li>
+           </ul>
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        父子组件通信
+            * 父： 父给子数据  定义
+            * 子： 接受数据
+    */
+    Vue.component('Home',{
+        template: '#home',
+        // 1. 定义数据
+        data () {
+            return {
+                movies: [{
+                    id: 1,
+                    nm: '大红包'
+                },{
+                    id: 2,
+                    nm: '送你一朵小红花'
+                }]
+            }
+        }
+    })
+    Vue.component('List',{
+        template: '#list',
+        // 3. 接受数据 
+        props: ['mv']
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

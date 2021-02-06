@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h3> v-cloak - 解决源代码闪现问题 </h3> 
+        <p v-cloak>加了v-clock: {{msg}}</p>
+        <p>没加v-cloak:{{msg}}</p>
+        <hr>
+
+        <h3> 1. v-pre   不解析{{}} </h3>
+        使用了v-pre  <hr>
+        <p v-pre> {{ money }} </p>
+        没有使用v-pre  <hr>
+        <p > {{ money }} </p>
+        <h3> 2. v-once - only render once   </h3>
+        使用了v-once  <hr>
+        <button @click="increment"> + </button>
+        <p v-once> {{ count }} </p>
+        没有使用v-once  <hr>
+        <p > {{ count }} </p>
+      
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            money: 2000,
+            count: 1,
+            msg: '爱情'
+        },
+        methods: {
+            increment () {
+                this.count++
+            }
+        }
+    })
+</script>
+</html>

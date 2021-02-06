@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 2. 需要一个dom来作为vue作用范围 -->
+    <div id="app">
+        <!-- 4. 通过 mustache 语法来 使用数据  -->
+        app内: {{ msg }}
+    </div>
+    app外：{{ msg }}
+</body>
+<!-- 1. 引入vue.js文件 -->
+<script src="../../lib/vue.js"></script>
+<script>
+    // 3. 引入vue.js之后我们会得到一个Vue构造函数
+        new Vue({
+            el: '#app',//挂载 把vue挂载到了#app的div身上，来确定他的作用范围
+            data: {
+                msg: 'Hello Vue'
+            }
+        })
+
+
+//             console.log(Vue)
+//             function Vue (options) {
+//                 this._init(options)
+//             }
+//             Vue.prototype._init = function (options) {
+//                 this.el = options.el 
+                   this.flag = options.data.flag
+//                 document.querySelector('this.el')
+//             }
+// </script>
+</html>

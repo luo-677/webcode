@@ -1,8 +1,0 @@
-var year = +prompt("year");
-var mon = +prompt("month");
-var day = +prompt("day");
-var sum = 0;
-sum += day;
-(i==4 || i==6 || i==9 ||i ==11) ? sum+=30 : sum+=31;
-(i>=2 && (year%4==0&year%100!=0 || year%400==0) ? sum-=2 : sum-=3;
-console.log(sum);

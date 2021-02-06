@@ -1,0 +1,7 @@
+<script>
+    var arr = ['cnm', 'qnlmgb', 'mmp', '习大大', '中国共产党'];
+    var reg = new RegExp(arr.join("|"), "ig");
+    var str = "习大大牛逼，中国共产党牛逼";
+    var res = str.replace(reg, "****");
+    console.log(res);
+</script>

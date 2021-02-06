@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" style="height:2000px">
+        <button @click = "remove"> 销毁 </button>
+        <Hello v-if="flag" />
+    </div>
+    <template id="hello">
+        <div>
+           Hello
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        卸载阶段钩子函数有2个 ，他们功能几乎一致，所以选其一使用
+
+        作用： 清除组件无法自动删除的东西
+            1.计时器  定时器
+            2. 绑定在window/document身上的事件
+            3. 第三方库实例
+    */
+
+    function Swiper (options) {
+        this.container = options.container
+    }
+
+    Vue.component('Hello',{
+        template: '#hello',
+        mounted () {
+            this.swiper = new Swiper({container:'.container'})
+            this.time = setInterval(() => {
+                // console.log(1111111111)
+                console.log(this.swiper)
+            }, 1000);
+            window.onscroll = function () {
+                console.log('滚动')
+            }
+        },
+        beforeDestroy () {
+            console.log('beforeDestroy')
+        },
+        destroyed () {
+            clearInterval(this.time)
+            window.onscroll = null 
+            delete this.swiper 
+            console.log('destroyed')
+        }
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            flag: true 
+        },
+        methods: {
+            remove () {
+                this.flag = false 
+            }
+        }
+    })
+</script>
+</html>

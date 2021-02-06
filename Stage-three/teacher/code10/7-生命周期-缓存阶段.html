@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="change"> 切换 </button>
+        <keep-alive>
+            <component :is="type"></component>
+        </keep-alive>
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        缓存阶段是针对动态缓存的  keep-alive 
+    */
+    Vue.component('Hello', {
+        template: '<div>hello</div>',
+        activated() {
+            // 表示切换到了前台，正在展示
+            // 更新广告
+            console.log('activated')
+        },
+        deactivated() {
+            // 表示切换到了后台，被缓存了
+            console.log('deactivated')
+            // 定时清除缓存
+            setTimeout(() => {
+                this.$destroy()
+            },3000)
+        }
+    })
+    Vue.component('Comp', {
+        template: '<div>comp</div>'
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            type: 'Hello'
+        },
+        methods: {
+            change() {
+                this.type = this.type === 'Hello' ? 'Comp' : 'Hello'
+            }
+        }
+    })
+</script>
+
+</html>

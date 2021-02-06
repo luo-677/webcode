@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>todolist</title>
+    <link rel="stylesheet" href="./css/sm.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="page-group">
+            <div class="page page-current">
+                <!-- 标题 -->
+                <header class="bar bar-nav">
+                    <a class="icon icon-friends pull-left"></a>
+                    <a class="icon icon-edit pull-right" @click="openMaskFlag"></a>
+                    <h1 class="title">TO_LIST</h1>
+                </header>
+                <!-- 主体 -->
+                <main class="content main">
+                    <div class="card" v-for="item in todos">
+                        <div class="card-header">任务{{item.id}}</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">{{item.text}}</div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-left">
+                                <a href="#" class="button button-success icon icon-check"></a>
+                            </div>
+                            <div class="card-right">
+                                <a href="#" class="button button-fill icon icon-edit" @click="editTask(item.id)"></a>
+                                <a href="#" class="button button-danger button-fill icon icon-remove"></a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <!-- 页脚 -->
+                <footer class="footer">
+                    <div v-for="item in circles" :class='["circle",item.className]'>{{item.text}}</div>
+                </footer>
+                <!-- 遮罩 -->
+                <div class="mask" v-if="maskFlag" @click.self="closeMaskFlag">
+                    <div class="mask-box">
+                        <input type="text" v-model="confirmStr" class="input-text" placeholder="请输入您的待办事项">
+                        <div class="button-box">
+                            <a href="#" class="button button-fill button-warning" @click.self="closeMaskFlag">取消</a>
+                            <a href="#" class="button button-fill button-success" @click="confirmMaskFlag(item.confirmType)">确定</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./lib/vue.js"></script>
+<script src="./js/index.js"></script>

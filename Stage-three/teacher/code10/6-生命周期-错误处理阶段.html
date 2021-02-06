@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Father></Father>
+    </div>
+
+    <template id="father">
+        <div>
+            <div v-if = "!backUIflag"> 您的网路有问题，请重试 </div>
+            <Son v-else></Son>
+        </div>
+    </template>
+    <template id="son">
+        <div>
+           son
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        errorCaptured  -- 写在父组件中
+            是用于捕获子组件错误的
+            如果子组件出了问题，那么我们用 回退UI 来代替错误界面
+    
+    */
+   Vue.component('Son',{
+       template: '#son',
+       mounted () {
+        //    throw new Error('出错了')
+       }
+   })
+    Vue.component('Father',{
+        template: '#father',
+        data () {
+            return {
+                backUIflag: true 
+            }
+        },
+        errorCaptured (error,comp) {
+            // error 表示错误原因
+            // comp  哪一个组件
+            if (error) {
+                this.backUIflag = false 
+            }
+        }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

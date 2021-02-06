@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big{
+            width: 300px;
+            height:300px;
+            background: red;
+        }
+        .middle{
+            width: 200px;
+            height:200px;
+            background: blueviolet;
+        }
+        .small{
+            width: 100px;
+  
+           height:100px;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        举例说明修饰符是做什么的？  阻止事件冒泡案例 <hr>
+        <div class="big" @click="bigHandler">
+            <div class="middle" @click="middleHandler">
+                <div class="small" @click="smallHandler"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            bigHandler (e) {
+                e.stopPropagation()
+                alert('big')
+            },
+            middleHandler (e) {
+                e.stopPropagation()
+                alert('middle')
+            },
+            smallHandler (e) {
+                e.stopPropagation()
+                alert('small')
+            }
+        }
+    })
+</script>
+</html>

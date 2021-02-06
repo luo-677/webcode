@@ -1,0 +1,46 @@
+<body>
+    <div class="box">
+        <p>行：<input type="text"></p>
+        <p>列：<input type="text"></p>
+        <p><button>创建表格</button></p>
+    </div>
+    <div class="tablebox"></div>
+</body>
+<script>
+    let aP = document.querySelectorAll('.box input');
+    let oBtn = document.querySelector('button');
+    let oTableBox = document.querySelector('.tablebox');
+    oBtn.onclick = function() {
+            let cTable = document.createElement('table');
+            cTable.border = 1;
+            for (let i = 0; i < aP[0].value; i++) {
+                let cTr = document.createElement('tr');
+                for (let j = 0; j < aP[1].value; j++) {
+                    let cTd = document.createElement('td');
+                    if (j === aP[1].value - 1) {
+                        cTd.innerHTML = '<a href="javascript:;">删除' + i + '</a>';
+                    } else {
+                        cTd.innerHTML = '1111';
+                    }
+                    cTr.appendChild(cTd);
+                }
+                cTable.appendChild(cTr);
+            }
+            oTableBox.appendChild(cTable);
+        }
+    oTableBox.onclick = function(ev) {
+        var ev = ev || window.event;
+        let element = ev.target || ev.srcElement;
+        if (element.tagName === 'TD') {
+            if (!element.children.length) {
+                element.innerHTML = '<input value"' + element.innerHTML + '"/>';
+            }
+            element.children[0].onblur = function() {
+                //this:指向input
+                this.outerHTML = this.value;
+            }
+        } else if (element.tagName === 'A') {
+            element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);
+        }
+    }
+</script>

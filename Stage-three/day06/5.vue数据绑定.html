@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .red {
+            background: red;
+        }
+        
+        .blue {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 单向数据绑定 v-bind:属性 简写为 :属性 -->
+    <div id="app">
+        <button @click="changeflag">修改flag</button>
+        <p :class="{size:true,red:flag,blue:!flag}">对象形式</p>
+        <p :class="[size,flag?'blue':'red']">对象形式</p>
+        <p class="size red" :class="flag?'blue':null">后者覆盖前者</p>
+    </div>
+</body>
+
+</html>
+<script src="./vue-P/node_modules/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            size: "size",
+            flag: true,
+        },
+        methods: {
+            // changeflag() {
+            //     this.flag = !this.flag;
+            // }
+            changeflag: () => {
+                this.flag = !this.flag;
+                console.log(this);
+            }
+        },
+    })
+</script>

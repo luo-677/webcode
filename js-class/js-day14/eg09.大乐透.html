@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            text-align: center;
+        }
+        
+        h1 {
+            box-shadow: 6px 3px 8px #ccc, -3px 3px 8px #ccc;
+            margin: 30px auto;
+            width: 1330px;
+            padding: 10px;
+            border-radius: 8px;
+            user-select: none;
+            background-image: linear-gradient( to bottom, yellow, rgb(238, 253, 19), gold);
+        }
+        
+        .users {
+            width: 1366px;
+            margin: 0 auto;
+        }
+        
+        .users>ul {
+            overflow: hidden;
+            width: 1350px;
+            margin: 0 auto;
+        }
+        
+        .users>ul>li {
+            list-style: none;
+            width: 88px;
+            border: 1px solid #ddd;
+            margin: 7px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            border-radius: 5px;
+            user-select: none;
+            font-size: 20px;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+        
+        .users>ul>li:not(.mid) {
+            background: #ddd;
+        }
+        
+        .users>ul>li.mid {
+            border: none;
+            box-shadow: none;
+        }
+        
+        .users>ul>li.student {
+            background-color: aquamarine !important;
+        }
+        
+        .users>ul>li.active {
+            background-color: yellow !important;
+        }
+        
+        #start {
+            width: 150px;
+            height: 50px;
+            font-size: 26px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        var data = {
+            row5: ["王骏珷", "胡晗月", "", "韦延舜", "张书玮", "庞曰瑞", "", "", "张旭", "崔庆贺", "骆琪琪", "万能", ""],
+            row4: ["竺钶", "", "", "吴松峰", "", "包凯", "", "邓高伟", "张洋", "", "涂文文", "", "蔡鑫", ],
+            row3: ["", "韩奇杰", "", "何文凯", "林嘉妮", "谭春梅", "", "肖鹏", "李浩朋", "李晨", "陈文君", "李绍东", "", ],
+            row2: ["", "程振生", "方城洪", "焦昱筱", "刘鑫", "冯文强", "", "张冰倩", "周勋臣", "王鹏杰", "郭静", "", "胡永坤", ],
+            row1: ["孟慧敏", "沈旭阳", "王彬", "江鑫溢", "", "田家木", "", "王兴邦", "顾铖祥", "曹宽", "刘启亮", "", "", ]
+        };
+
+        window.onload = function() {
+            var timer;
+            var randomNumber;
+            var startBtn = document.querySelector('#start');
+
+
+            // 1. 初始化 将数据展示到页面中
+            function init() {
+                var users = document.querySelector('.users'),
+                    list, //  ul 元素
+                    tempLi; // li 元素
+
+                // 遍历对象
+                for (var key in data) {
+                    list = document.createElement('ul'); // 创建列表 用于保存一行数据
+                    for (var i = 0; i < data[key].length; i++) { // 遍历每一个属性 属性是数组
+                        tempLi = document.createElement('li'); // 创建一个li元素
+                        tempLi.innerHTML = data[key][i]; // 放入数据
+                        data[key][i] && tempLi.setAttribute('class', 'student'); //判断数据对应的位置是否有人
+                        i == 6 && tempLi.setAttribute('class', 'mid');
+                        list.appendChild(tempLi); // 放入列表
+                    }
+                    users.appendChild(list); // 一行数据放入用户区域
+                }
+
+            }
+            init();
+
+
+            // 2. 抽奖 功能函数
+            function start() {
+                var students = document.querySelectorAll('.student');
+                if (startBtn.dataset.flag == "start") {
+                    startBtn.innerHTML = '停止';
+                    startBtn.dataset.flag = "stop";
+
+                    timer = setInterval(function() {
+                        if (typeof randomNumber != 'undefined') { // 如果之前生成过随机数
+                            students[randomNumber].classList.remove('active'); //删除对应索引的类名
+                        }
+                        randomNumber = Math.floor(Math.random() * students.length); // 再次生成新的随机数
+                        students[randomNumber].classList.add('active'); // 添加类名
+
+                    }, 100);
+
+                } else {
+                    startBtn.innerHTML = '开始';
+                    startBtn.dataset.flag = "start";
+                    clearInterval(timer);
+                }
+
+
+            }
+
+            startBtn.onclick = start;
+
+            document.onkeyup = function(ev) {
+                if (ev.keyCode == 13 || ev.keyCode == 32) {
+                    start();
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>HZ-HTML5-2011 Super Lotto</h1>
+    <div class="users"></div>
+    <button id="start" data-flag="start">开始</button>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        父子组件中挂载阶段的执行顺序是 什么 ？
+        <hr> 答案： 父组件-beforeCreate-created-beforeMount - 子组件 - beforeCreate - created - beforeMount-mounted - 父组件-mounted
+        <Hello></Hello>
+    </div>
+    <template id="hello">
+        <!-- vdom jsx 写法 -->
+        <div class="hello">Hello {{ this.msg }} </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+            挂载阶段  
+                * 1. 自动触发
+                * 2. 执行一次
+            总结： 
+                4个钩子我们只用mounted 
+        */
+    Vue.component('Hello', {
+        template: '#hello',
+        data() {
+            return {
+                msg: ''
+            }
+        },
+        watch: {},
+        methods: {},
+        beforeCreate() {
+            // 1. 表示实例创建前触发的钩子函数
+            // 2. 任务：初始化事件和生命周期  -- 总结：事件的声明
+            // 3. 开发者：不干预(不使用)
+            console.log('mounting -- beforeCreate')
+        },
+        created() {
+            // 1. 表示组件实例创建结束    
+            // 2. 任务： 初始化注入(injection options) && 响应式处理(reactivity -- options/data&computed)
+            // 3. 开发者： 不干预(不使用)
+            console.log('mounting -- created')
+        },
+        beforeMount() {
+            // 1. 表示组件实例挂载前触发的钩子函数
+            // 2. 任务： 判断是否有el,判断是否有template,然后通过render函数解析数据和mustache语法，然后生成vNode
+            // 3. 开发者： 不干预
+            // 面试问题： 
+            // * 1. 挂载阶段哪一个钩子函数可以拿到vdom     beforeMount 
+            // * 2. 具体哪里生成的？   created之后beforeMount前
+            console.log('mounting -- beforeMount')
+        },
+        mounted() {
+            // 1. 表示组件挂载结束时触发的钩子函数
+            // 2. 任务： 将vdom渲染成真实dom然后插入到页面 
+            // 3. 这里我们就得到了真实DOM，我们可以做真实DOM操作了
+            // 4. 开发者： 这个钩子函数就是我们的主要操作的钩子函数
+            // * 1. 数据请求
+            // * 2. 真实DOM操作（第三方库实例化）
+            console.log('mounting -- mounted')
+            document.querySelector('.hello').style.background = 'red'
+        }
+    })
+    new Vue({
+
+        }).$mount('#app') // $mount 手动挂载，选择一个已有的DOM容器作为vue的实例作用范围
+</script>
+
+</html>

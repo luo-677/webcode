@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="len">
+        <input type="text" v-model="wid">
+        <input type="text" v-model="area">
+    </div>
+</body>
+
+</html>
+<script src="../day06/vue-P/node_modules/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            len: 0,
+            wid: 0,
+        },
+        computed: {
+            area() {
+                return this.len * this.wid;
+            }
+        }
+    })
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Hello></Hello>
+    </div>
+    <template id="hello">
+        <div>
+            <div class="hello">Hello {{ hello }}</div>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    // 挂在阶段：
+    //     1. 自动触发
+    //     2. 执行一次
+    Vue.component("Hello", {
+        template: "#hello",
+        data() {
+            return {
+                hello: "World",
+            }
+        },
+        beforeCreate() {
+            console.log("beforeCreate");
+        },
+        created() {
+            console.log("created");
+        },
+        beforeMount() {
+            console.log("beforeMount");
+        },
+        mounted() {
+            console.log("mounted");
+            // 到这一步之后，真实的DOM节点已经生成，可以进行真实DOM操作
+            // 可进行第三方库实例化，如轮播图
+            // console.log(document.querySelector(".hello"));
+            document.querySelector(".hello").style.background = "red";
+        },
+    }, )
+    let app = new Vue({
+        el: "#app",
+    });
+    // 使用$mount进行手动挂载，选择一个已有的DOM容器作为vue的实例作用范围
+    // let app = new Vue({}).$mount('#app');
+</script>

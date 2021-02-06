@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Hello></Hello>
+    </div>
+    <template id="hello">
+        <div>
+            Hello
+            <p v-if="flag">噢哟，报错了哦</p>
+            <World v-else></World>
+        </div>
+    </template>
+    <template id="world">
+        <div>
+            World
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component("Hello", {
+        template: "#hello",
+        data() {
+            return {
+                flag: false,
+            }
+        },
+        errorCaptured: (err, vm, info) => {
+            if (err) {
+                console.log(err);
+                this.flag = true; // ????????
+                console.log(111);
+                console.log(flag);
+            }
+        },
+    })
+    Vue.component("World", {
+        template: "#world",
+        mounted() {
+            throw new Error('error');
+        },
+    })
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        }
+    });
+</script>

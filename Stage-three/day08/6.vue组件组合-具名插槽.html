@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <todo-list>
+            <!-- 在容器中指定完成后，这里的顺序随便写也不会导致页面变得混乱 -->
+            <!-- <Tab slot="header"></Tab>
+            <tab-bar slot="footer"></tab-bar>
+            <my-content slot="main"></my-content> -->
+            <template v-slot: header></template>
+            <template v-slot: footer></template>
+            <template v-slot: main></template>
+        </todo-list>
+    </div>
+    <template id="todolist">
+        <div>
+            这是容器
+            <!-- 在容器中指定插槽对应的组件 -->
+            <slot name="header"></slot>
+            <slot name="main"></slot>
+            <slot name="footer"></slot>
+        </div>
+    </template>
+    <template id="header">
+        <div>
+            这是文头
+        </div>
+    </template>
+    <template id="main">
+        <div>
+            这是身体
+        </div>
+    </template>
+    <template id="footer">
+        <div>
+            这是页脚
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component('TodoList', {
+        template: '#todolist',
+    });
+    Vue.component('Tab', {
+        template: '#header',
+    });
+    Vue.component('MyContent', {
+        template: '#main',
+    });
+    Vue.component('TabBar', {
+        template: '#footer',
+    });
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        }
+    })
+</script>

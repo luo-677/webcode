@@ -1,0 +1,40 @@
+事件委托：
+第一种：
+window.onload = function() {
+    var box = document.getElementById('box');
+    box.onclick = function(ev) {
+        // ev.target 目标元素 DOM元素
+        // ev.srcElement 目标元素  DOM元素
+
+        // 如果需要处理兼容
+        ev = ev || event;
+        var target = ev.target || ev.srcElement;
+
+        if (target.nodeName === 'BUTTON') {
+            var newBtn = document.createElement('button');
+            newBtn.innerText = '按钮';
+            box.appendChild(newBtn);
+        }
+    }
+}
+第二种：
+window.onload = function() {
+    var box = document.getElementById('box');
+    box.onclick = function(ev) {
+        console.log(this);
+        switch (ev.target.className) {
+            case 'h1':
+                console.log('这里点击的是h1');
+                break;
+            case 'span':
+                console.log('本此点击了span');
+                break;
+            case 'div':
+                console.log('本次点击了div');
+                break;
+            case 'p':
+                console.log('本次点击了p');
+                break;
+        }
+    }
+}

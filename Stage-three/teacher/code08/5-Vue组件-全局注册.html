@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Hello></Hello>
+        <Hello/>
+    </div>
+    <div id="root">
+        <Hello/>
+    </div>
+    <!-- 在app外书写template标签  template标签是由vue提供的 -->
+    <template id="hello">
+        <!-- template的儿子是独生子(硬性要求)  根元素唯一 -->
+        <div>
+           hello 组件
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    //1. 定义
+    const helloOptions = Vue.extend({
+        template: '#hello',// 选择组件的作用范围
+    })
+    //2. 注册
+            // Vue中组件的注册有两种形式
+            //     * 1. 全局注册  Vue.component()
+            //     * 2. 局部注册  components选项
+    // Vue.component(组件名(大驼峰形式命名),组件的选项(options))
+    Vue.component('Hello',helloOptions)
+    //3. 如何使用
+        // 标签化使用组件
+    new Vue({
+        el: '#app'
+    })
+    new Vue({
+        el: '#root'
+    })
+</script>
+</html>

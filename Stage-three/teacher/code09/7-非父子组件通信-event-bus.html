@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Sister></Sister>
+        <Brother></Brother>
+    </div>
+    <template id="sister">
+        <div>
+            <button @click = "hick"> 揍弟弟 </button>
+        </div>
+    </template>
+    <template id="brother">
+        <div>
+           <img v-show="flag" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2548982652,1562949674&fm=26&gp=0.jpg" alt="">
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    const bus = new Vue() // bus不就是全局变量  bus.$on  bus.$emit
+    Vue.component('Sister',{
+        template: '#sister',
+        methods: {
+            hick () {
+                bus.$emit('cry')
+            }
+        }
+    })
+    Vue.component('Brother',{
+        template: '#brother',
+        data () {
+            return {
+                flag: false 
+            }
+        },
+        mounted () {
+            // mounted表示组件挂载结束，也就是界面渲染结束了 
+            // 自动触发的
+            // console.log(1111111111)
+            bus.$on('cry',() => {
+                this.flag = !this.flag
+            })
+        }
+    })
+    new Vue({
+        el: '#app',
+    })
+</script>
+</html>

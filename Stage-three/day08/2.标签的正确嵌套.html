@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <!-- <hello></hello> -->
+            <!-- 使用is属性要保证标签名一致 -->
+            <tr is="hello"></tr>
+        </table>
+    </div>
+    <template id="hello">
+        <!-- <div> -->
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+        <!-- </div> -->
+    </template>
+    <template id="world">
+        <div>
+            这是world组件
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    const helloOption = Vue.extend({
+        template: "#hello",
+    });
+    const worldOption = Vue.extend({
+        template: "#world",
+    });
+    Vue.component('Hello', helloOption);
+    Vue.component('World', worldOption);
+    let app = new Vue({
+        el: "#app",
+    });
+</script>

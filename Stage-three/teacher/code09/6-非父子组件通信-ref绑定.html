@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        非父子组件是无法直接通信的，通过中间人来通信  <hr>
+        ref绑定是通过公有父级来通信的 <br>
+        <Sister :hick="hick"></Sister>
+        <!-- brother这个是我们自定义的，你可以随意 -->
+        <Brother ref="aa"></Brother>
+    </div>
+    <template id="sister">
+        <div>
+            <button @click = "hick"> 揍弟弟 </button>
+        </div>
+    </template>
+    <template id="brother">
+        <div>
+           <img v-show="flag" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2548982652,1562949674&fm=26&gp=0.jpg" alt="">
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        ref绑定缺点
+            0. ref   标记
+            1. 性能损耗  不建议用
+            2. 兄弟组件嵌套比较少
+    */
+    Vue.component('Sister',{
+        template: '#sister',
+        props: ['hick']
+    })
+    Vue.component('Brother',{
+        template: '#brother',
+        data () {
+            return {
+                flag: false 
+            }
+        },
+        methods: {
+            changeFlag () {
+                this.flag = !this.flag 
+            }
+        }
+    })
+    new Vue({
+        el: '#app',
+        methods: {
+            hick () {
+                // 获取brother组件
+                // console.log(this.refs)
+                this.$refs.aa.changeFlag()
+            }
+        }
+    })
+</script>
+</html>

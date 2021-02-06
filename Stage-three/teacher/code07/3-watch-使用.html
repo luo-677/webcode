@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            display: flex;
+            list-style: none;
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+            border-left: 0;
+            width: 510px;
+        }
+        ul li {
+            width: 50px;
+            height: 50px;
+            color: black;
+            border-left: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+        }
+        .active{
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+            认识watch   <hr>
+            1. watch 是做什么的 ？ <br>
+                * watch是用于监听数据的  <br>
+                * 当数据改变时，watch中的listener自动触发 <br>
+                * watch一般用于异步操作/数据请求 <br>
+            2. watch 怎么使用 ？ <br>
+                * watch中放置方法   <br>
+            3. watch 应用场景   <br>
+                * 1. 分页  <br>
+                * 2. 公共页面结构的切换  <br>
+        <ul>
+            <li 
+                v-for = "item in total" 
+                @click="changeCount(item)"
+                :class = "{active: count == item}"
+            >
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            total: 10,
+            count: 1
+        },
+        watch: {
+            // 方法 -- 方法名同数据名
+            count () {
+                // console.log('触发')
+                // 异步数据请求
+            }
+        },
+        methods: {
+            changeCount (n) {
+                this.count = n
+            }
+        }
+    })
+</script>
+</html>

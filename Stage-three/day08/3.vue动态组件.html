@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div :is='changeFlag'></div>
+        <button @click="changeTab">{{buttonText}}</button>
+    </div>
+    <template id="userLogin">
+        <div>
+            账号密码登录
+        </div>
+    </template>
+    <template id="phoneLogin">
+        <div>
+            手机验证码登录
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    const userOption = Vue.extend({
+        template: "#userLogin",
+    });
+    const phoneOption = Vue.extend({
+        template: "#phoneLogin",
+    });
+    Vue.component('UserLogin', userOption);
+    Vue.component('PhoneLogin', phoneOption);
+    let app = new Vue({
+        el: '#app',
+        data: {
+            changeFlag: 'user-login',
+            buttonText: '手机验证码登录',
+        },
+        methods: {
+            changeTab() {
+                if (this.changeFlag === 'user-login') {
+                    this.changeFlag = 'phone-login';
+                    this.buttonText = '账号密码登录';
+                } else {
+                    this.changeFlag = 'user-login';
+                    this.buttonText = '手机验证码登录';
+                }
+            }
+        },
+    })
+</script>

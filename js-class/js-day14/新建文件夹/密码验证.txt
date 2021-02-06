@@ -1,0 +1,37 @@
+window.onload = function() {
+    var password = document.getElementById('password');
+    var result = document.getElementById('result');
+    var reg = [
+        /^.{8,16}$/,
+        /[A-Z]+/,
+        /[a-z]+/,
+        /\d+/,
+        /[^A-Za-z0-9]/
+    ];
+    password.oninput = function() {
+        var check = reg.map(function(el) {
+            return el.test(this.value);
+        }.bind(this));
+        var strength = check.reduce(function(obj, current) {
+            current && obj.count++;
+            return obj;
+        }, {
+            count: 0
+        });
+        if (check[0]) {
+            switch (strength.count) {
+                case 3:
+                    result.innerHTML = '弱';
+                    break;
+                case 4:
+                    result.innerHTML = '中';
+                    break;
+                case 5:
+                    result.innerHTML = '强';
+                    break;
+            }
+        } else {
+            result.innerHTML = '密码长度不足8位';
+        }
+    }
+}

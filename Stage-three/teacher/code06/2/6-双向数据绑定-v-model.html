@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        v-model 应用于表单，默认绑定value属性  <hr>
+        建议： 以后看到表单，直接v-model  <hr>
+        <input type="text" v-model="username">
+        <button @click = "getVal"> 获取input的值 </button>
+    </div>
+</body>
+<script src="../../../lib/vue.js"></script>
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            username: 'lakers'
+        },
+        methods: {
+            getVal () {
+                alert(this.username)
+            }
+        }
+    })
+</script>
+</html>

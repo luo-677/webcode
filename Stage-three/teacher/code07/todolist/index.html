@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> todolist </title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/sm.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="page-group">
+            <div class="page page-current">
+                <!-- 你的html代码 -->
+                <!-- 头部 -->
+                <header class="bar bar-nav">
+                    <a class="icon icon-friends pull-left"></a>
+                    <a class="icon icon-edit pull-right" data-type="add"
+                        @click = "openMaskFlag"
+                    ></a>
+                    <h1 class="title">标题</h1>
+                </header>
+                <!-- 内容 -->
+                <div class="content">
+                    <div class="card" v-for="(item,index) in newTodos" :key="item.id">
+                        <div class="card-header">任务{{item.id}}</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                {{ item.task }}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="left">
+                                <button class="button button-success" :class="{'button-fill': item.flag }"
+                                    @click="changeFlag(item.id)">
+                                    <span class="icon icon-check"></span>
+                                </button>
+                                <span v-if="item.flag"> 已完成 </span>
+                                <span v-else> 未完成 </span>
+                            </div>
+                            <div class="right">
+                                <button class="button button-fill" data-type="modify"
+                                    @click = "openMaskFlag($event,item.task,item.id)"
+                                >
+                                    <span class="icon icon-edit"></span>
+                                </button>
+                                <button class="button button-fill button-danger"
+                                    @click = "remove(item.id)"
+                                >
+                                    <span class="icon icon-remove"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 底部 -->
+                <ul class="tabbar">
+                    <li class="circle" v-for="item in tabbars" :key="item.id" :class="[
+                            'circle-'+item.className,
+                            type===item.text?'circle-fill':''
+                        ]" @click="changeType(item.text)">
+                        {{ item.text }}
+                    </li>
+                </ul>
+                <!-- 遮罩 -->
+                <div class="mask" v-if="maskFlag"
+                    @click.self = "closeMaskFlag"
+                >
+                    <div class="content">
+                        <input type="text" placeholder="请输入您的代办事项" v-model="val">
+                        <div class="btn">
+                            <button class="button button-fill button-warning"
+                                @click="closeMaskFlag"
+                            >取消</button>
+                            <button class="button button-fill button-success"
+                                @click = "confirm"
+                            >确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./lib/vue.js"></script>
+<script src="./js/index.js"></script>
+
+</html>

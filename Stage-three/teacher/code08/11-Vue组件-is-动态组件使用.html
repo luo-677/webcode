@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 组件切换   -->  
+        <!-- 动态组件 - 内置组件 -->
+        业务： 这是按钮是两个的做法   <hr>
+        <div class="row">
+            <button @click="fn1">用户名密码</button>
+            <button @click="fn2"> 手机号验证码 </button>
+        </div>
+        业务： pm找你： 按钮要一个来实现  <hr>
+        <button @click = "change">
+            <span v-if = "compName == 'PhoneLogin'">用户名密码登录按钮</span>
+            <span v-else>手机号验证码登录按钮</span>
+        </button>
+        <component :is="compName"></component>
+    </div>
+    <template id="user-login">
+        <div>
+            用户名密码登录
+        </div>
+    </template>
+    <template id="phone-login">
+        <div>
+            手机号验证码
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    Vue.component('UserLogin',{
+        template: '#user-login'
+    })
+    Vue.component('PhoneLogin',{
+        template: '#phone-login'
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            compName: 'UserLogin'
+        },
+        methods: {
+            fn1 () {
+
+                this.compName = 'UserLogin'
+            },
+            fn2 () {
+                this.compName = 'PhoneLogin'
+            },
+            change () {
+                this.compName = this.compName === 'UserLogin'?'PhoneLogin':'UserLogin'
+            }
+        }
+    })
+</script>
+</html>

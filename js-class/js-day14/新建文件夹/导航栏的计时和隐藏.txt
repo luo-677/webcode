@@ -1,0 +1,55 @@
+<head>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .box {
+            width: 300px;
+            height: 600px;
+            background-color: olive;
+            display: none;
+        }
+        .header {
+            width: 100%;
+            height: 150px;
+            background: #d70400 url('https://image1.suning.cn/uimg/cms/img/160490943807818124.jpg') no-repeat center;
+        }
+        .header em {
+            font-style: normal;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <button>显示隐藏</button>
+    <div class="box"></div>
+    <div class="header">
+        <span>关闭剩余<em>10</em>秒</span>
+    </div>
+</body>
+<script>
+    let btn = document.querySelector('button');
+    let box = document.querySelector('.box');
+    let flag = true;
+    btn.onclick = function() {
+        if (flag) { //flag = true
+            box.style.display = 'block';
+            flag = false;
+        } else {
+            box.style.display = 'none';
+            flag = true;
+        }
+    };
+    let header = document.querySelector('.header');
+    let em = document.querySelector('.header em');
+    let timer = setInterval(function() {
+        let num = em.innerHTML;
+        num--;
+        if (num === 0) {
+            header.style.display = 'none';
+            clearInterval(timer);
+        }
+        em.innerHTML = num;
+    }, 1000);
+</script>

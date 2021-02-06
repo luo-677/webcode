@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style-type: none;
+            overflow: hidden;
+        }
+        
+        ul>li {
+            float: left;
+        }
+        
+        ul>li>img {
+            width: 58px;
+        }
+        
+        div>img {
+            width: 450px;
+            height: 450px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var divImg = document.querySelector("div>img");
+            var oUl = document.querySelector("ul");
+            oUl.onclick = function(ev) {
+                if (ev.target.nodeName === "IMG") {
+                    divImg.setAttribute("src", ev.target.src);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <img src="" alt="">
+    </div>
+    <ul>
+        <li>
+            <img src="./img/1-1.jpg" alt="">
+        </li>
+        <li>
+            <img src="./img/2-2.jpg" alt="">
+        </li>
+    </ul>
+</body>
+
+</html>

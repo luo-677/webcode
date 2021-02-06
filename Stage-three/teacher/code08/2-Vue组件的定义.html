@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 在app外书写template标签  template标签是由vue提供的 -->
+    <template id="hello">
+        <!-- template的儿子是独生子(硬性要求)  根元素唯一 -->
+        <div>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    //1. 定义
+    Vue.extend({
+        template: '#hello',// 选择组件的作用范围
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

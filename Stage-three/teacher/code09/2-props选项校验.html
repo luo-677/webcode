@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Home></Home>
+    </div>
+    <template id="home">
+        <div>
+            通过v-bind来绑定自定义属性  <hr>
+            <!-- 2.绑定数据 -->
+            <List :money="money" :phone="phone"></List>
+        </div>
+    </template>
+    <template id="list">
+        <div>
+           <!-- 4. 使用数据 -->
+          我现在有 {{ n + money }} 钱
+          <hr>
+          {{ phone }}
+        </div>
+    </template>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    /* 
+        父子组件通信
+            * 父： 父给子数据  定义
+            * 子： 接受数据
+    */
+    Vue.component('Home',{
+        template: '#home',
+        // 1. 定义数据
+        data () {
+            return {
+                money: 2000,
+                phone: 176216039151
+            }
+        }
+    })
+    Vue.component('List',{
+        template: '#list',
+        data () {
+            return {
+                n: 300
+            }
+        },
+        // 3. 接受数据 
+        // props: ['money']
+        props: {
+            money: Number,   // 只验证类型
+            phone: {
+                // 自定义校验规则
+                validator (val) {
+                    console.log(val)
+                    const phoneReg = /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-79])|(?:5[0-35-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[189]))\d{8}$/
+                    if (!phoneReg.test(val)) {
+                        alert('手机号格式不正确')
+                    }
+                    return phoneReg.test(val)
+                }
+            }
+        }
+       
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       Vue -- mustache 语法/双括号语法/插值表达式   <hr>
+       <p> string: {{ this.msg }} </p>
+       <p> number: {{ this.num }} </p>
+       <p> undefined - 不输出任何结果: {{und}} </p>
+       <p> null - 不输出任何结果: {{nul}} </p>
+       <p> boolean: {{bool}} </p>
+       <p> arr: {{arr[0]}} </p>
+       <p> obj: {{obj.name}} </p>
+       <p> js逻辑: {{obj.name.split('').reverse().join('')}} </p>
+       <!-- <p> js输出语法：{{ alert(1) }} </p> -->
+       <!-- <p> js流程控制：{{ if (5>3) {} }} </p> -->
+    </div>
+
+
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+        new Vue({
+            el: '#app',//挂载 把vue挂载到了#app的div身上，来确定他的作用范围
+            data: {
+                msg: 'Hello Vue',
+                num: 1000,
+                und: undefined,
+                nul: null,
+                bool: true,
+                arr: [1,2,3],
+                obj: {
+                    name: 'lakers'
+                }
+            },
+        })
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 冒泡排序 正序
+        function mppxz(){
+            for(var i = 0; i<arguments.length; i ++){
+                for(var j = 0; j<arguments.length -i; j++){
+                    if(arguments[j]>arguments[j+1]){
+                        var tmp = arguments[j];
+                        arguments[j] = arguments[j+1];
+                        arguments[j+1] = tmp;
+                    }
+                }
+            }
+            for(var k = 0; k<arguments.length; k++){
+                console.log(arguments[k]);
+            }
+        }
+        mppxz(23,1,45,76,43,99);
+
+        // 冒泡排序 倒序
+        function mppxd(){
+            for(var i = 0; i<arguments.length; i ++){
+                for(var j = 0; j<arguments.length -i; j++){
+                    if(arguments[j]<arguments[j+1]){
+                        var tmp = arguments[j];
+                        arguments[j] = arguments[j+1];
+                        arguments[j+1] = tmp;
+                    }
+                }
+            }
+            for(var k = 0; k<arguments.length; k++){
+                console.log(arguments[k]);
+            }
+        }
+        mppxd(23,1,45,76,43,99);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

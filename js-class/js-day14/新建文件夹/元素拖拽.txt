@@ -1,0 +1,18 @@
+window.onload = function() {
+    var box = document.getElementById('box');
+    box.onmousedown = function(ev) {
+        var offsetX = ev.offsetX,
+            offsetY = ev.offsetY;
+        document.onmousemove = function(ev) {
+            var pageX = ev.pageX,
+                pageY = ev.pageY,
+                x = pageX - offsetX,
+                y = pageY - offsetY;
+            box.style.top = y + 'px';
+            box.style.left = x + 'px';
+        }
+        document.onmouseup = function() {
+            document.onmousemove = null;
+        }
+    }
+}

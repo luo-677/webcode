@@ -1,8 +1,0 @@
-for (var i = 100; i <= 999; i++) {
-    var t = parseInt(i / 100);
-    var h = parseInt(i / 10) % 10;
-    var s = i % 10;
-    if (i == t ** 3 + h ** 3 + s ** 3) {
-        console.log(i);
-    }
-}

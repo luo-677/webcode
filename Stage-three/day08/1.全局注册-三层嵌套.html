@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        这是根节点
+        <hello></hello>
+    </div>
+    <template id="hello">
+        <div>
+            这是hello组件
+            <world></world>
+        </div>
+    </template>
+    <template id="world">
+        <div>
+            这是world组件
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    const helloOption = Vue.extend({
+        template: "#hello",
+    });
+    const worldOption = Vue.extend({
+        template: "#world",
+    });
+    Vue.component('Hello', helloOption);
+    Vue.component('World', worldOption);
+    let app = new Vue({
+        el: "#app",
+    });
+</script>

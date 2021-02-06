@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-event:get="fn"></p>
+    </div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script>
+    Vue.directive('event',{
+        bind (el,binding) {
+            console.log('el',el)
+            console.log('binding',binding)
+            bus.on(binding.arg,binding.value)
+        }
+    })
+    new Vue({
+        el: '#app',
+        methods: {
+            fn () {
+                alert(1)
+            }
+        }
+    })
+</script>
+</html>

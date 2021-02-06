@@ -1,0 +1,59 @@
+<head>
+    <style>
+        .blog ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        .blog li {
+            width: 600px;
+            padding: 10px;
+            line-height: 24px;
+            margin-bottom: 10px;
+            border: 1px dashed #abcdef;
+        }
+        button {
+            margin-bottom: 10px;
+        }
+        .blog li a {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="" cols="60" rows="10" placeholder="ctrl+enter发送消息"></textarea>
+    <div class="blog">
+        <ul>
+        </ul>
+    </div>
+</body>
+<script>
+    let oTextarea = document.querySelector('textarea');
+    let oUl = document.querySelector('.blog ul');
+    oTextarea.focus();
+    document.onkeydown = function(ev) {
+        var ev = ev || window.event;
+        if (ev.ctrlKey && ev.which === 13) {
+            if (oTextarea.value !== '') {
+                let cLi = document.createElement('li');
+                cLi.innerHTML = oTextarea.value + '<a href="javascript:;">删除</a>';
+                if (oUl.children.length >= 1) {
+                    oUl.insertBefore(cLi, oUl.children[0]);
+                } else {
+                    oUl.appendChild(cLi);
+                }
+                oTextarea.value = '';
+            } else {
+                alert('输入内容');
+            }
+            let aDel = document.querySelectorAll('.blog li a');
+            for (var i = 0; i < aDel.length; i++) {
+                aDel[i].onclick = function() {
+                    if (window.confirm('你确定要删除嘛?')) {
+                        oUl.removeChild(this.parentNode);
+                    }
+                }
+            }
+            console.log(i);
+        }
+    }
+</script>

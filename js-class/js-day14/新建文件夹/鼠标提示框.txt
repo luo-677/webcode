@@ -1,0 +1,60 @@
+<head>
+    <style>
+        .news li {
+            line-height: 30px;
+        }
+        .news li a {
+            color: blue;
+            text-decoration: none;
+        }
+        .news li a:hover {
+            color: orange;
+            text-decoration: underline;
+        }
+        .show {
+            width: 300px;
+            padding: 10px;
+            border: 3px solid #ccc;
+            display: none;
+            position: absolute;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="news">
+        <ol>
+            <li>
+                <a href="#" data-tips="xxxx">习近平作出重要指示:全面提升平安中国建设水平</a>
+            </li>
+            <li>
+                <a href="#" data-tips="xxxx">习近平:大家一起发展才是真发展  三十而立启新程</a>
+            </li>
+            <li>
+                <a href="#" data-tips="xxxx">习近平考察一年来：上海的“变与不变”</a>
+            </li>
+            <li>
+                <a href="#" data-tips="xxxx">三十年，浦东勇当创新发展先行者</a>
+            </li>
+        </ol>
+    </div>
+    <div class="show"></div>
+</body>
+<script>
+    let show = document.querySelector('.show');
+    let aA = document.querySelectorAll('.news li a');
+    for (var i = 0; i < aA.length; i++) {
+        aA[i].onmouseover = function() {。
+            show.style.display = 'block';
+            show.innerHTML = this.getAttribute('data-tips');
+            this.onmousemove = function(ev) {
+                var ev = ev || window.event;
+                show.style.left = ev.clientX + 10 + 'px';
+                show.style.top = ev.clientY + 10 + 'px';
+            }
+        };
+        aA[i].onmouseout = function() {
+            show.style.display = 'none';
+        };
+    }
+</script>

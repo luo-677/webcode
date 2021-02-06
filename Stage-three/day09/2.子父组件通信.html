@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <Father></Father>
+    </div>
+    <template id="father">
+        <div>
+            <!-- 3.在父组件中给子组件绑定自定义事件 -->
+            <Son @get="changeSfq"></Son>
+            <p>{{ sfq }}</p>
+        </div>
+    </template>
+    <template id="son">
+        <div>
+            <button @click="give">按钮</button>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../day07/todolist/lib/vue.js"></script>
+<script>
+    Vue.component('Father', {
+        template: "#father",
+        // 2.父定义接收的数据和修改数据的方法
+        data() {
+            return {
+                sfq: 300,
+            }
+        },
+        methods: {
+            changeSfq(val) {
+                this.sfq = this.sfq + val;
+            }
+        },
+    });
+    Vue.component('Son', {
+        template: "#son",
+        // 1.定义子数据
+        data() {
+            return {
+                hongbao: 888,
+            }
+        },
+        methods: {
+            give() {
+                // 4.触发绑定在身上的自定义事件
+                this.$emit("get", this.hongbao);
+            }
+        },
+    });
+    let app = new Vue({
+        el: "#app",
+    });
+</script>
