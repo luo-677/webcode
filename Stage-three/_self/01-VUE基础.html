@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 如下语法都是用于展示data中的数据，基本上用的还是基础的 mustache 语法 -->
+    <div id="app">
+        <!-- 1 数据语法 -->
+        <!-- mustache语法 -->
+        <p>{{ msg }}</p>
+        <ul>
+            <!-- 2 循环 -->
+            <!-- v-for = "xxx in xxx" 循环指令 -->
+            <li v-for="(item,index) in list" :id="index">{{ item }}</li>
+        </ul>
+        <div>{{ count + 2}}</div>
+        <div><button @click="add">+</button></div>
+        <div><button @click="noadd">-</button></div>
+        <!-- 3 一次性事件 -->
+        <!-- v-once 状态只能触发一次，当状态再次发生改变时，不会再进行变更 -->
+        <div v-once>{{ msg }}</div>
+        <!-- 4 网页中解析标签 -->
+        <!-- v-html 可以在网页中解析标签 -->
+        <div v-html="url"></div>
+        <!-- 5 网页中不解析标签 -->
+        <!-- v-text 网页中不能解析标签，不灵活，当标签中原来就有内容时，会被变量中的数据覆盖 -->
+        <div v-text="url"></div>
+    </div>
+    <!-- v-cloak 用于阻止代码闪动 -->
+    <!-- 在vue解析之前，存在v-cloak属性，vue解析完成后，v-cloak就消失了，可以配合样式进行使用 -->
+    <div id="app2" v-cloak>{{ msg }}</div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            msg: "hello",
+            list: ["你", "好", "世", "界"],
+            count: 0,
+            url: '<a href="www.baidu.com">百度一下</a>'
+        },
+        methods: {
+            add() {
+                this.count++;
+            },
+            noadd() {
+                this.count--;
+            }
+        },
+    });
+    setTimeout(function() {
+        let app2 = new Vue({
+            el: "#app2",
+            data: {
+                msg: "hello",
+            }
+        })
+    }, 2000);
+</script>

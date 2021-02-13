@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 计算属性在调用时不需要添加小括号 -->
+        <p>{{ sumPrice }}</p>
+    </div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            books: [{
+                id: 1,
+                name: "a",
+                p: 10
+            }, {
+                id: 2,
+                name: "b",
+                p: 20
+            }, {
+                id: 3,
+                name: "c",
+                p: 30
+            }, {
+                id: 4,
+                name: "d",
+                p: 40
+            }, ]
+        },
+        // 计算属性，所以在命名时尽量以属性名的方式进行命名
+        computed: {
+            sumPrice: function() {
+                let sp = 0;
+                this.books.forEach(element => {
+                    sp += element.p;
+                });
+                return sp;
+            }
+        }
+    })
+</script>

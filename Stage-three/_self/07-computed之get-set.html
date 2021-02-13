@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{ fullmsg }}</div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            msg1: "hello",
+            msg2: "world",
+        },
+        // 计算属性一般没有set方法，就作为一个只读属性
+        computed: {
+            fullmsg: {
+                // 在实例进行渲染时就会加载的函数
+                get: function() {
+                    return this.msg1 + this.msg2;
+                },
+                // 当目标属性在发生修改后触发的函数
+                set: function(newValue) {
+                    let arr = newValue.split(" ");
+                    this.msg1 = arr[0];
+                    this.msg2 = arr[1];
+                }
+            }
+            // 所以computed中的方法可以进行如下简写，只留下一个get的方法
+            // fullmsg: function() {
+            //     return this.msg1 + this.msg2;
+            // }
+        }
+    })
+</script>

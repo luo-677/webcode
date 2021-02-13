@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .line {
+            font-size: 20px;
+        }
+        
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 直接绑定属性，属性对应的属性值为data中的变量 -->
+        <img :src="img" alt="" @click="changeImg">
+        <!-- 属性名: 布尔值，可以根据布尔值是否为真来决定属性是否进行显示 -->
+        <!-- 可以和普通的类同时存在，当两个类有冲突时，会自动进行合并 -->
+        <div class="title" :class="{ active: isactive, line: isline }">你好</div>
+        <!-- 可以使用数组的方法加入类名 -->
+        <!-- 在数组中，一般都是将变量进行引入，可以通过变量的传值来随时修改具体的内容 -->
+        <div class="title" :class="['active', 'line']">你好</div>
+        <!-- 在属性中绑定方法时，需要加上括号 -->
+        <div class="title" :class="getClass()">你好</div>
+        <button @click="changeColor">按钮</button>
+    </div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+
+        data: {
+            img: "https://imgsa.baidu.com/forum/w%3D580/sign=0ce9dabb6663f6241c5d390bb746eb32/a4abfa246b600c3379b28f4a174c510fdbf9a1b6.jpg",
+            isactive: true,
+            isline: true,
+        },
+        methods: {
+            changeImg() {
+                this.img = "https://imgsa.baidu.com/forum/w%3D580/sign=f019bf0647ed2e73fce98624b700a16d/852522738bd4b31c4162c4398ad6277f9f2ff81b.jpg"
+            },
+            changeColor() {
+                this.isactive = !this.isactive;
+            },
+            getClass() {
+                return {
+                    active: this.isactive,
+                    line: this.isline
+                };
+            }
+        },
+    })
+</script>
