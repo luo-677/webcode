@@ -28,8 +28,12 @@
             lastName: "qiqi",
         },
         // 计算属性，所以在命名时尽量以属性名的方式进行命名
+        // 可以使用简便写法，但是因为是计算属性，所以最好写成键值对的形式，直接使用属性名进行获取
         computed: {
-            fullName: function() {
+            // fullName: function() {
+            //     return this.firstName + " " + this.lastName;
+            // }
+            fullName() {
                 return this.firstName + " " + this.lastName;
             }
         }

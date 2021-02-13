@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="app">
+        <span v-if="flag">
+            <label for="username">用户名登陆</label>
+            <input type="text" placeholder="请输入用户名" id="username">
+        </span>
+        <span v-else>
+            <label for="email">邮箱登陆</label>
+            <input type="text" placeholder="请输入邮箱" id="email">
+        </span>
+        <button @click="changeFlag">切换按钮</button>
+    </div> -->
+    <div id="app">
+        <span v-if="flag">
+            <label for="username">用户名登陆</label>
+            <input type="text" placeholder="请输入用户名" id="username" key="username">
+        </span>
+        <span v-else>
+            <label for="email">邮箱登陆</label>
+            <input type="text" placeholder="请输入邮箱" id="email" key="email">
+        </span>
+        <button @click="changeFlag">切换按钮</button>
+    </div>
+    <!-- 当输入框中已经输入了值，在点击切换的时候，值仍然保留，那么对应的标签究竟有没有发生改变？ -->
+    <!-- Vue中的核心之一，diff算法，将新旧进行比较，只修改变更部分，提高整体性能，不变更的部分，就采用复用的方式进行修改，如上述案例中，在按钮切换前后，label标签和input标签都是存在的，Vue会默认将这两个标签进行复用，在复用完成后，对属性等其他数据进行比对，发生变更则进行更改，所以就导致了input标签中的内容没有发生变动，如果想要取消复用，则给每一个标签添加一个key属性，若key属性相同，则进行复用，若key属性不相同，则不进行复用 -->
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            flag: true,
+        },
+        methods: {
+            changeFlag(){
+                this.flag = !this.flag;
+            }
+        },
+        computed: {
+
+        }
+    })
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <span v-if="flag">用户名登陆</span> -->
+        <!-- <label for="username" v-if="flag">用户名登陆</label> -->
+        <!-- <span v-else>邮箱登陆</span> -->
+        <!-- <label for="email" v-else>邮箱登陆</label>
+        <input type="text" placeholder="请输入用户名" v-if="flag" id="username">
+        <input type="text" placeholder="请输入邮箱" v-else id="email"> -->
+        <span v-if="flag">
+            <label for="username">用户名登陆</label>
+            <input type="text" placeholder="请输入用户名" id="username">
+        </span>
+        <span v-else>
+            <label for="email">邮箱登陆</label>
+            <input type="text" placeholder="请输入邮箱" id="email">
+        </span>
+        <button @click="changeFlag">切换按钮</button>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            flag: true,
+        },
+        methods: {
+            changeFlag(){
+                this.flag = !this.flag;
+            }
+        },
+        computed: {
+
+        }
+    })
+</script>

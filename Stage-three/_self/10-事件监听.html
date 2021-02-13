@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" @click="divclick">
+        <h2>{{count}}</h2>
+        <!-- 1.v-on 书写问题 -->
+        <!-- 如果是简单语句，可以直接在标签事件中直接进行书写 -->
+        <!-- <button v-on:click="count++">增加</button>
+        <button v-on:click="count--">减少</button> -->
+        <!-- 使用 @ 替换 v-on: -->
+        <!-- <button @click="count++">增加</button>
+        <button @click="count--">减少</button> -->
+        <!-- 当函数中不需要进行传参时，括号可以进行省略 -->
+        <button @click="add">增加</button>
+        <button @click="reduce()">减少</button>
+        <!-- 2.v-on 参数问题 -->
+        <!-- 当函数需要传入参数，但是此时省略了小括号，那么Vue会将事件对象当做参数进行传入 -->
+        <button @click="print">打印</button>
+        <!-- MouseEvent -->
+        <!-- 当我们既需要传入自定义参数，又需要传入事件对象时，就需要使用$event -->
+        <button @click="double('abc',$event)">双倍参数</button>
+        <!-- 3.v-on 修饰符 -->
+        <!-- 在没有其他操作的情况下，会直接触发事件冒泡 -->
+        <button @click="buttonclick">没有修饰符</button>
+        <!-- .stop 用于阻止事件冒泡 -->
+        <button @click.stop="buttonclick">添加修饰符</button>
+        <!-- .prevent 用于阻止默认事件 -->
+        <a href="https://www.baidu.com" @click.prevent="buttonclick">jump</a>
+        <!-- .keyCode 用于键盘键位的修饰 -->
+        <input type="text" @keyup.enter="keyup">
+        <input type="text" @keyup.13="keyup">
+        <!-- .once 一次性回调函数，但是点击动作还在，还能继续触发事件冒泡 -->
+        <button @click.once="once">一次</button>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            count: 0,
+        },
+        methods: {
+            add(){
+                this.count++;
+            },
+            reduce(){
+                this.count--;
+            },
+            print(name){
+                console.log(name);
+            },
+            double(name,e){
+                console.log("+++++++",name,e);
+            },
+            divclick(){
+                console.log("div");
+            },
+            buttonclick(){
+                console.log("button");
+            },
+            keyup(){
+                console.log("keyup");
+            },
+            once(){
+                console.log("once");
+            }
+        },
+    })
+</script>
