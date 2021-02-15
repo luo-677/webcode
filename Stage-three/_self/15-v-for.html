@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        数组的参数：元素项和下标
+        对象的参数：key，value，index
+     -->
+    <div id="app">
+        <!-- 1.在遍历的过程中，没有使用索引值(下标值) -->
+        <ul>
+            <li v-for="item in names">{{item}}</li>
+        </ul>
+
+        <!-- 2.在遍历过程中，获取索引值，index的位置是固定的，不能随便修改参数位置 -->
+        <ul>
+            <li v-for="(item,index) in names">{{index+1}}.{{item}}</li>
+        </ul>
+
+        <!-- 3.遍历对象，如果只有一个参数，那么获取到的就是value -->
+        <ul>
+            <li v-for="(key,value) in info">{{key}}: {{value}}</li>
+        </ul>
+
+        <!-- 4.遍历对象的同时需要获取index，参数在最后一个位置，但是在对象中基本上也用不到index -->
+        <ul>
+            <li v-for="(key,value,index) in info">{{index+1}}. {{key}}: {{value}}</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            names: ['1','2','3'],
+            info: {
+                name: "luo",
+                age: 25,
+                sex: "man",
+            }
+        },
+        methods: {
+            
+        },
+        computed: {
+
+        }
+    })
+</script>
