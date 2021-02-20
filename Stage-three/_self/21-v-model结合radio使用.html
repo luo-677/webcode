@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用v-model绑定同一个参数，就能直接实现单选互斥的效果，在参数中写入默认值时，就能实现页面默认选中效果 -->
+        <label for="male">
+            <input type="radio" id="male" value="男" v-model="sex">男
+        </label>
+        <label for="female">
+            <input type="radio" id="female" value="女" v-model="sex">女
+        </label>
+        <div>
+            您选择的性别是: {{sex}}
+        </div>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            sex: "男",
+        },
+        methods: {
+            
+        },
+        computed: {
+
+        }
+    })
+</script>

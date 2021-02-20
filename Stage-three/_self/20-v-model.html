@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- mustache 语法只能单向绑定，只能是响应式渲染，v-model实现双向绑定 -->
+        <!-- <input type="text" v-model="msg"> -->
+        <!-- 双向绑定的原理 -->
+        <input type="text" :value="msg" @input="changeMsg">
+        {{msg}}
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            msg: "双向绑定",
+        },
+        methods: {
+            changeMsg(e){
+                this.msg = e.target.value;
+            }
+        },
+        computed: {
+
+        }
+    })
+</script>
