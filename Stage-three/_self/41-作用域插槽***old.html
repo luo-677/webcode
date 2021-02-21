@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 作用与插槽的作用：父组件替换插槽的标签，但是内容由子组件来提供 -->
+        <cpn></cpn>
+        <cpn>
+            <!-- 2. 使用任意标签进行数据引入，命名随意，数据对象载体，在下方进行引用 -->
+            <template slot-scope="cpn">
+                <!-- 3. 将引入的数据进行展示 -->
+                <span v-for="item in cpn.data">{{item}} + </span>
+                <span>{{cpn.data.join(' - ')}}</span>
+                <span>{{cpn.age}}</span>
+            </template>
+        </cpn>
+    </div>
+</body>
+</html>
+
+<template id="cpn">
+    <div>
+        <!-- 1. 给插槽进行数据绑定 -->
+        <slot :data="pLanguage" :age="age">
+            <ul>
+                <li v-for="item in pLanguage">{{item}}</li>
+            </ul>
+        </slot>
+    </div>
+</template>
+
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+            
+        },
+        components: {
+            cpn: {
+                template: "#cpn",
+                data(){
+                    return {
+                        pLanguage: ["JavaScript","PHP","Java"],
+                        age: 18,
+                    }
+                }
+            }
+        }
+    })
+</script>

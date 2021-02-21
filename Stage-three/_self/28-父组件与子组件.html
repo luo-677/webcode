@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpnc></cpnc>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    // 自组件
+    const cpnD = Vue.extend({
+        template: `
+        <div>
+            <h2>嘿嘿嘿</h2>    
+        </div>
+        `
+    });
+    
+    // 在哪里注册就在哪里使用
+    // 父组件
+    const cpnC = Vue.extend({
+        template: `
+            <div>
+                <h2>哈哈哈</h2>
+                <cpnd></cpnd>
+            </div>
+        `,
+        // 在cpnc组件中注册cpnd组件
+        components: {
+            cpnd: cpnD,
+        }
+    });
+
+    // root根组件
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        // 在vue实例中注册cpnc组件
+        components: {
+            cpnc: cpnC,
+        }
+    });
+</script>

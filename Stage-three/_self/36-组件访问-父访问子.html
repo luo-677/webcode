@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn ref="cpn1"></cpn>
+        <cpn ref="cpn2"></cpn>
+        <button @click="btnClick">按钮</button>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+
+<template id="cpn">
+    <div>
+        我是子组件
+    </div>
+</template>
+
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        components: {
+            cpn: {
+                template: "#cpn",
+                methods: {
+                    show(){
+                        console.log("msg");
+                    }
+                },
+                data(){
+                    return {
+                        msg: "hello",
+                    }
+                }
+            }
+        },
+        methods: {
+            btnClick(){
+                // $children 一个组件下面的所有子组件，但是因为限制比较多，所以不常使用
+                // console.log(this.$children);
+                // this.$children[0].show();
+                // console.log(this.$children[0].msg);
+
+                // 在常规开发中，$refs用的很多，可以指定key的方式进行调用
+                console.log(this.$refs);
+                this.$refs["cpn1"].show();
+            }
+        },
+    });
+</script>

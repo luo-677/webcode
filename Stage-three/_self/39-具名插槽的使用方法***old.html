@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 当需要修改指定插槽中的标签时，直接修改就无法实现了 -->
+        <!-- 当使用具名插槽时，如果没有指定是哪一个插槽，就只会修改不具名的插槽 -->
+        <!-- slot="" 这种写法已经过时，需要去文档中进行验证 -->
+        <cpn><span>标题</span><span slot="center">标题</span></cpn>
+        <!-- 需要求证一下 v-slot 如何使用 -->
+        <!-- <cpn><span v-slot="cneter">新款标题</span></cpn> -->
+    </div>
+</body>
+</html>
+
+<template id="cpn">
+    <div>
+        <slot name="left">
+            <span>左边</span>
+        </slot>
+        <slot name="center">
+            <span>中间</span>
+        </slot>
+        <slot name="right">
+            <span>右边</span>
+        </slot>
+        <slot>
+            <span>我是没有名字的插槽</span>
+        </slot>
+    </div>
+</template>
+
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+            
+        },
+        components: {
+            cpn: {
+                template: "#cpn",
+            }
+
+        }
+    })
+</script>

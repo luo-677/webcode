@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn :cnum1="num1" :cnum2="num2" @num1change="num1changes" @num2change="num2changes"></cpn>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+
+<template id="cpn">
+    <div>
+        <p>propnum1: {{cnum1}}</p>
+        <p>data: {{dnum1}}</p>
+        <input type="text" v-model="dnum1">
+        <p>propnum2: {{cnum2}}</p>
+        <p>data: {{dnum2}}</p>
+        <input type="text" v-model="dnum2">
+    </div>
+</template>
+
+<script>
+    const cpn = {
+        template: "#cpn",
+        props: {
+            cnum1: {
+                type: Number,
+            },
+            cnum2: {
+                type: Number,
+            },
+        },
+        data(){
+            return {
+                dnum1: this.cnum1,
+                dnum2: this.cnum2,
+            }
+        },
+        watch: {
+            dnum1(){
+                this.$emit('num1change',this.dnum1);
+                this.dnum2 = this.dnum1 * 100;
+                this.$emit('num2change',this.dnum2);
+            },
+            dnum2(){
+                this.$emit('num2change',this.dnum2);
+                this.dnum1 = this.dnum2 / 100;
+                this.$emit('num1change',this.dnum1);
+            },
+        }
+    }
+    let app = new Vue({
+        el: "#app",
+        data: {
+            num1: 100,
+            num2: 200,
+        },
+        components: {
+            cpn,
+        },
+        methods: {
+            num1changes(value){
+                this.num1 = parseInt(value);
+            },
+            num2changes(value){
+                this.num2 = parseInt(value);
+            },
+        },
+    });
+</script>

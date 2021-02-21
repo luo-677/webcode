@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpnd></cpnd>
+        <cpn1></cpn1>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+
+<template id="cpn">
+    <div>
+        <h2>{{msg}}</h2>
+    </div>
+</template>
+
+<script>
+    Vue.component("cpnd", {
+        template: `
+        <div>
+            <h2>{{title}}</h2>    
+        </div>
+        `,
+        // 组件中的数据块不能直接写一个对象，必须要是一个函数进行一个对象的返回
+        // 因为组件要多次进行复用，如果是使用常规的对象方式进行数据存放，那么所有组件在使用数据时都会指向同一个对象
+        // 而函数不同，函数每次执行时都会创建一个独立的地址空间，所有生成的对象数据也是独立的，不会造成数据混乱
+        data(){
+            return {
+                title: "hello",
+            }
+        }
+    });
+
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        components: {
+            cpn1: {
+                template: cpn,
+                data(){
+                    return{
+                        msg: "world",
+                    }
+                }
+            }
+        }
+    });
+</script>

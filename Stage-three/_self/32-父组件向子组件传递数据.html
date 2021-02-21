@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 3. 进行数据绑定 -->
+        <!-- 必须要进行数据绑定，不然就是普通的字符串赋值 -->
+        <cpn :cmovies="movies" :cmsg="msg"></cpn>
+        <!-- 只有当实例中没有将数据进行传入时，默认值才会生效 -->
+        <!-- <cpn :cmovies="movies"></cpn> -->
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+
+<template id="cpn">
+    <div>
+        <!-- 4. 使用绑定后的数据 -->
+        <h2>{{cmovies}}</h2>
+        <p>{{cmsg}}</p>
+    </div>
+</template>
+
+<script>
+    const cpn = {
+        template: "#cpn",
+        // 2. 引入props属性写法
+        // props: ['cmovies']
+        props: {
+            // 使用对象的写法可以指定类型
+            // cmovies: Array,
+            // 当属性命名牵涉到大驼峰时，在props中可以使用大驼峰的方式，但是在标签中需要使用匈牙利方式，否则无法识别
+            cmovies: {
+                // 如果有多种类型，使用数组的方式进行声明
+                type: [Array,Number],
+                // 这个默认值好像没啥用，已解决
+                // default: [1,2,3,4],
+                // default: [], 版本较高的vue，default必须写成一个函数进行返回
+                default(){
+                    return 1;
+                },
+                // default: 1,
+                // 当使用了required这个属性以后，这个数据就会变成必传数据，不传就会报错
+                required: true,
+            },
+            cmsg: {
+                type: String,
+                default: "world",
+            }
+        }
+    }
+    let app = new Vue({
+        el: "#app",
+        // 1. 在父组件中定义好数据
+        data: {
+            movies: ["海王","海贼王","海尔兄弟"],
+            msg: "hello",
+        },
+        components: {
+            cpn,
+        }
+    });
+</script>

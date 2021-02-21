@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 2. 在父组件中将自定义事件监听绑定到子组件上，然后去触发对应的动作 -->
+        <cpn @cpnclick="roote"></cpn>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+
+<template id="cpn">
+    <div>
+        <button v-for="item in list" @click="getId(item)">{{item.name}}</button>
+    </div>
+</template>
+
+<script>
+    // 创建子组件对象
+    const cpn = {
+        template: "#cpn",
+        data(){
+            return {
+                list: [
+                    {id: "aaa", name: "1"},
+                    {id: "bbb", name: "2"},
+                    {id: "ccc", name: "3"},
+                    {id: "ddd", name: "4"},
+                ]
+            }
+        },
+        methods: {
+            getId(item){
+                // 1. 自定义事件，通过自定义事件进行数据传递
+                this.$emit('cpnclick',item)
+            }
+        },
+    }
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        components: {
+            cpn,
+        },
+        methods: {
+            roote(item){
+                console.log(item);
+            }
+        },
+    });
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpnd></cpnd>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    // 语法糖就是直接省略了extend，可以在注册中直接使用一个对象进行快捷操作
+    // const cpnD = Vue.extend();
+
+    // 全局注册没有s
+    Vue.component("cpnd", {
+        template: `
+        <div>
+            <h2>嘿嘿嘿</h2>    
+        </div>
+        `
+    });
+
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+    });
+</script>
