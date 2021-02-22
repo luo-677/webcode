@@ -1,0 +1,6 @@
+package.json 与 package-lock.json 的区别：
+    package.json 中记录的是依赖的版本号
+    package-lock.json 中记录的是真实安装的版本号
+
+runtime-compiler main.js中如果写明了template模板，那么就使用了runtime-compiler
+runtime-only main.js中使用了render函数，则使用了runtime-only

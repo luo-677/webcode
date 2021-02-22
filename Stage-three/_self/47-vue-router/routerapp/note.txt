@@ -1,0 +1,28 @@
+1. 使用npm或者yarn安装vue-router模块
+1. 在src目录下创建router目录
+2. 在router目录中创建index.js文件
+    2.1 引入路由包
+    2.2 通过Vue.use(VueRouter)激活插件，需要导入vue包
+    2.3 创建router对象 在router对象中使用的参数名必须为routes
+    2.4 导出router对象
+3. 修改main.js
+    3.1 导入router对象
+    3.2 将router添加到vue实例中
+4. router-link标签 和 router-view标签 以及各种属性
+5. 动态路由
+    5.1 在routes配置中预留参数位置 path: '/user/:userId'
+    5.2 在app组建中创建data对应的数据
+    5.3 在标签中进行参数绑定，可以在跳转过程中自动补全路径
+    5.4 $router 和 $route 之间的区别，$router 指的是整个router对象，$route指的是当前活跃的路由 params.xxx
+    5.5 $router 和 创建的router对象是一个东西
+6. 路由的懒加载
+    const xxx = ()=>import('../xx/xx/xx');
+7. 嵌套路由
+    在组件路由中以children的方式添加子路由
+8. 数据传递的两种方式：
+    8.1 使用params简单数据进行传输
+    8.2 使用query对象的方式传递复杂数据
+9. 导航守卫
+    9.1 beforeEach(to,from,next)
+    9.2 afterEach(to,from)
+    全局守卫，路由独享守卫，组件守卫

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>这里讲的是 url中的hash 和 HTML5中的history</h2>
+    <p>location.hash = "/xxxx"</p>
+    <p>history.pushState({},'','xxxx') 这是一个入栈操作</p>
+    <p>history.back() 和 history.go(-1) 都是出栈操作</p>
+    <p>history.forword() 和 history.go(1) 都是入栈操作</p>
+    <p>两者都会修改页面数据，但是不会触发刷新操作</p>
+    <p>history.replaceState({},'','xxxx')</p>
+    <p>replace 直接进行替换，没有入栈操作，所以也没有历史记录这一说</p>
+</body>
+</html>
