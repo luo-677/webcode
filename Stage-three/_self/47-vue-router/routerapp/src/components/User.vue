@@ -20,7 +20,20 @@ export default {
         // 当前组件
         console.log(from);
         next();
-    }
+    },
+    // 下面俩只在keep-alive存在的情况下才生效
+    activated() {
+        console.log("activated");
+    },
+    deactivated() {
+        console.log("deactivated");
+    },
+    created() {
+        console.log("created");
+    },
+    destroyed() {
+        console.log("destroyed");
+    },
 }
 </script>
 <style lang="">

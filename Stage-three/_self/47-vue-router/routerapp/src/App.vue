@@ -10,7 +10,7 @@
     <router-link to="/about" tag="button" replace active-class="active">关于</router-link> -->
     <!-- active-class 可以进行统一修改 -->
     <!-- 使用 router-link 不会产生路由重复 -->
-    <router-link to="/home" tag="button" replace>首页</router-link>
+    <router-link to="/home/news" tag="button" replace>首页</router-link>
     <router-link to="/about" tag="button" replace>关于</router-link>
     <!-- 按钮会产生路由重复 -->
     <!-- <button @click="homeClick">首页</button>
@@ -24,7 +24,12 @@
     <router-link :to="{path: '/profile', query: {name: name, age: age}}" tag="button" replace>档案</router-link>
     <!-- <button @click="profileClick">档案</button> -->
     <!-- router-view 用于展示路由中的内容 -->
-    <router-view></router-view>
+    <!-- keep-alive组件要与 activated 和 deactivated 联合使用 -->
+    <!-- keep-alive 使组件保活，不会进行频繁创建销毁 -->
+    <!-- 使用exclude属性进行排除时，不能使用空格进行隔开，否则会报错 -->
+    <keep-alive exclude="User,Profile">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 

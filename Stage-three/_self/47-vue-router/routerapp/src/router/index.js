@@ -38,11 +38,12 @@ const routes = [
         },
         // 哪个模块的子模块，就写在哪个模块下面，children是一个数组
         children: [
-            {
-                // 增加默认展示信息，用户体验更加友好
-                path: '',
-                redirect: 'news',
-            },
+            // 增加默认展示信息，用户体验更加友好
+            // 使用默认值会产生一个问题，无法记录历史信息
+            // {
+            //     path: '',
+            //     redirect: 'news',
+            // },
             {
                 path: 'news',
                 component: HomeNews,

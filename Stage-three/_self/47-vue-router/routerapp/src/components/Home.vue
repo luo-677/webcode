@@ -10,6 +10,19 @@
 <script>
 export default {
     name: 'Home',
+    data() {
+        return {
+            path: '/home/news',
+        }
+    },
+    activated() {
+        this.$router.push(this.path).catch(err=>err);
+    },
+    beforeRouteLeave (to, from, next) {
+        this.path = this.$route.path;
+        console.log(this.$route)
+        next();
+    }
 }
 </script>
 <style lang="">
