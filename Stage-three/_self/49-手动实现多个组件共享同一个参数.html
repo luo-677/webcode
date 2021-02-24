@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{name}}</p>
+        <cpn></cpn>
+        <cpm></cpm>
+    </div>
+</body>
+</html>
+<template id="cpn">
+    <div>
+        <p>我是组件cpn</p>
+        <p>{{name}}</p>
+    </div>
+</template>
+
+<template id="cpm">
+    <div>
+        <p>我是组件cpm</p>
+    </div>
+</template>
+
+<script src="./vue.js"></script>
+<script>
+    const name = "luo";
+    // 将需要共享的数据放到Vue的原型中，所有的实例都会继承
+    // 但是这样做不能实现响应式的效果，在name发生更改时，视图中的数据不会发生改变
+    Vue.prototype.name = name;
+    // 大括号中的内容为实例对象
+    let cpn = {
+        template: '#cpn',
+    }
+    Vue.component('cpn',cpn);
+    console.log(cpn);
+    Vue.component('cpm',{
+        template: '#cpm',
+    });
+    let app = new Vue({
+        el: "#app",
+        data: {
+            name: "xxx",
+        }
+    });
+</script>
