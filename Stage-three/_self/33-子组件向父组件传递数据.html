@@ -9,7 +9,8 @@
 <body>
     <div id="app">
         <!-- 2. 在父组件中将自定义事件监听绑定到子组件上，然后去触发对应的动作 -->
-        <cpn @cpnclick="roote"></cpn>
+        <!-- 要么不写括号，写括号就写固定的$event进行数据接收 -->
+        <cpn @cpnclick="roote($event)"></cpn>
     </div>
 </body>
 </html>

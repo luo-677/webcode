@@ -108,6 +108,7 @@ router.beforeEach((to,from,next)=>{
     console.log(to);
     // 跳转完成前跳转过来的对象
     console.log(from);
+    // 一定要使用next方法进行下一步，否则就会停留在当前位置
     next();
 })
 

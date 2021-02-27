@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(data,index) in list">
+                {{data | changeValue}}
+                {{data | g-changeValue}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    Vue.filter("g-changeValue",function(data){
+        return data + "world";
+    })
+    let app = new Vue({
+        el: "#app",
+        data: {
+            list: [111,222,333],
+        },
+        filters: {
+            changeValue(data){
+                return data + 'hello';
+            }
+        }
+    })
+</script>

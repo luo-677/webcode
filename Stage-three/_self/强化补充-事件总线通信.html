@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <wechatauthor></wechatauthor>
+        <wechat-reader></wechat-reader>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    // 1. 声明一个Vue的空实例，作为事件总线
+    let bus = new Vue();
+    Vue.component("wechatauthor",{
+        template: `<div>
+                       <input type="text" ref="mytext"/>
+                       <button @click="handleClick()">发布</button>
+                   </div>`,
+        methods: {
+            handleClick(){
+                // 2. 通过bus.$emit将数据传递给事件总线
+                bus.$emit("wechatMessage",this.$refs.mytext.value);
+            }
+        },
+    });
+    Vue.component("wechatReader",{
+        template: `<div>
+                       {{receive}}
+                   </div>`,
+        data(){
+            return {
+                receive: "",
+            }
+        },
+        mounted() {
+            // 3. 通过bus.$on将事件总线中的数据取回，但是一定要使用相同的事件名称
+            bus.$on("wechatMessage",(msg)=>{
+                this.receive = msg;
+            })
+        },
+    });
+    let app = new Vue({
+        el: "#app",
+    });
+</script>

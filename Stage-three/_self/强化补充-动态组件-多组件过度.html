@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        .a-enter-active,.a-leave-active{
+            transition: all .5s;
+        }
+        .a-enter,.a-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- component是固定标签，通过is属性绑定状态变量，通过修改状态变量来更改动态标签中的内容 -->
+        <div>
+            <button @click="changeHome">首页</button>
+            <button @click="changeCart">购物车</button>
+            <button @click="changeMenus">菜单</button>
+        </div>
+        <transition name="a" mode="out-in">
+            <!-- 组件在包裹的时候，要注意是谁要保持存活 -->
+            <keep-alive>
+                <component :is="who"></component>
+            </keep-alive>
+        </transition>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            who: "home",
+        },
+        components: {
+            "home":{
+                template: `<div>home<input type="text"></div>`,
+            },
+            "cart":{
+                template: `<div>cart</div>`,
+            },
+            "menus":{
+                template: `<div>menus</div>`,
+            },
+        },
+        methods: {
+            changeHome(){
+                this.who = "home";
+            },
+            changeCart(){
+                this.who = "cart";
+            },
+            changeMenus(){
+                this.who = "menus";
+            },
+        },
+    })
+</script>

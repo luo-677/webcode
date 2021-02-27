@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        .a-enter-active,.a-leave-active{
+            transition: all 1.5s;
+        }
+        .a-enter,.a-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        .b-enter-active{
+            animation: c .5s;
+        }
+        .b-leave-active{
+            animation: c .5s reverse;
+        }
+        @keyframes c {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="isShow=!isShow">按钮</button>
+        <transition name="a">
+            <p v-if="isShow">11111111</p>
+        </transition>
+        <transition name="b">
+            <p v-if="isShow">11111111</p>
+        </transition>
+        <!-- 当多个标签进行切换时，如果标签名相同，则需要使用key进行标记，防止diff算法不进行重复创建标签 -->
+        <!-- <transition name="a" mode="in-out"> -->
+        <!-- 本身还支持两种切换模式，先进后出和先出后进 -->
+        <transition name="a" mode="out-in">
+            <p v-if="isShow" key="1">11111111</p>
+            <p v-else key="2">22222222</p>
+        </transition>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            isShow: false,
+        },
+    })
+</script>

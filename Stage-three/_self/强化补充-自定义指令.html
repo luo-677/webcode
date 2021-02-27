@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-hello="'red'">111111</p>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    Vue.directive("hello",{
+        // 指令生命周期
+        // 使用这个指令能第一时间获取到创建出来的DOM节点
+        // inserted 类似于创建阶段，只能使用一次
+        inserted(el,bind){
+            // el就是被创建出来的DOM对象
+            console.log(el);
+            // bind用于获取到自定义指令中的所有属性
+            console.log(bind);
+            // 可以在这个指令中直接写DOM操作
+            el.style.background = bind.value;
+        },
+        // 更新阶段，只要状态数据发生改变，就会进行数据刷新
+        update(el,bind){
+            el.style.background = bind.value;
+        }
+    })
+</script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            
+        }
+    })
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" @change="chooseAll" v-model="flag">
+        <div v-for="item in cart">
+            <input type="checkbox" v-model="chargroup" :value="item" @change="linkAll"><span>{{item}}</span><button @click="decrease(item)">-</button><span>{{item.count}}</span><button @click="add(item)">+</button>
+        </div>
+        <div>
+            <!-- 在vue中，如果函数中的参数是响应式的，那么当这些参数改变时，函数就会被执行 -->
+            <span>总价格：{{getSum()}}</span>
+            <p>{{chargroup}}</p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            msg: '这是app',
+            chargroup: [],
+            flag: false,
+            cart: [
+                {
+                    name: 't1',
+                    count: 1,
+                    price: 10,
+                },
+                {
+                    name: 't2',
+                    count: 1,
+                    price: 15,
+                },
+                {
+                    name: 't3',
+                    count: 1,
+                    price: 20,
+                },
+                {
+                    name: 't4',
+                    count: 1,
+                    price: 25,
+                },
+            ]
+        },
+        methods: {
+            add(item){
+                item.count++;
+            },
+            decrease(item){
+                if(item.count > 0){
+                    item.count--;
+                }
+            },
+            getSum(){
+                let sum = 0;
+                for(let i in this.chargroup){
+                    sum += this.chargroup[i].price * this.chargroup[i].count;
+                }
+                return sum;
+            },
+            chooseAll(){
+                if(this.flag){
+                    this.chargroup = this.cart;
+                }else{
+                    this.chargroup=[];
+                }
+            },
+            linkAll(){
+                if(this.chargroup.length === this.cart.length){
+                    this.flag = true;
+                }else{
+                    this.flag = false;
+                }
+            }
+        },
+    })
+</script>

@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="app">
+        <!-- 使用ref指定组件的名称 -->
         <cpn ref="cpn1"></cpn>
         <cpn ref="cpn2"></cpn>
         <button @click="btnClick">按钮</button>
@@ -26,14 +27,15 @@
     let app = new Vue({
         el: "#app",
         data: {
-
+            msg: "hello",
         },
         components: {
             cpn: {
                 template: "#cpn",
                 methods: {
-                    show(){
+                    show(item){
                         console.log("msg");
+                        console.log(item);
                     }
                 },
                 data(){
@@ -52,7 +54,8 @@
 
                 // 在常规开发中，$refs用的很多，可以指定key的方式进行调用
                 console.log(this.$refs);
-                this.$refs["cpn1"].show();
+                // 父给子传递数据只需要将参数写在子组件的方法中，调用的时候直接传递过去就行
+                this.$refs["cpn1"].show(this.msg);
             }
         },
     });

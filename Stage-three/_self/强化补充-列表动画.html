@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        .a-enter-active,.a-leave-active{
+            transition: all .5s;
+        }
+        .a-enter,.a-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="add">增加</button>
+        <input type="text" v-model="mytext">
+        <transition-group tag="ul" name="a">
+            <li v-for="(data,index) in list" :key="data">
+                <span>{{data}} ---- {{index}}</span>
+                <button @click="remove(index)">删除</button>
+            </li>
+        </transition-group>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            list: [],
+            mytext: "",
+        },
+        methods: {
+            remove(index){
+                this.list.splice(index,1);
+            },
+            add(){
+                this.list.push(this.mytext);
+                this.mytext = "";
+            }
+        },
+    })
+</script>

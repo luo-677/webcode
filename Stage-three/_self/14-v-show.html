@@ -13,6 +13,7 @@
             v-show 当条件为false时，包含v-show指令的元素，只是将display属性设置为none进行隐藏
             当显示与隐藏需要频繁进行切换时，使用v-show，否则使用v-if进行渲染
          -->
+         <!-- v-if 和 v-show 都是进行判断，所以传入的值都是布尔值 -->
         <p v-if="flag" id="aaa">aaa</p>
         <p v-show="flag" id="bbb">bbb</p>
     </div>
