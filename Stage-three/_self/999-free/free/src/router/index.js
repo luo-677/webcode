@@ -59,4 +59,18 @@ const router = new VueRouter({
   routes
 })
 
+// 全局守卫 用于监管所有路由
+// router.beforeEach((to,from,next)=>{
+//   if(to.path==='/detail1/111'){
+//     console.log("盘查");
+//     if(登录验证通过){
+//       next();
+//     }else{
+//       next('/login');
+//     }
+//   }else{
+//     next();
+//   }
+// })
+
 export default router

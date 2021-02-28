@@ -1,5 +1,7 @@
+import {TEST_NAME} from '../type'
 export default {
-    aUpdateInfo(context, payload){
+    // ES6新增对象写法
+    [TEST_NAME](context, payload){
         return new Promise((resolve,reject)=>{
             setTimeout(()=>{
                 context.commit('updateInfo');
