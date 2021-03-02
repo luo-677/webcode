@@ -28,6 +28,7 @@ export default {
     deactivated() {
         console.log("deactivated");
     },
+    
     created() {
         console.log("created");
     },
